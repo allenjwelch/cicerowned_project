@@ -9,10 +9,15 @@
 
 
 ## Breakdown of roles by group member
-
+- Wireframe (Susan)
+- Design Badges (Susan)
+- Mongo DB structure (Eddie)
+- Flashcard Logic (Allen)
+- Beer Style Data (Allen)
+- Research Auth0 and practice (All)
 
 ## Schedule of completion of various tasks
-
+- 
 
 ## Screen shot of Project Management Board
 
