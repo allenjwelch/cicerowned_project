@@ -1,7 +1,6 @@
 # cicerowned
 
-_coming soon_
-#### GitHub: 
+#### GitHub: https://github.com/allenjwelch/cicerowned_project
 #### Heroku:
 
 
@@ -30,7 +29,7 @@ To duplicate you will need the following things properly installed on your compu
 * yarn start
 
 ## Built With
-- React.js - 
+- React.js -  Declarative, efficient, and flexible JavaScript library for building user interfaces.
 - Bootstrap CSS - Front-end HTML, CSS, javascript framework for creating responsive web applications
 - JavaScript - Programming language
 - Node.js - Server side programming language
@@ -38,4 +37,4 @@ To duplicate you will need the following things properly installed on your compu
 
 
 ## Authors:  
-Allen Welch
+Allen Welch, Susan Davenport, & Eddie Rodriguez

@@ -6,6 +6,9 @@
 
 ## Detailed Design Layouts with annotations describing all UI/UX components and all data relevant to each screen
 ![home screen](/public/images/#.png)
+![user profile screen](/public/images/#.png)
+![flash card screen](/public/images/#.png)
+![create card screen](/public/images/#.png)
 
 
 ## Breakdown of roles by group member
@@ -20,7 +23,7 @@
 - 
 
 ## Screen shot of Project Management Board
-
+![trello](/public/images/#.png)
 
 
 ### Devilerable Schedule
