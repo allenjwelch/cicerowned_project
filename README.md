@@ -1,11 +1,10 @@
-# cicerowned
+# Cicerowned
 
 #### GitHub: https://github.com/allenjwelch/cicerowned_project
-#### Heroku:
-
+#### Heroku: https://cicerowned.herokuapp.com/
 
 ## Description:
-
+An educational web application designed to assist servers and beer drinkers alike in their pursuit of earning their Cicerone Cerifications. 
 
 ![title image](/public/assets/images/#.png)
 

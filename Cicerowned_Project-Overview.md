@@ -1,5 +1,7 @@
 # Cicerowned
 
+#### GitHub: https://github.com/allenjwelch/cicerowned_project
+#### Heroku: https://cicerowned.herokuapp.com/
 
 ## Description:
 
