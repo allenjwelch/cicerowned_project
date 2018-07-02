@@ -4,9 +4,9 @@
 #### Heroku: https://cicerowned.herokuapp.com/
 
 ## Description:
-An educational web application designed to assist servers and beer drinkers alike in their pursuit of earning their Cicerone Cerifications. 
+An educational web application designed to assist servers and beer drinkers alike in their pursuit of earning their Cicerone Cerifications. Users will use existing flashcards and also have the ability to create their own as well as monitor their overall progress. 
 
-![title image](/public/assets/images/#.png)
+![title image](/public/images/#.png)
 
 ## Build Status
 <!-- ![Wercker](https://img.shields.io/wercker/ci/wercker/docs.svg) -->
@@ -16,13 +16,16 @@ To duplicate you will need the following things properly installed on your compu
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/)
 * [React.js](https://reactjs.org/)
-* axios 
-* react-router-dom
+  - axios
+  - body-parser
+  - express
+  - mongoose 
+  - react-router-dom
 
 ## Installation
 * `git clone <repository-url>` this repository
 * change into the new directory
-* `yarn install`
+* `npm install`
 
 ## Running / Development
 * yarn start
