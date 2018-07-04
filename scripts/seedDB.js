@@ -3,7 +3,8 @@ const db = require("../models");
 mongoose.Promise = global.Promise;
 
 // This file sets up the beer information
-
+//need to add public/private
+//need to add timestamp
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/cicerowned",
   {
@@ -27,6 +28,7 @@ const beerStylesSeed = [
     examples: [ 
         "Blonde: Allagash Brewing Co.", 
         "Tiburon Blonde: Marin Brewing Co."
+      
     ]
   }, 
   {

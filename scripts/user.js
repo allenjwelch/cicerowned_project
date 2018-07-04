@@ -6,5 +6,7 @@
     email: "",
     decksCompleted: [[Quiz,Grade,dateCompleted],[Quiz,Grade,dateCompleted]],
     decksCreated=[],
+    badgesEarned=[],
+    loggedInDates:[]
   },
 ]
