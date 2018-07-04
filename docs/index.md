@@ -28,7 +28,7 @@
 - 
 
 ## Screen shot of Project Management Board
-![trello](/public/images/#.png)
+![trello](./images/trello.PNG)
 
 
 ### Devilerable Schedule
