@@ -28,7 +28,7 @@ To duplicate you will need the following things properly installed on your compu
 * `npm install`
 
 ## Running / Development
-* yarn start
+* npm start
 
 ## Built With
 - React.js -  Declarative, efficient, and flexible JavaScript library for building user interfaces.
