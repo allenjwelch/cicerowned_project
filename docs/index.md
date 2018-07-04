@@ -9,23 +9,46 @@
   An educational web application designed to assist servers and beer drinkers alike in their pursuit of earning their Cicerone Certifications. There are solutions out there for wine certifications but not a lot of accessible test aids for Cicerone. This would be useful to most breweries and restaurants as they seek to develop employees to the first level of Cicerone.
 
 ## Detailed Design Layouts with annotations describing all UI/UX components and all data relevant to each screen
-![home screen](/public/images/#.png)
-![user profile screen](/public/images/#.png)
-![flash card screen](/public/images/#.png)
-![create card screen](/public/images/#.png)
+![home screen](./images/homePage.PNG)
+![user profile screen](./images/userProfilePage.PNG)
+![flash card screen](./images/flashCardPage.PNG)
+![create card screen](./images/customCardPage.PNG)
 
 ## Breakdown of roles by group member
-- Wireframe (Susan)
-- Design Badges (Susan)
-- Mongo DB structure (Eddie)
-- User Page Charts (Eddie)
-- Flashcard Logic (Allen)
-- Beer Style Data (Allen)
+* Wireframe (Susan)
+  - NavBar Component (Susan)?
+  - Header Component (Susan)
+  - Footer Component (Susan)
+* Design Badges (Susan)
+  - Badge Banner Component
+* Mongo DB structure (Eddie)
+  - userController & userModel (Eddie)
+  - beerStylesController & beerStylesModel (Eddie)
+  - customCardController & customCardModel (Eddie)
+* Flashcard Page (Allen)
+  - Flashcard Component (Allen)
+* Custom Card Page (Allen)
+  - Custom Card Form Component (Allen)
+* Beer Style seed Data (Allen)
+  - update json & seedDB
+* User Profile Page
+  - User Progress Chart Component (Eddie)
+* Research Auth0 and practice (All)
+  - SignIn Component
+* Server setup and Routing (Allen and Susan)
+
 - React Front End (All)
-- Research Auth0 and practice (All)
 
 ## Schedule of completion of various tasks
-- 
+* July 7 - Auth0 Check-in, basic pages, routes, flashcards components
+* July 9 - data models, API (MVP in place?)
+* July 10 [Deliverable 2]
+* July 14 - CSS, styling
+* July 16 - (Deploy)
+* July 17 [Deliverable 3]
+* July 21 - Deploy
+* July 24 [Deliverable 4]
+
 
 ## Screen shot of Project Management Board
 ![trello](./images/trello.PNG)
