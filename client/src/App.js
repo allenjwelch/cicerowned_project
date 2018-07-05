@@ -16,7 +16,7 @@ const App = () => (
       <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/user/:id" component={UserProfile} />
+          <Route exact path="/user" component={UserProfile} />
           <Route exact path="/user/:id/study" component={FlashCard} />
           <Route exact path="/user/:id/create" component={CustomCard} />
           <Route component={Home} />
