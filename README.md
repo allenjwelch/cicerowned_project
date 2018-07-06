@@ -16,6 +16,7 @@ To duplicate you will need the following things properly installed on your compu
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/)
 * [React.js](https://reactjs.org/)
+  - auth0-js
   - axios
   - body-parser
   - express
