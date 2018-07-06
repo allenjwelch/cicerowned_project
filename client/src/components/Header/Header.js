@@ -13,9 +13,9 @@ import Auth from '../../components/Auth/Auth.js';
 // ); 
 
 class Header extends Component {
-  goTo(route) {
-    this.props.history.replace(`/${route}`)
-  }
+  // goTo(route) {
+  //   this.props.history.replace(`/${route}`)
+  // }
 
   login() {
     this.props.auth.login();
@@ -33,6 +33,7 @@ class Header extends Component {
 
       <div>
         <h1>Header</h1>
+        <h1>Hello {this.props.name}</h1>
         {/* <Button onClick={this.props.auth.login}>Login</Button> */}
         {
           !this.props.auth.isAuthenticated() && (

@@ -15,9 +15,15 @@ window.setState = (changes) => {
   ReactDOM.render(<App {...state} />, document.getElementById('root'));
 }; 
 
+let user = {
+  name : auth.getProfile().nickname || "Beer lover",
+  email : auth.getProfile().email || '',
+}
+
 let initialState = {
   auth, 
-  name: "Allen",
+  name: user.name, 
+  email: user.email
 }
 
 window.setState(initialState); 

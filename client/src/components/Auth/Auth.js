@@ -1,7 +1,10 @@
 /* eslint no-restricted-globals: 0 */
 import auth0 from 'auth0-js';
-import history from './history';
+import jwtDecode from 'jwt-decode'; 
+// import history from './history';
 const LOGIN_SUCCESS_PAGE = "/user"; 
+const HOME_PAGE = "/"; 
+const LOGIN_UNSUCCESSFUL_PAGE = "/unsuccessful"; 
 
 //TODO 
 // change history.replace('/home') to another path
@@ -14,7 +17,7 @@ export default class Auth {
     redirectUri: 'http://localhost:3000/callback', // || 'https://cicerowned.herokuapp.com/user'
     audience: 'https://cicerowned.auth0.com/userinfo',
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid email profile'
   });
 
   login() {
@@ -32,9 +35,9 @@ export default class Auth {
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
-        history.replace('/home');
+        // history.replace('/home');
       } else if (err) {
-        history.replace('/home');
+        location.pathname = LOGIN_UNSUCCESSFUL_PAGE; 
         console.log(err);
       }
     });
@@ -51,7 +54,7 @@ export default class Auth {
     location.pathname = LOGIN_SUCCESS_PAGE; 
 
     // navigate to the home route
-    history.replace('/home');
+    // history.replace('/home');
   }
 
   logout() {
@@ -59,8 +62,12 @@ export default class Auth {
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
     localStorage.removeItem('expires_at');
+
+    location.hash = ''; 
+    location.pathname = HOME_PAGE; 
+    
     // navigate to the home route
-    history.replace('/home');
+    // history.replace('/home');
   }
 
   isAuthenticated() {
@@ -68,6 +75,14 @@ export default class Auth {
     // Access Token's expiry time
     let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
     return new Date().getTime() < expiresAt;
+  }
+
+  getProfile() {
+    if (localStorage.getItem("id_token")) {
+      return jwtDecode(localStorage.getItem("id_token")); 
+    } else {
+      return {}; 
+    }
   }
 
 
