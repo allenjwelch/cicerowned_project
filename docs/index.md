@@ -40,7 +40,7 @@
 - React Front End (All)
 
 ## Schedule of completion of various tasks
-* July 7 - Auth0 Check-in, basic pages, routes, flashcards components
+* July 7 - Auth0 Check-in, basic pages, page routes, api routes, flashcards components
 * July 9 - data models, API (MVP in place?)
 * July 10 [Deliverable 2]
 * July 14 - CSS, styling

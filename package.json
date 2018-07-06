@@ -33,6 +33,7 @@
     "d3-transition": "^1.1.1",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.1.7"
+    "mongoose": "^5.1.7",
+    "react-materialize": "^2.3.3"
   }
 }
