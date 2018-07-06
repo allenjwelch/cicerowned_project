@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
+// import {Col} from 'react-materialize';
 import Header from "./components/Header"; 
-import Footer from "./components/Footer";
+import FooterComp from "./components/Footer";
 import SignIn from "./components/SignIn"; 
 import Home from "./pages/Home"; 
 import UserProfile from "./pages/UserProfile"; 
@@ -12,8 +13,10 @@ import CustomCard from "./pages/CustomCard";
 
 const App = () => (
   <Router>
-    <div className="app">
-      <Header />
+    <div>
+      <div className="app">
+        <Header />
+      </div>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/user/:id" component={UserProfile} />
@@ -21,8 +24,8 @@ const App = () => (
           <Route exact path="/user/:id/create" component={CustomCard} />
           <Route component={Home} />
         </Switch>
-      <SignIn /> 
-      <Footer />
+        <SignIn />
+        <FooterComp />
     </div>
   </Router>
 );
