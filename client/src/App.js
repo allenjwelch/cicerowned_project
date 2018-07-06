@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Header from "./components/Header"; 
@@ -9,31 +9,64 @@ import UserProfile from "./pages/UserProfile";
 import FlashCard from "./pages/FlashCard"; 
 import CustomCard from "./pages/CustomCard"; 
 
+// Auth0 imports
+import Callback from './components/CallBack';
+// import Auth from './components/Auth';
+// import history from './components/Auth/history.js';
 
-const App = () => (
-  <Router>
-    <div className="app">
-      <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/user" component={UserProfile} />
-          <Route exact path="/user/:id/study" component={FlashCard} />
-          <Route exact path="/user/:id/create" component={CustomCard} />
-          <Route component={Home} />
-        </Switch>
-      <SignIn /> 
-      <Footer />
-    </div>
-  </Router>
-);
+// const auth = new Auth();
 
-// <div className="App">
-//   <header className="App-header">
-//     <img src={logo} className="App-logo" alt="logo" />
-//     <h1 className="App-title">Cicerowned coming soon...</h1>
-//   </header>
-//   <p className="App-intro">
-//     Getting ready for deployment on July 17th!
-//   </p>
+// const handleAuthentication = (nextState, replace) => {
+//   if (/access_token|id_token|error/.test(nextState.location.hash)) {
+//     auth.handleAuthentication();
+//   }
+// }
+
+
+class App extends Component {
+
+  render() {
+    return (
+      <Router>
+        <div className="app">
+        <Header {...this.props}/>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/user" render={(props) => this.props.auth.isAuthenticated() ? <UserProfile {...this.props}/> : <Home/>} />
+            <Route exact path="/user/:id/study" component={FlashCard} />
+            <Route exact path="/user/:id/create" component={CustomCard} />
+            <Route exact path="/callback" component={Callback} />
+            <Route component={Home}/>
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    )
+  }
+};
+
+
+// ============= Auth0 Doc Example =================
+// return (
+  //   <Router history={history} component={App}>
+  //     <div>
+  //       <Route path="/" render={(props) => <App auth={auth} {...props} />} />
+  //       <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
+  //       <Route path="/callback" render={(props) => {
+    //         handleAuthentication(props);
+    //         return <Callback {...props} /> 
+    //       }}/>
+    //     </div>
+    //   </Router>
+    // );
+    
+    // <div className="App">
+    //   <header className="App-header">
+    //     <img src={logo} className="App-logo" alt="logo" />
+    //     <h1 className="App-title">Cicerowned coming soon...</h1>
+    //   </header>
+    //   <p className="App-intro">
+    //     Getting ready for deployment on July 17th!
+    //   </p>
 
 export default App;
