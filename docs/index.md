@@ -35,7 +35,7 @@
   - User Progress Chart Component (Eddie)
 * Research Auth0 and practice (All)
   - SignIn Component
-* Server setup and Routing (Allen and Susan)
+* Server setup and Routing (All)
 
 - React Front End (All)
 
