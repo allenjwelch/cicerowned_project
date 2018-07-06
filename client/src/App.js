@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Header from "./components/Header"; 
-import Footer from "./components/Footer"; 
+import Footer from "./components/Footer";
+import SignIn from "./components/SignIn"; 
 import Home from "./pages/Home"; 
 import UserProfile from "./pages/UserProfile"; 
 import FlashCard from "./pages/FlashCard"; 
@@ -20,6 +21,7 @@ const App = () => (
           <Route exact path="/user/:id/create" component={CustomCard} />
           <Route component={Home} />
         </Switch>
+      <SignIn /> 
       <Footer />
     </div>
   </Router>
