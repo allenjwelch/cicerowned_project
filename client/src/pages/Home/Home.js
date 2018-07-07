@@ -9,12 +9,12 @@ const Home = () => (
     <div container = "mainBody">
       <Row>
         <Col m={6} s={12}>
-        <Card className='blue-grey darken-1 center-align' textClassName='white-text' title={<i className="medium material-icons">book</i>} actions={[<a href='#'>This is a link</a>]}><h3>Study</h3><p>Learn the basics using our pre-made study guides</p>
+        <Card className='blue-grey darken-1 center-align' textClassName='white-text' title={<i className="medium material-icons">book</i>} actions={[<a href='#'>This is a link</a>]}><h3>Study</h3><p>Learn the basics using our pre-made study guides.</p>
         </Card>
         </Col>
 
         <Col m={6} s={12}>
-        <Card className= 'blue-grey darken-1 center-align' textClassName='white-text' title={<i className="medium material-icons">book</i>} actions={[<a href='#'>This is a link</a>]}><h3>Study</h3><p>Learn the basics using our pre-made study guides</p>
+        <Card className= 'blue-grey darken-1 center-align' textClassName='white-text' title={<i className="medium material-icons">book</i>} actions={[<a href='#'>This is a link</a>]}><h3>Create</h3><p>Make your own custom study guides.</p>
         </Card>
         </Col>
       

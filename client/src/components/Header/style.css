@@ -1,9 +1,15 @@
 .top-right {
   position: absolute;
+  top: 28px;
+  right: 16px;
+}
+
+.top-left {
+  position: absolute;
   top: 8px;
   left: 16px;
 }
 
-h4 {
+h5 {
   color: white;
 }
