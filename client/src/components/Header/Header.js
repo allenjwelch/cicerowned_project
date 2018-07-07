@@ -1,6 +1,8 @@
+
 import React, { Component } from "react"; 
-import { Navbar, Button } from 'react-materialize';
-import Auth from '../../components/Auth/Auth.js';
+import { Button } from 'react-materialize';
+import './style.css';
+// import Auth from '../../components/Auth/Auth.js';
 
 
 // const auth = new Auth();
@@ -29,35 +31,36 @@ class Header extends Component {
     // const { isAuthenticated } = this.props.auth;
 
     return (
-
-
       <div>
-        <h1>Header</h1>
-        <h1>Hello {this.props.name}</h1>
-        {/* <Button onClick={this.props.auth.login}>Login</Button> */}
-        {
-          !this.props.auth.isAuthenticated() && (
-              <Button
-                bsStyle="primary"
-                className="btn-margin"
-                onClick={this.props.auth.login}
-              >
-                Log In
-              </Button>
-            )
-        }
-        {
-          this.props.auth.isAuthenticated() && (
-              <Button
-                bsStyle="primary"
-                className="btn-margin"
-                onClick={this.props.auth.logout}
-              >
-                Log Out
-              </Button>
-            )
-        }
-
+        <div>
+          <img src={require("../../images/beer_header.jpg")} alt= "beer-header" width="100%"  />
+            <div class="top-right">
+              <h4>Hello {this.props.name}</h4>
+              {/* <Button onClick={this.props.auth.login}>Login</Button> */}
+              {
+                !this.props.auth.isAuthenticated() && (
+                    <Button
+                      bsStyle="primary"
+                      className="btn-margin"
+                      onClick={this.props.auth.login}
+                    >
+                      Log In
+                    </Button>
+                  )
+              }
+              {
+                this.props.auth.isAuthenticated() && (
+                    <Button
+                      bsStyle="primary"
+                      className="btn-margin"
+                      onClick={this.props.auth.logout}
+                    >
+                      Log Out
+                    </Button>
+                  )
+              }
+            </div>
+        </div>
 
         {/* <Navbar fluid>
           <Navbar.Header>
