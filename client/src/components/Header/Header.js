@@ -1,5 +1,5 @@
 import React, { Component } from "react"; 
-import { Navbar, Button } from 'react-materialize';
+import { Button } from 'react-materialize';
 import Auth from '../../components/Auth/Auth.js';
 
 
