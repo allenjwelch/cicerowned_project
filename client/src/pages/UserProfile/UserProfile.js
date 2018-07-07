@@ -47,6 +47,9 @@ class UserProfile extends Component {
     return (
       <div className="chart">
         <h1>UserProfile</h1>
+        <h1>Hello {this.props.name}</h1>
+        <h1>email {this.props.email}</h1>
+
         <div>
           <BarChart data={[5,10,1,3]} size={[500,500]} />
         </div>
