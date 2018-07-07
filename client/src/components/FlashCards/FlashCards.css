@@ -1,6 +1,7 @@
 .container {
-  width: 250px;
-  height: 150px;
+  margin: 20px 100px; 
+  width: 450px;
+  height: 300px;
   position: relative;
   border-radius:10px; 
 
@@ -27,13 +28,13 @@
     -webkit-transform-origin: 50% 50%;
 }
 .card div {
-  border: 1px solid black; 
+  border: 4px solid black; 
   border-radius:10px; 
   display: block;
   height: 100%;
   width: 100%;
   /* line-height: 260px; */
-  color: white;
+  color: black;
   padding: 10px;
   text-align: center;
   font-weight: bold;
@@ -55,11 +56,11 @@ a {
 }
 
 .card .front {
-background: red;
+background: white;
 }
 
 .card .back {
-  background: blue;
+  background: white;
   transform: rotateX( 180deg );
     -webkit-transform: rotateX( 180deg );
     -moz-transform: rotateX( 180deg );
