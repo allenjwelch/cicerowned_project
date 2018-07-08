@@ -7,9 +7,6 @@ mongoose.Promise = global.Promise;
 //need to add timestamp
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/cicerowned",
-  {
-    useMongoClient: true
-  }
 );
 
 // Beer information Section =====================================
@@ -1378,9 +1375,9 @@ mongoose.connect(
     }
   ];
 
-  db.BeerStyles
+  db.Beer
     .remove({})
-    .then(() => db.BeerStyles.collection.insertMany(beerStylesSeed))
+    .then(() => db.Beer.collection.insertMany(beerStylesSeed))
     .then(data => {
       console.log(data.insertedIds.length + " records inserted!");
       process.exit(0);
@@ -1391,7 +1388,7 @@ mongoose.connect(
     });
 
 // User information Section ======================================
-  const userInfoSeed = [
+  const UserInfoSeed = [
       {
         userName: "ajwelch",
         email: "allenwelch@gmail.com",
@@ -1399,8 +1396,8 @@ mongoose.connect(
           ["Belgian-Style Blonde Ale",9,10,"07-01-2018"],
           ["Belgian-Style Dubbel",7,10,"07-01-2018"]
         ],
-        decksCreated=[],
-        badgesEarned=[],
+        decksCreated:[],
+        badgesEarned:[],
         loggedInDates:["07-01-2018","06-30-2018","06-27-2018"]
       },
       {
@@ -1409,15 +1406,15 @@ mongoose.connect(
         decksCompleted: [
           ["Belgian-Style Dubbel",7,10,"07-01-2018"]
         ],
-        decksCreated=[],
-        badgesEarned=[],
+        decksCreated:[],
+        badgesEarned:[],
         loggedInDates:["06-30-2018","06-27-2018"]
       }
   ];
 
-  db.UserInfo
+  db.User
     .remove({})
-    .then(() => db.UserInfo.collection.insertMany(userInfoSeed))
+    .then(() => db.User.collection.insertMany(UserInfoSeed))
     .then(data => {
       console.log(data.insertedIds.length + " records inserted!");
       process.exit(0);
@@ -1427,4 +1424,5 @@ mongoose.connect(
       process.exit(1);
     });
 
+    
     
