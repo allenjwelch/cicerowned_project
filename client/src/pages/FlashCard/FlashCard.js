@@ -57,19 +57,23 @@ class FlashCard extends Component {
     ], 
   }
 
+  //TODO function to make API call to save user decks to state
+
   // componentDidMount() {
   //   this.loadDecks();
   // }
 
-  //TODO function for adding userDecks to Active Deck (should contain only 1 deck at a time)
-
   // loadDecks = () => {
-  //   API.getDecks()
-  //     .then(res =>
-  //       this.setState({ decks: res.data, title: "", author: "", synopsis: "" })
+    //   API.getDecks()
+    //     .then(res =>
+    //       this.setState({ decks: res.data, title: "", author: "", synopsis: "" })
   //     )
   //     .catch(err => console.log(err));
   // };
+
+  //TODO function for adding userDecks to Active Deck (should contain only 1 deck at a time)
+
+
 
   render() {
     return (
