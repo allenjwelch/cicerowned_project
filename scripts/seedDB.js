@@ -1409,6 +1409,16 @@ mongoose.connect(
         decksCreated:[],
         badgesEarned:[],
         loggedInDates:["06-30-2018","06-27-2018"]
+      },
+      {
+        userName: "Eddie",
+        email: "erodriguez87@gmail.com",
+        decksCompleted: [
+          ["Belgian-Style Dubbel",7,10,"07-01-2018"]
+        ],
+        decksCreated:[],
+        badgesEarned:[],
+        loggedInDates:["06-30-2018","06-27-2018"]
       }
   ];
 

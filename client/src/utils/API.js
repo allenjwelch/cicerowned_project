@@ -7,7 +7,7 @@ export default {
   },
 
   // Gets the beer with the given id
-  getBeersByUser: function(id) {
+  getBeersId: function(id) {
     return axios.get("/api/beers/" + id);
   },
 
@@ -21,10 +21,19 @@ export default {
     return axios.delete("/api/beers/" + id);
   },
 
-  
-  
-  // Saves a beer to the database
-  // saveBeer: function(bookData) {
-  //   return axios.post("/api/beers", beerData);
-  // }
+
+
+
+  // Deletes the user with the request id
+  deleteUser: function(id) {
+    return axios.delete("/api/users/" + id);
+  },
+
+  updateUser: function(id) {
+    return axios.put("/api/users"  + id);
+  },
+
+  loadUserbyId: function(id) {
+    return axios.get("/api/users"  + id);
+  }
 };
