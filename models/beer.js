@@ -13,7 +13,7 @@ const beerSchema = new Schema({
   IBU: { type: String, required: true },
   BU: { type: String, required: true },
   SRM: { type: String, required: true },
-  ezamples: []
+  examples: []
 });
 
 const Beer = mongoose.model("Beer", beerSchema);
