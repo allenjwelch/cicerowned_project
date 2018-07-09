@@ -66,7 +66,7 @@ class UserProfile extends Component {
         <h1>UserProfile</h1>
         <h1>Hello {this.props.name}</h1>
         <h1>email {this.props.email}</h1>
-        <h1>Decks completed {}</h1>
+        <h1>Decks completed {this.loadUserbyId.decksCompleted}</h1>
 
         <div>
           <BarChart data={barData} size={[500,500]} />

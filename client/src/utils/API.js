@@ -30,10 +30,10 @@ export default {
   },
 
   updateUser: function(id) {
-    return axios.put("/api/users"  + id);
+    return axios.put("/api/users/"  + id);
   },
 
   loadUserbyId: function(id) {
-    return axios.get("/api/users"  + id);
+    return axios.get("/api/users/"  + id);
   }
 };
