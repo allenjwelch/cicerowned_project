@@ -12,8 +12,4 @@ router.route("/:id")
   .put(beersController.update)
   .delete(beersController.remove);
 
-// Matches with "/api/beers/styles"
-router.route("/families")
-  .get(beersController.findByFamily);
-
 module.exports = router;

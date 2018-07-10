@@ -2,14 +2,14 @@ import React from "react";
 import {Footer} from 'react-materialize';
 
 const FooterComp = () => (
-  <Footer copyrights="&copy 2015 Copyright Text"
+  <Footer copyrights="2018 Copyright | Created by Allen Welch, Eddie Rodriguez + Susan Davenport"
   moreLinks={
-    <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+    <a className="grey-text text-lighten-4 right" href="#!">GitHub</a>
   }
-  className='example'
+  className='example amber darken-2'
 >
-    <h5 className="white-text">Footer Content</h5>
-    <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+    <h5 className="white-text">Contact Us</h5>
+    <p className="grey-text text-lighten-4">Are you interested in using Cicerowned at your bar or brewery? Let's talk!</p>
 </Footer>
 ); 
 

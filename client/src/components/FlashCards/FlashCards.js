@@ -12,6 +12,9 @@ class FlashCards extends Component {
     activeDeck: this.props,
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ activeDeck: nextProps });  
+  }
 
   componentDidMount() {
     this.objectToArray(); 
@@ -89,7 +92,7 @@ class FlashCards extends Component {
   render() {
     return (
       <div className="flashCard" >
-        <Col s={12} m={10} l={8} xl={8} className='container'>
+        <Col offset="m1 l1 xl1" s={12} m={10} l={10} xl={10} className='container'>
         {/* <section class="container"> */}
           <div 
             onClick={this.flip}
@@ -97,16 +100,18 @@ class FlashCards extends Component {
               this.state.flipped === false ? "card" : "card flipped"
             }>
             <div className="front">
-              <h1>{this.state.activeDeck[this.state.cardPos].familyName}</h1>
-              <h3>Style: {this.state.activeDeck[this.state.cardPos].styleName}</h3>
+              <h2>{this.state.activeDeck[this.state.cardPos].familyName}</h2>
+              <h3>{this.state.activeDeck[this.state.cardPos].styleName}</h3>
             </div>
             <div className="back">
-              <img src={this.state.activeDeck[this.state.cardPos].image} alt="beer style image"/>
-              <p>ABV: {this.state.activeDeck[this.state.cardPos].ABV}</p>
-              <p>IBUs: {this.state.activeDeck[this.state.cardPos].IBU}</p>
-              <p>SRM: {this.state.activeDeck[this.state.cardPos].SRM}</p>
-              <p>Description: {this.state.activeDeck[this.state.cardPos].briefDescription}</p>
-              <p>{this.state.activeDeck[this.state.cardPos].example.join(', ')}</p>
+              <img id="beerImage" src={this.state.activeDeck[this.state.cardPos].image} alt="beer style image"/>
+              <p id="stats">ABV: {this.state.activeDeck[this.state.cardPos].ABV}</p>
+              <p id="stats">IBUs: {this.state.activeDeck[this.state.cardPos].IBU}</p>
+              <p id="stats">SRM: {this.state.activeDeck[this.state.cardPos].SRM}</p>
+              <p id="des"><b>Description:</b> {this.state.activeDeck[this.state.cardPos].briefDescription}</p>
+              <p id="ex"><b>Examples:</b></p>
+              <p id="ex">{this.state.activeDeck[this.state.cardPos].examples[0]}</p>
+              <p id="ex">{this.state.activeDeck[this.state.cardPos].examples[1]}</p>
               <a className="cardBtns" id="nailed" onClick={this.nailedIt}>Nailed it!</a>
               <a className="cardBtns" id="almost" onClick={this.changeCard}>Almost...</a>
               <a className="cardBtns" id="failed" onClick={this.failedIt}>Failed it</a>

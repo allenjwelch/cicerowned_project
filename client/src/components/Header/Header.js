@@ -34,10 +34,10 @@ class Header extends Component {
       <div>
         <div>
           <img src={require("../../images/beer_header.jpg")} alt= "beer-header" width="100%"  />
-            <div class="top-left">
+            <div className="top-left">
             <img src={require("../../images/Ciceroned.png")} alt= "beer-header" width="80%"  />
             </div>
-            <div class="top-right">
+            <div className="top-right">
               <h5>Hello {this.props.name}</h5>
               {/* <Button onClick={this.props.auth.login}>Login</Button> */}
               {

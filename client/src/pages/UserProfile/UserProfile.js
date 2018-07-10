@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Row, Col, CardPanel, Card, Container } from "react-materialize";
+// import Slider from '../../components/Slider/Slider';
 import BarChart from '../../components/Charts/BarChart';
 import StreamGraph from '../../components/Charts/StreamGraph';
 import worlddata from '../../components/Charts/world';
@@ -17,7 +19,7 @@ appdata
     d.data = range(30).map((p,q) => q < i ? 0 : Math.random() * 2 + offset)
   })
 
-const barData = [5,10,1,3,6,23,12,3,4];
+let barData = [];
 
 const colorScale = scaleThreshold().domain([5,10,20,30]).range(["#75739F", "#5EAFC6", "#41A368", "#93C464"])
 
@@ -42,7 +44,7 @@ class UserProfile extends Component {
 
   onBrush(d) {
     this.setState({ brushExtent: d })
-  }
+  } 
   
   componentDidMount() {
     this.loadUserbyId(this.props.email);
@@ -51,29 +53,87 @@ class UserProfile extends Component {
   loadUserbyId = () => {
     API.loadUserbyId(this.props.email)
       .then(res =>
-        this.setState({ users: res.data, userName: "", email: "", decksCompleted: [], decksCreated: [], badgesEarned:[],loggedInDates:[]})
+        // use the variables passed onto state below to populate user information
+        this.setState({ decksCompleted: res.data[0].decksCompleted, badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
       )
       .catch(err => console.log(err));
   };
 
-
+ 
 
   render() {
     const filteredAppdata = appdata
       .filter((d,i) => d.launchday >= this.state.brushExtent[0] && d.launchday <= this.state.brushExtent[1])
     return (
+      <div>
+        <Row>
+          <Col s={12} m={12}>
+            <CardPanel className="teal lighten-4 black-text center-align">
+                <span>
+                <h4>Hello, {this.props.name}!</h4>
+              <h4>Email: {this.props.email}</h4>
+                </span>
+            </CardPanel>
+          </Col>
+        </Row>
+
+        <Row>
+        <Container>
+        <Col m={6} s={12}>
+          <Card 
+          className= 'amber darken-1 center-align' 
+          textClassName='white-text' 
+          title={<i className="icon-orange medium material-icons">dvr</i>} 
+          actions={[<a href='#'>This is a link</a>]}>
+          <h3>Study</h3><p>Select Your Deck!</p>
+          </Card>
+        </Col>
+      
+        <Col m={6} s={12}>
+          <Card 
+          className='amber darken-1 center-align' 
+          textClassName='white-text' title={<i className="icon-orange medium material-icons">loyalty</i>} 
+          actions={[<a href='#'>This is a link</a>]}>
+          <h3>Create</h3><p>Customize Your Own Deck</p>
+          </Card>
+        </Col>
+        </Container>
+        </Row>
+
+        <Row>
+        <Container>
+        <Col m={12} s={12}>
+          <Card 
+          className='amber darken-1 center-align' 
+          textClassName='white-text' 
+          title={<i className="medium material-icons">local_activity</i>}>
+          <h3>Achievements</h3>
+            
+
+          </Card>
+        </Col>
+        </Container>
+        </Row>
+    
+      <Container>
       <div className="chart">
         <h1>UserProfile</h1>
         <h1>Hello {this.props.name}</h1>
         <h1>email {this.props.email}</h1>
-        <h1>Decks completed {}</h1>
+        <h1>Decks completed {this.state.decksCompleted}</h1>
+        <h1>Badges Earned {this.state.badgesEarned}</h1>
+        <h1>Decks Created {this.state.decksCreated}</h1>
+        <h1>Logged In {this.state.loggedInDates}</h1>
+        {/* <h1>Scores {this.barDataFunction(this.state.decksCompleted)}</h1> */}
 
         <div>
           <BarChart data={barData} size={[500,500]} />
         </div>
         <div>
-          <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} />
+          {/* <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} /> */}
         </div>
+        </div>
+      </Container>
       </div>
     );
   }

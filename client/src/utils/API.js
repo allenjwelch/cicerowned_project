@@ -11,17 +11,17 @@ export default {
     return axios.get("/api/beers/" + id);
   },
 
-  // Gets the beer by family name
-  getBeersByFamily: function() {
-    return axios.get("/api/beers/families");
-  },
   
   // Deletes the beer with the given id
   deleteBeer: function(id) {
     return axios.delete("/api/beers/" + id);
   },
-
-
+  
+  
+  // Gets the beer by family name
+  getBeersByStyle: function() {
+    return axios.get("/api/styles");
+  },
 
 
   // Deletes the user with the request id
@@ -30,10 +30,10 @@ export default {
   },
 
   updateUser: function(id) {
-    return axios.put("/api/users"  + id);
+    return axios.put("/api/users/"  + id);
   },
 
   loadUserbyId: function(id) {
-    return axios.get("/api/users"  + id);
+    return axios.get("/api/users/"  + id);
   }
 };
