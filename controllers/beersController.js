@@ -9,10 +9,9 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findByFamily: function(res) { 
-    console.log('hitting right route')
+  findByStyle: function(req, res) {
     db.Beer
-      .distinct("familyName")
+      .distinct('familyName')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
