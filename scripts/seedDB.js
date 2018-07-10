@@ -1401,8 +1401,8 @@ mongoose.connect(
         loggedInDates:["07-01-2018","06-30-2018","06-27-2018"]
       },
       {
-        userName: "susamdaven",
-        email: "susan@gmail.com",
+        userName: "susandaven",
+        email: "susanldavenport@gmail.com",
         decksCompleted: [
           ["Belgian-Style Dubbel",7,10,"07-01-2018"]
         ],

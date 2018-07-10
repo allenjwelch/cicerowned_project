@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 // import {Col} from 'react-materialize';
 import Header from "./components/Header"; 
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 // import SignIn from "./components/SignIn"; 
 import Home from "./pages/Home"; 
 import UserProfile from "./pages/UserProfile"; 
@@ -41,7 +41,7 @@ class App extends Component {
             <Route exact path="/unsuccessful" component={Login404} />
             <Route component={Home}/>
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </Router>
     )

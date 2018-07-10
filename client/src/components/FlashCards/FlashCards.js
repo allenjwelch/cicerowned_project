@@ -91,13 +91,13 @@ class FlashCards extends Component {
 
   render() {
     return (
-      <div className="flashCard" >
+      <div className="flashCardContainer" >
         <Col offset="m1 l1 xl1" s={12} m={10} l={10} xl={10} className='container'>
         {/* <section class="container"> */}
           <div 
             onClick={this.flip}
             className={
-              this.state.flipped === false ? "card" : "card flipped"
+              this.state.flipped === false ? "flashCard" : "flashCard flipped"
             }>
             <div className="front">
               <h2>{this.state.activeDeck[this.state.cardPos].familyName}</h2>
@@ -112,9 +112,9 @@ class FlashCards extends Component {
               <p id="ex"><b>Examples:</b></p>
               <p id="ex">{this.state.activeDeck[this.state.cardPos].examples[0]}</p>
               <p id="ex">{this.state.activeDeck[this.state.cardPos].examples[1]}</p>
-              <a className="cardBtns" id="nailed" onClick={this.nailedIt}>Nailed it!</a>
-              <a className="cardBtns" id="almost" onClick={this.changeCard}>Almost...</a>
-              <a className="cardBtns" id="failed" onClick={this.failedIt}>Failed it</a>
+              <a className="flashCardBtns" id="nailed" onClick={this.nailedIt}>Nailed it!</a>
+              <a className="flashCardBtns" id="almost" onClick={this.changeCard}>Almost...</a>
+              <a className="flashCardBtns" id="failed" onClick={this.failedIt}>Failed it</a>
             </div>
           </div>
          {/* </section> */}
