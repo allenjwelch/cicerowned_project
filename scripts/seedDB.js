@@ -1401,8 +1401,8 @@ mongoose.connect(
         loggedInDates:["07-01-2018","06-30-2018","06-27-2018"]
       },
       {
-        userName: "susamdaven",
-        email: "susan@gmail.com",
+        userName: "susandaven",
+        email: "susanldavenport@gmail.com",
         decksCompleted: [
           ["Belgian-Style Dubbel",7,10,"07-01-2018"]
         ],
@@ -1414,7 +1414,7 @@ mongoose.connect(
         userName: "Eddie",
         email: "erodriguez87@gmail.com",
         decksCompleted: [
-          ["Belgian-Style Dubbel",7,10,"07-01-2018"]
+          ["Belgian-Style Dubbel",7,10,"07-01-2018"],["Belgian-Style Dubbel",8,10,"07-01-2018"],["Belgian-Style Dubbel",9,10,"07-01-2018"],["Belgian-Style Dubbel",10,10,"07-01-2018"]
         ],
         decksCreated:[],
         badgesEarned:[],

@@ -9,18 +9,19 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
-    db.Beer
-      .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
   findByStyle: function(req, res) {
     db.Beer
       .distinct('familyName')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findById: function(req, res) {
+    db.Beer
+      .findById(req.params.id)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  
   create: function(req, res) {
     db.Beer
       .create(req.body)
