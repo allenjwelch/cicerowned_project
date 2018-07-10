@@ -12,8 +12,8 @@ export default {
   },
 
   // Gets the beer by family name
-  getBeersByStyle: function() {
-    return axios.get("/api/beers/styles");
+  getBeersByFamily: function() {
+    return axios.get("/api/beers/families");
   },
   
   // Deletes the beer with the given id

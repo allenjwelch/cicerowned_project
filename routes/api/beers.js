@@ -13,7 +13,7 @@ router.route("/:id")
   .delete(beersController.remove);
 
 // Matches with "/api/beers/styles"
-router.route("/styles")
-  .get(beersController.findByStyle);
+router.route("/families")
+  .get(beersController.findByFamily);
 
 module.exports = router;
