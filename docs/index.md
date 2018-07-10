@@ -43,7 +43,7 @@
 * July 7 - Auth0 Check-in, basic pages, page routes, api routes, flashcards components
 * July 9 - data models, API (MVP in place?)
 * July 10 [Deliverable 2]
-* July 14 - CSS, styling
+* July 14 - CSS, styling, custom card component, create new user on sign-in, user badges, etc...
 * July 16 - (Deploy)
 * July 17 [Deliverable 3]
 * July 21 - Deploy
@@ -63,8 +63,10 @@
 
 # Deliverable 2
 
+## UPDATED 7/10 - Screen shot of Project Management Board
+![trello](./images/trello_7-10.PNG)
 
-
+#### Heroku MVP: https://cicerowned.herokuapp.com/
 
 ## Deliverables
 
