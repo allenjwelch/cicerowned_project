@@ -19,7 +19,7 @@ appdata
     d.data = range(30).map((p,q) => q < i ? 0 : Math.random() * 2 + offset)
   })
 
-let barData = [];
+let barData = [5,5,6,7,8,9,10];
 
 const colorScale = scaleThreshold().domain([5,10,20,30]).range(["#75739F", "#5EAFC6", "#41A368", "#93C464"])
 
