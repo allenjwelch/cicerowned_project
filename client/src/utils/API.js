@@ -7,19 +7,33 @@ export default {
   },
 
   // Gets the beer with the given id
-  getBeers: function(id) {
+  getBeersId: function(id) {
     return axios.get("/api/beers/" + id);
   },
 
+  
   // Deletes the beer with the given id
   deleteBeer: function(id) {
     return axios.delete("/api/beers/" + id);
   },
+  
+  
+  // Gets the beer by family name
+  getBeersByStyle: function() {
+    return axios.get("/api/styles");
+  },
 
-  
-  
-  // Saves a beer to the database
-  // saveBeer: function(bookData) {
-  //   return axios.post("/api/beers", beerData);
-  // }
+
+  // Deletes the user with the request id
+  deleteUser: function(id) {
+    return axios.delete("/api/users/" + id);
+  },
+
+  updateUser: function(id) {
+    return axios.put("/api/users/"  + id);
+  },
+
+  loadUserbyId: function(id) {
+    return axios.get("/api/users/"  + id);
+  }
 };

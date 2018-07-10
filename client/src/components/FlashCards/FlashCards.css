@@ -1,0 +1,118 @@
+.container {
+  margin: 20px; 
+  width: 600px;
+  height: 400px;
+  position: relative;
+  border-radius:10px; 
+
+  /* border: 1px solid #ccc; */
+  perspective: 800px;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+}
+.card {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border-radius:10px; 
+  position: absolute;
+  transition: transform 1s;
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+  transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+  
+}
+
+@keyframes appear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.card div {
+  border: 4px solid black; 
+  border-radius:10px; 
+  display: block;
+  height: 100%;
+  width: 100%;
+  /* line-height: 260px; */
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  /* font-size: 140px; */
+  position: absolute;
+  backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+}
+
+.cardBtns {
+  text-decoration: none; 
+  margin: 5px;
+  color: black; 
+  border: 1px solid black; 
+  padding: 5px;
+  border-radius: 10px; 
+  position:absolute; 
+  bottom: 10px; 
+}
+
+#nailed{
+  left: 5%;
+}
+
+#failed{
+  right: 5%; 
+}
+
+#almost{
+  left: 42%; 
+}
+
+.card .front {
+background: white;
+}
+
+.card .back {
+  background: white;
+  transform: rotateX( 180deg );
+    -webkit-transform: rotateX( 180deg );
+    -moz-transform: rotateX( 180deg );
+    -o-transform: rotateX( 180deg );
+}
+.card.flipped {
+  transform: rotateX( 180deg );
+    -webkit-transform: rotateX( 180deg );
+    -moz-transform: rotateX( 180deg );
+    -o-transform: rotateX( 180deg );
+
+}
+#beerImage {
+  max-height: 100px; 
+  width: auto; 
+  float: right; 
+  border-radius: 20px; 
+  margin: 5px; 
+}
+#stats {
+  /* float: left;  */
+  text-align: left; 
+  font-weight:normal;
+  line-height: .8; 
+}
+#des, #ex{ 
+  clear: both; 
+  font-size: 14px;
+  font-weight:normal;
+}
+#ex{
+  line-height: .8; 
+}
+
