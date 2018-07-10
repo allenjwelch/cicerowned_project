@@ -13,7 +13,9 @@ class FlashCards extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ activeDeck: nextProps });  
+    //! set cardPos to 0 to reset after changing decks part way through
+    this.setState({ activeDeck: nextProps, cardPos: 0 }); 
+     
   }
 
   componentDidMount() {

@@ -23,6 +23,14 @@ export default {
     return axios.get("/api/styles");
   },
 
+  // Users
+  findAllUsers: function(id) {
+    return axios.get("/api/users");
+  },
+
+  createUser: function(userData) {
+    return axios.post("/api/users", userData);
+  },
 
   // Deletes the user with the request id
   deleteUser: function(id) {
