@@ -92,7 +92,7 @@ class FlashCards extends Component {
   render() {
     return (
       <div className="flashCardContainer" >
-        <Col offset="m1 l1 xl1" s={12} m={10} l={10} xl={10} className='container'>
+        <Col offset="m1 l1 xl1" s={12} m={10} l={10} xl={10} className='cardContainer'>
         {/* <section class="container"> */}
           <div 
             onClick={this.flip}
