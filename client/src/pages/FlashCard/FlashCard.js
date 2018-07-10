@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import { Collapsible, CollapsibleItem, Button, Row, Col, Collection, CollectionItem, Modal } from 'react-materialize';
 import FlashCards from "../../components/FlashCards";
 import "./FlashCard.css";
-let _ = require("lodash");
+// let _ = require("lodash");
 
 
 // import FlashCards from "../../components/FlashCards"; 
@@ -147,10 +147,10 @@ class FlashCard extends Component {
       
     // }
   
-  getUnique = (item) => {
-    let uniqueArray = _.uniq(item);
-    return uniqueArray; 
-  }
+  // getUnique = (item) => {
+  //   let uniqueArray = _.uniq(item);
+  //   return uniqueArray; 
+  // }
   //   let arr = this.state.userDecks; 
   //   let unique_array = arr.filter(function(elem, index, self) {
   //     return index === self.indexOf(elem);

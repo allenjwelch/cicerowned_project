@@ -28,9 +28,9 @@ let checkUser = () => {
   API.loadUserbyId(user.email)
     .then(res => 
       // res.data[0].signUpDate === undefined ? console.log('new user ', res.data, res.data[0].signUpDate) :  console.log('existing user ', res.data, res.data[0].signUpDate)
-      res.data[0].signUpDate === undefined  ? console.log('new user ', res.data, res.data[0].signUpDate) : 
 
-      // console.log(res.data)
+      // res.data.signUpDate === undefined  ? console.log('new user ', res.data, res.data[0].signUpDate) : 
+
       user.userData =  {
         signUpDate: res.data[0].signUpDate,
         userDecks: res.data[0].userDecks,

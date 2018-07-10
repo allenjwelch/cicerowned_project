@@ -17,7 +17,6 @@
     "d3-transition": "^1.1.1",
     "jwt-decode": "^2.2.0",
     "jwt-decoder": "0.0.0",
-    "lodash": "^4.17.10",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-materialize": "^2.3.3",
