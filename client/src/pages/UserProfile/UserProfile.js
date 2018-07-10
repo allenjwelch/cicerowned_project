@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Row, Col, CardPanel, Card, Container } from "react-materialize";
+// import Slider from '../../components/Slider/Slider';
 import BarChart from '../../components/Charts/BarChart';
 import StreamGraph from '../../components/Charts/StreamGraph';
 import worlddata from '../../components/Charts/world';
@@ -63,6 +65,57 @@ class UserProfile extends Component {
     const filteredAppdata = appdata
       .filter((d,i) => d.launchday >= this.state.brushExtent[0] && d.launchday <= this.state.brushExtent[1])
     return (
+      <div>
+        <Row>
+          <Col s={12} m={12}>
+            <CardPanel className="teal lighten-4 black-text center-align">
+                <span>
+                <h4>Hello, {this.props.name}!</h4>
+              <h4>Email: {this.props.email}</h4>
+                </span>
+            </CardPanel>
+          </Col>
+        </Row>
+
+        <Row>
+        <Container>
+        <Col m={6} s={12}>
+          <Card 
+          className= 'amber darken-1 center-align' 
+          textClassName='white-text' 
+          title={<i className="icon-orange medium material-icons">dvr</i>} 
+          actions={[<a href='#'>This is a link</a>]}>
+          <h3>Study</h3><p>Select Your Deck!</p>
+          </Card>
+        </Col>
+      
+        <Col m={6} s={12}>
+          <Card 
+          className='amber darken-1 center-align' 
+          textClassName='white-text' title={<i className="icon-orange medium material-icons">loyalty</i>} 
+          actions={[<a href='#'>This is a link</a>]}>
+          <h3>Create</h3><p>Customize Your Own Deck</p>
+          </Card>
+        </Col>
+        </Container>
+        </Row>
+
+        <Row>
+        <Container>
+        <Col m={12} s={12}>
+          <Card 
+          className='amber darken-1 center-align' 
+          textClassName='white-text' 
+          title={<i className="medium material-icons">local_activity</i>}>
+          <h3>Achievements</h3>
+            
+
+          </Card>
+        </Col>
+        </Container>
+        </Row>
+    
+      <Container>
       <div className="chart">
         <h1>UserProfile</h1>
         <h1>Hello {this.props.name}</h1>
@@ -79,6 +132,8 @@ class UserProfile extends Component {
         <div>
           {/* <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} /> */}
         </div>
+        </div>
+      </Container>
       </div>
     );
   }
