@@ -70,8 +70,12 @@ class UserProfile extends Component {
           <Col s={12} m={12}>
             <CardPanel className="teal lighten-4 black-text center-align">
                 <span>
-                <h4>Hello, {this.props.name}!</h4>
-              <h4>Email: {this.props.email}</h4>
+                  <h4>Hello, {this.props.name}!</h4>
+                  <h4>Email: {this.props.email}</h4>
+                  <h4>Decks completed {this.state.decksCompleted}</h4>
+                  <h4>Badges Earned {this.state.badgesEarned}</h4>
+                  <h4>Decks Created {this.state.decksCreated}</h4>
+                  <h4>Logged In {this.state.loggedInDates}</h4>
                 </span>
             </CardPanel>
           </Col>
@@ -117,15 +121,6 @@ class UserProfile extends Component {
     
       <Container>
       <div className="chart">
-        <h1>UserProfile</h1>
-        <h1>Hello {this.props.name}</h1>
-        <h1>email {this.props.email}</h1>
-        <h1>Decks completed {this.state.decksCompleted}</h1>
-        <h1>Badges Earned {this.state.badgesEarned}</h1>
-        <h1>Decks Created {this.state.decksCreated}</h1>
-        <h1>Logged In {this.state.loggedInDates}</h1>
-        {/* <h1>Scores {this.barDataFunction(this.state.decksCompleted)}</h1> */}
-
         <div>
           <BarChart data={barData} size={[500,500]} />
         </div>
