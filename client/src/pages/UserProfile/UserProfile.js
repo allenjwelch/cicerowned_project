@@ -17,7 +17,7 @@ appdata
     d.data = range(30).map((p,q) => q < i ? 0 : Math.random() * 2 + offset)
   })
 
-const barData = [5,10,1,3,6,23,12,3,4];
+let barData = [];
 
 const colorScale = scaleThreshold().domain([5,10,20,30]).range(["#75739F", "#5EAFC6", "#41A368", "#93C464"])
 
@@ -42,7 +42,7 @@ class UserProfile extends Component {
 
   onBrush(d) {
     this.setState({ brushExtent: d })
-  }
+  } 
   
   componentDidMount() {
     this.loadUserbyId(this.props.email);
@@ -51,12 +51,13 @@ class UserProfile extends Component {
   loadUserbyId = () => {
     API.loadUserbyId(this.props.email)
       .then(res =>
-        this.setState({ users: res.data, userName: "", email: "", decksCompleted: [], decksCreated: [], badgesEarned:[],loggedInDates:[]})
+        // use the variables passed onto state below to populate user information
+        this.setState({ decksCompleted: res.data[0].decksCompleted, badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
       )
       .catch(err => console.log(err));
   };
 
-
+ 
 
   render() {
     const filteredAppdata = appdata
@@ -66,13 +67,17 @@ class UserProfile extends Component {
         <h1>UserProfile</h1>
         <h1>Hello {this.props.name}</h1>
         <h1>email {this.props.email}</h1>
-        <h1>Decks completed {this.loadUserbyId.decksCompleted}</h1>
+        <h1>Decks completed {this.state.decksCompleted}</h1>
+        <h1>Badges Earned {this.state.badgesEarned}</h1>
+        <h1>Decks Created {this.state.decksCreated}</h1>
+        <h1>Logged In {this.state.loggedInDates}</h1>
+        {/* <h1>Scores {this.barDataFunction(this.state.decksCompleted)}</h1> */}
 
         <div>
           <BarChart data={barData} size={[500,500]} />
         </div>
         <div>
-          <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} />
+          {/* <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} /> */}
         </div>
       </div>
     );
