@@ -54,7 +54,7 @@ class UserProfile extends Component {
     API.loadUserbyId(this.props.email)
       .then(res =>
         // use the variables passed onto state below to populate user information
-        this.setState({ decksCompleted: res.data[0].decksCompleted, badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
+        this.setState({ decksCompleted: res.data[0].decksCompleted, deckScore: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
       )
       .catch(err => console.log(err));
   };
@@ -73,6 +73,7 @@ class UserProfile extends Component {
                   <h4>Hello, {this.props.name}!</h4>
                   <h4>Email: {this.props.email}</h4>
                   <h4>Decks completed {this.state.decksCompleted}</h4>
+                  <h4>Score {this.state.deckScore}</h4>
                   <h4>Badges Earned {this.state.badgesEarned}</h4>
                   <h4>Decks Created {this.state.decksCreated}</h4>
                   <h4>Logged In {this.state.loggedInDates}</h4>
