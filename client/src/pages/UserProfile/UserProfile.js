@@ -113,8 +113,8 @@ class UserProfile extends Component {
           textClassName='white-text' 
           title={<i className="medium material-icons">local_activity</i>}>
           <h3>Achievements</h3>
-            
-
+          <img src={require("../../images/porter.locked.png")} alt= "porter-locked" width="15%"  />
+          <img src={require("../../images/lagerpils.locked.png")} alt= "lagerpils-locked" width="15%"  />
           </Card>
         </Col>
         </Container>
