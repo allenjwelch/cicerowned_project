@@ -1462,38 +1462,123 @@ mongoose.connect(
             ]
           }, 
           {
+            styleName: "American Imperial Stout",
+            familyName: "Stouts",
+            briefDescription: "Black in color, these beers typically have an extremely rich malty flavor and aroma with full, sweet malt character. ",
+            description: "The American-style imperial stout is the strongest in alcohol and body of the stouts. Black in color, these beers typically have an extremely rich malty flavor and aroma with full, sweet malt character. Bitterness can come from roasted malts or hop additions. Source: CraftBeer.com",
+            image: "http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/american-imperial-stout.jpg",
+            OG: "1.080 - 1.100",
+            FG: "1.020 - 1.030",
+            ABV: "7.0% - 12.0%",
+            IBU: "50 - 80",
+            BU: "0.62 - 0.80",
+            SRM: "40+",
+            examples: [ 
+                "Expedition Stout: Bell's Brewery", 
+                "Old Rasputin Imperial Stout: North Coast Brewing Co."
+            ]
+          }, 
+          {
+            styleName: "American Stout",
+            familyName: "Stouts",
+            briefDescription: "American stout beer is perhaps one of the most identifiable creations of the American beer world. Stout beer is about as dark of an American beer as can be, and has a very noticeable of appearance, aroma and flavor.",
+            description: "American stout beer is perhaps one of the most identifiable creations of the American beer world. Stout beer is about as dark of an American beer as can be, and has a very noticeable of appearance, aroma and flavor. As one of the thicker, darker American beers on the craft beer scene, American stout beer is perfect for the colder seasons.Strikingly bold and undeniably beautiful, the American stout beer style blends generous amounts of dark malts with American hops to offer an adventurous experience that is unmatched by other styles of beer. Are you afraid of the dark? When it comes to American stout, don’t be. Allow your senses to run wild with this deceivingly sophisticated take on a European staple.Like many other beer styles that have become prized by American brewers and beer lovers alike, American stout is a distinct variant of a European stout beer counterpart. True to style, American stouts showcase generous quantities of the American hops fans have come to expect, and much like other stout beer types, American stout can be enjoyed year-round but is commonly considered a beer for the fall or winter months. The stout is a terrific companion to bold, hearty foods. Look for hearty game meats, as well as soups and strong cheeses to be particularly suitable for pairing for American stouts, in addition to a variety of after-dinner desserts.Reading about American stout is great, but we encourage you to seek out the style at a local brewery. Take advantage of our “Find a Brewery” map to discover a small and independent brewery near you to try your first, or next, American stout.If you enjoy the website and are interested in a convenient way to learn more about American beer, sign up to have our newsletter delivered directly to your inbox. Source: CraftBeer.com",
+            image: "http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/american-stout.jpg",
+            OG: "1.050 - 1.075",
+            FG: "1.010 - 1.022",
+            ABV: "5.7% - 8.9%",
+            IBU: "35 - 60",
+            BU: "0.70 - 0.80",
+            SRM: "40+",
+            examples: [ 
+                "Shakespeare Stout: Rogue Ales", 
+                "Obsidian Stout: Deschutes Brewery"
+            ]
+          }, 
+          {
+            styleName: "English-Style Oatmeal Stout",
+            familyName: "Stouts",
+            briefDescription: "The addition of oatmeal adds a smooth, rich body to the oatmeal stout. This beer style is dark brown to black in color.",
+            description: "The addition of oatmeal adds a smooth, rich body to the oatmeal stout. This beer style is dark brown to black in color. Roasted malt character is caramel-like and chocolate-like, and should be smooth and not bitter. Coffee-like roasted barley and malt aromas are prominent. This low- to medium-alcohol style is packed with darker malt flavors and a rich and oily body from oatmeal. Source: CraftBeer.com",
+            image: "http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/english-style-oatmeal-stout.jpg",
+            OG: "1.038 - 1.056",
+            FG: "1.008 - 1.020",
+            ABV: "3.8% - 6.1%",
+            IBU: "20 - 40",
+            BU: "0.53 - 0.71",
+            SRM: "20+",
+            examples: [ 
+                "Stagecoach Stout: Figueroa Mountain Brewing Co.", 
+                "Back Road Stout: Millstream Brewing Co."
+            ]
+          }, 
+          {
+            styleName: "English-Style Sweet Stout (Milk Stout)",
+            familyName: "Stouts",
+            briefDescription: "Sweet stout, also referred to as cream stout or milk stout, is black in color. Malt sweetness, chocolate and caramel should dominate the flavor profile and contribute to the aroma. ",
+            description: "Sweet stout, also referred to as cream stout or milk stout, is black in color. Malt sweetness, chocolate and caramel should dominate the flavor profile and contribute to the aroma. It also should have a low to medium-low roasted malt/barley-derived bitterness. Milk sugar (lactose) lends the style more body. This beer does use lactose sugar, so people with an intolerance should probably avoid this style. Source: CraftBeer.com",
+            image: "http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/english-style-sweet-stout-milk-stout.jpg",
+            OG: "1.045 - 1.056",
+            FG: "1.012 - 1.020",
+            ABV: "3.2% - 6.3%",
+            IBU: "15 - 25",
+            BU: "0.33 - 0.45",
+            SRM: "40+",
+            examples: [ 
+                "Milk Stout: Left Hand Brewing Co.", 
+                "Udder Love: Beachwood Brewery & BBQ"
+            ]
+          }, 
+          {
+            styleName: "Irish-Style Dry Stout",
+            familyName: "Stouts",
+            briefDescription: "Dry stout is black beer with a dry-roasted character thanks to the use of roasted barley. The emphasis on coffee-like roasted barley and a moderate degree of roasted malt aromas define much of the character.",
+            description: "Dry stout is black beer with a dry-roasted character thanks to the use of roasted barley. The emphasis on coffee-like roasted barley and a moderate degree of roasted malt aromas define much of the character. Hop bitterness is medium to medium high. This beer is often dispensed via nitrogen gas taps that lend a smooth, creamy body to the palate. Source: CraftBeer.com",
+            image: "http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/irish-style-dry-stout.jpg",
+            OG: "1.038 - 1.048",
+            FG: "1.008 - 1.012",
+            ABV: "4.2% - 5.3%",
+            IBU: "30 - 40",
+            BU: "0.79 - 0.83",
+            SRM: "40+",
+            examples: [ 
+                "Blarney Sisters Dry Irish Stout: Third Street Aleworks", 
+                "Seaside Stout: Pizza Port Brewing Co."
+            ]
+          }, 
+          {
             deckType: 'public',
-            deckName: 'Public Deck 1', 
+            familyName: 'Public Deck 1', 
             front: 'Q1', 
             back: 'A1'
           },
           {
             deckType: 'public',
-            deckName: 'Public Deck 1', 
+            familyName: 'Public Deck 1', 
             front: 'Q2', 
             back: 'A2'
           },
           {
             deckType: 'public',
-            deckName: 'Public Deck 1', 
+            familyName: 'Public Deck 1', 
             front: 'Q3', 
             back: 'A3'
           },
           {
             deckType: 'public',
-            deckName: 'Public Deck 2', 
+            familyName: 'Public Deck 2', 
             front: 'Q1', 
             back: 'A1'
           },
           {
             deckType: 'public',
-            deckName: 'Public Deck 2', 
+            familyName: 'Public Deck 2', 
             front: 'Q2', 
             back: 'A2'
           },
           {
             deckType: 'public',
-            deckName: 'Public Deck 2', 
+            familyName: 'Public Deck 2', 
             front: 'Q3', 
             back: 'A3'
           },
