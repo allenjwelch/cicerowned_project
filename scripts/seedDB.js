@@ -1392,6 +1392,112 @@ mongoose.connect(
       {
         userName: "ajwelch",
         email: "allenjwelch@gmail.com",
+        userDecks: [
+          {
+            styleName: "American IPA",
+            familyName: "India Pale Ales",
+            briefDescription: "Characterized by floral, fruity, citrus-like, piney or resinous American-variety hop character, the IPA beer style is all about hop flavor, aroma and bitterness. ",
+            description: "Characterized by floral, fruity, citrus-like, piney or resinous American-variety hop character, the IPA beer style is all about hop flavor, aroma and bitterness. This has been the most-entered category at the Great American Beer Festival for more than a decade, and is the top-selling craft beer style in supermarkets and liquor stores across the U.S. Source: CraftBeer.com",
+            image: "http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/american-india-pale-ale.jpg",
+            OG: "1.060 - 1.075",
+            FG: "1.012 - 1.018",
+            ABV: "6.3% - 7.6%",
+            IBU: "50 - 70",
+            BU: "0.83 - 0.93",
+            SRM: "6 - 14",
+            examples: [ 
+                "Stone IPA: Stone Brewing Co.", 
+                "Two Hearted Ale: Bell's Brewery"
+            ]
+          }, 
+          {
+            styleName: "Imperial India Pale Ale",
+            familyName: "India Pale Ales",
+            briefDescription: "American craft beer lovers are huge fans of the IPA. The quest for more of the India pale ale flavor has led them to the imperial India pale ale, a stronger version of the American IPA, which boasts even more hoppy flavor, aroma and bitterness. ",
+            description: "American craft beer lovers are huge fans of the IPA. The quest for more of the India pale ale flavor has led them to the imperial India pale ale, a stronger version of the American IPA, which boasts even more hoppy flavor, aroma and bitterness. Imperial India pale ale is darker in color than the American IPA, substantially more bitter, and high in alcohol by volume. This all-American take on the IPA leaves craft beer fans with plenty of new creations to try.The imperial India pale ale features high hop bitterness, flavor and aroma. Hop character is fresh and evident from the utilization of any variety of hops. Alcohol content is medium-high to high and notably evident with a medium-high to full body. This style intends to exhibit the fresh, evident character of hops.Craft beer has grown because of the curiosity that American craft brewers have exhibited through their tweaking of classic beer recipes. The love for the American IPA flavor that craft beer consumers have shown has led American craft brewers to the imperial IPA. The imperial IPA beer style creeps towards some of the strongest of ales in alcohol content, but the increase in hops from the original IPA beer recipe gives it a more bitter taste and doesn’t bring the same malt taste that barley wine does. For fans of the original India pale ale flavor, the imperial IPA is the perfect craft beer for you to explore.It can be challenging to keep up with all the breweries that serve their own variations of the India pale ale. To help you keep up with all of the breweries and brewpubs that make up the craft beer scene, we have created an interactive “Find a Brewery” map to help you do precisely that. By entering your precise location, searching by state, or searching for a specific brewery, you’ll be able to discover craft breweries near you, and many are likely to brew variations of India pale ales.Finding your next favorite imperial IPA beer doesn’t have to stop here. If you enjoy the website and are interested in a convenient way to learn more about imperial India pale ales, sign up to have our newsletter delivered directly to your inbox. We can’t send you beer, but we can send you our newsletter which is almost as good. Source: CraftBeer.com",
+            image: "http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/imperial-india-pale-ale.jpg",
+            OG: "1.075 - 1.100",
+            FG: "1.012 - 1.020",
+            ABV: "7.6% - 10.6%",
+            IBU: "65 - 100",
+            BU: "0.87 - 1.00",
+            SRM: "5 - 16",
+            examples: [ 
+                "Hop JuJu: Fat Heads Brewery", 
+                "2x4: Melvin Brewing Co."
+            ]
+          }, 
+          {
+            styleName: "New England IPA",
+            familyName: "India Pale Ales",
+            briefDescription: "Emphasizing hop aroma and flavor without bracing bitterness, the New England IPA  leans heavily on late and dry hopping techniques to deliver a bursting juicy, tropical hop experience. ",
+            description: "Emphasizing hop aroma and flavor without bracing bitterness, the New England IPA  leans heavily on late and dry hopping techniques to deliver a bursting juicy, tropical hop experience. The skillful balance of technique and ingredient selection, often including the addition of wheat or oats, lends an alluring haze to this popular take on the American IPA. Source: CraftBeer.com",
+            image: "http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/new-england-ipa.jpg",
+            OG: "1.060 - 1.070",
+            FG: "1.008 - 1.016",
+            ABV: "6.3%-7.5%",
+            IBU: "50 - 70",
+            BU: " - ",
+            SRM: "4-7",
+            examples: [ 
+                "Juicy Bits: Weldworks Brewing Co.", 
+                "Juice Box: Great Notion Brewing"
+            ]
+          }, 
+          {
+            styleName: "English-Style IPA",
+            familyName: "India Pale Ales",
+            briefDescription: "No other style represents modern craft brewing excitement quite like the IPA, and while this English beer differs widely from the American version it inspires, this strong member of the English pale ale family has plenty of its own to offer — including all of the history behind this variety.",
+            description: "Strong, bitter and completely misunderstood, the English India pale ale (or English IPA) bridges the gap between past and present. No other style represents modern craft brewing excitement quite like the IPA, and while this English beer differs widely from the American version it inspires, this strong member of the English pale ale family has plenty of its own to offer — including all of the history behind this variety.Steeped in lore (and extra hops), the English-style IPA is a stronger version of a pale ale. The English-style pale ale is characterized by a hearty helping of English hop character (earthy, floral) and increased alcohol content. English yeast lend a fruity character to the flavor and aroma, offering a contrast to the earthy English hop additions. Different from its American counterpart, this style strikes a balance between malt and hops for a more rounded flavor.There is also a lot of mythology surrounding the creation of this style, which is still debated today. It is most commonly believed that English style pale ale was birthed from the need for a beer that could survive the journey to and from India, a land too warm for beer brewing without the aid of modern technology. The increased alcohol and hop contents would act as preservatives, giving IPAs the qualities that they are known for to this day. In actuality, the beer style that would become popularly known as an India pale ale bears little in common with the contemporary iteration you enjoy today. Additionally, beers similar to what made the trip to India had been in production for domestic consumption prior to any reports of it being exported and records show that other beer styles, including porter, made their way to the English colony of India and were enjoyed by parched soldiers and colonists.English pale ale beers, like the IPA, always offer great beer pairing opportunities. Strong English cheeses as well as grilled or braised meats, like pork, can make very tasty flavor experiences when paired with an English IPA. The higher alcohol, hops and carbonation all work to cut through fat and cleanse the palate, helping every bite be as tasty as the first.As popular as English beers, particularly IPAs, have become among beer lovers, we want to do our part to keep craft beers fans in the loop when it comes to these English beer styles. Our “Find a Brewery” map is designed to do precisely that. It can be overwhelming to sift through all of the English beers on the craft scene, and we want to make it easy for you to find your first or your favorite English pale ale beer. Search by location, or search by state, and our map will point you in the direction of the nearest brewery where you can find your next favorite beer, which could include the English-style India pale ale beer.Finding your first ever or next favorite English-style India pale ale doesn’t have to stop here. If you enjoy the website and are interested to learn more about English-style India pale ale beer, sign up to have our newsletter delivered directly to your inbox. Source: CraftBeer.com",
+            image: "http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/english-style-india-pale-ale.jpg",
+            OG: "1.050 - 1.064",
+            FG: "1.012 - 1.018",
+            ABV: "5.1% - 7.1%",
+            IBU: "35 - 63",
+            BU: "0.70 - 0.98",
+            SRM: "6 - 14",
+            examples: [ 
+                "Punjabi: CooperSmith's Pub & Brewing", 
+                "Sam Adams Lattitude 48 Hallertau Mittelfrueh: Boston Beer Co."
+            ]
+          }, 
+          {
+            deckType: 'public',
+            deckName: 'Public Deck 1', 
+            front: 'Q1', 
+            back: 'A1'
+          },
+          {
+            deckType: 'public',
+            deckName: 'Public Deck 1', 
+            front: 'Q2', 
+            back: 'A2'
+          },
+          {
+            deckType: 'public',
+            deckName: 'Public Deck 1', 
+            front: 'Q3', 
+            back: 'A3'
+          },
+          {
+            deckType: 'public',
+            deckName: 'Public Deck 2', 
+            front: 'Q1', 
+            back: 'A1'
+          },
+          {
+            deckType: 'public',
+            deckName: 'Public Deck 2', 
+            front: 'Q2', 
+            back: 'A2'
+          },
+          {
+            deckType: 'public',
+            deckName: 'Public Deck 2', 
+            front: 'Q3', 
+            back: 'A3'
+          },
+        ], 
         decksCompleted: [
           ["Belgian-Style Blonde Ale",9,10,"07-01-2018"],
           ["Belgian-Style Dubbel",7,10,"07-01-2018"]

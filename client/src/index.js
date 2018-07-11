@@ -39,7 +39,7 @@ let checkUser = () => {
         badgesEarned: res.data[0].badgesEarned,
         loggedInDates: res.data[0].loggedInDates
       } , 
-      console.log('user', user)
+      // console.log('user', user)
     )
     .catch(err => console.log(err));
 }
@@ -80,7 +80,6 @@ let initialState = {
   decksCreated: user.userData.decksCreated,
   badgesEarned: user.userData.badgesEarned,
   loggedInDates: user.userData.loggedInDates
-
 }
 
 window.setState(initialState); 
