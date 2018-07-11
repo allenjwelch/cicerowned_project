@@ -1391,7 +1391,7 @@ mongoose.connect(
   const UserInfoSeed = [
       {
         userName: "ajwelch",
-        email: "allenwelch@gmail.com",
+        email: "allenjwelch@gmail.com",
         decksCompleted: [
           ["Belgian-Style Blonde Ale",9,10,"07-01-2018"],
           ["Belgian-Style Dubbel",7,10,"07-01-2018"]
