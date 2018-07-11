@@ -1548,37 +1548,37 @@ mongoose.connect(
           }, 
           {
             deckType: 'public',
-            familyName: 'Public Deck 1', 
+            deckName: 'Public Deck 1', 
             front: 'Q1', 
             back: 'A1'
           },
           {
             deckType: 'public',
-            familyName: 'Public Deck 1', 
+            deckName: 'Public Deck 1', 
             front: 'Q2', 
             back: 'A2'
           },
           {
             deckType: 'public',
-            familyName: 'Public Deck 1', 
+            deckName: 'Public Deck 1', 
             front: 'Q3', 
             back: 'A3'
           },
           {
             deckType: 'public',
-            familyName: 'Public Deck 2', 
+            deckName: 'Public Deck 2', 
             front: 'Q1', 
             back: 'A1'
           },
           {
             deckType: 'public',
-            familyName: 'Public Deck 2', 
+            deckName: 'Public Deck 2', 
             front: 'Q2', 
             back: 'A2'
           },
           {
             deckType: 'public',
-            familyName: 'Public Deck 2', 
+            deckName: 'Public Deck 2', 
             front: 'Q3', 
             back: 'A3'
           },
