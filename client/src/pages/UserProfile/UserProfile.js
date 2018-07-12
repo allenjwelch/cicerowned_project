@@ -89,7 +89,7 @@ class UserProfile extends Component {
           className= 'amber darken-1 center-align' 
           textClassName='white-text' 
           title={<i className="icon-orange medium material-icons">dvr</i>} 
-          actions={[<a href='#'>This is a link</a>]}>
+          actions={<a href='/user/study'>This is a link</a>}>
           <h3>Study</h3><p>Select Your Deck!</p>
           </Card>
         </Col>
@@ -98,7 +98,7 @@ class UserProfile extends Component {
           <Card 
           className='amber darken-1 center-align' 
           textClassName='white-text' title={<i className="icon-orange medium material-icons">loyalty</i>} 
-          actions={[<a href='#'>This is a link</a>]}>
+          actions={[<a href='/user/create'>This is a link</a>]}>
           <h3>Create</h3><p>Customize Your Own Deck</p>
           </Card>
         </Col>

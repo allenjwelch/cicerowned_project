@@ -18,9 +18,14 @@ export default {
   },
   
   
-  // Gets the beer by family name
+  // Gets all the beer by family name
   getBeersByStyle: function() {
-    return axios.get("/api/styles");
+    return axios.get("/api/decks");
+  },
+
+  // Gets the users by family name
+  getUserDecks: function() {
+    return axios.get("/api/decks/user");
   },
 
   // Users

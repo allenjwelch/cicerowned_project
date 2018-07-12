@@ -67,6 +67,10 @@
 ![trello](./images/trello_7-10.PNG)
 
 #### Heroku MVP: https://cicerowned.herokuapp.com/
+![homepage](./images/home.PNG)
+![userpage](./images/user.PNG)
+![flashcardpage](./images/flash.PNG)
+
 
 ## Deliverables
 

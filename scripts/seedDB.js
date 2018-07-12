@@ -1392,6 +1392,44 @@ mongoose.connect(
       {
         userName: "ajwelch",
         email: "allenjwelch@gmail.com",
+        userDecks: [ "Public Deck 1", "Public Deck 2" ],
+          
+          // {
+          //   deckType: 'public',
+          //   deckName: 'Public Deck 1', 
+          //   front: 'Q1', 
+          //   back: 'A1'
+          // },
+          // {
+          //   deckType: 'public',
+          //   deckName: 'Public Deck 1', 
+          //   front: 'Q2', 
+          //   back: 'A2'
+          // },
+          // {
+          //   deckType: 'public',
+          //   deckName: 'Public Deck 1', 
+          //   front: 'Q3', 
+          //   back: 'A3'
+          // },
+          // {
+          //   deckType: 'public',
+          //   deckName: 'Public Deck 2', 
+          //   front: 'Q1', 
+          //   back: 'A1'
+          // },
+          // {
+          //   deckType: 'public',
+          //   deckName: 'Public Deck 2', 
+          //   front: 'Q2', 
+          //   back: 'A2'
+          // },
+          // {
+          //   deckType: 'public',
+          //   deckName: 'Public Deck 2', 
+          //   front: 'Q3', 
+          //   back: 'A3'
+          // },
         decksCompleted: [
           ["Belgian-Style Blonde Ale",9,10,"07-01-2018"],
           ["Belgian-Style Dubbel",7,10,"07-01-2018"]
