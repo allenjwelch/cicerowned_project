@@ -98,30 +98,48 @@ class FlashCards extends Component {
   render() {
     return (
       <div className="flashCardContainer" >
-        {/* {console.log(this.state.activeDeck)} */}
+        {console.log(this.state.activeDeck)}
         <Col offset="m1 l1 xl1" s={12} m={10} l={10} xl={10} className='cardContainer'>
           <div 
             onClick={this.flip}
             className={
               this.state.flipped === false ? "flashCard" : "flashCard flipped"
             }>
-            <div className="front">
-              <h2>{this.state.activeDeck[this.state.cardPos].familyName}</h2>
-              <h3>{this.state.activeDeck[this.state.cardPos].styleName}</h3>
-            </div>
-            <div className="back">
-              <img id="beerImage" src={this.state.activeDeck[this.state.cardPos].image} alt="beer style image"/>
-              <p id="stats">ABV: {this.state.activeDeck[this.state.cardPos].ABV}</p>
-              <p id="stats">IBUs: {this.state.activeDeck[this.state.cardPos].IBU}</p>
-              <p id="stats">SRM: {this.state.activeDeck[this.state.cardPos].SRM}</p>
-              <p id="des"><b>Description:</b> {this.state.activeDeck[this.state.cardPos].briefDescription}</p>
-              <p id="ex"><b>Examples:</b></p>
-              <p id="ex">{this.state.activeDeck[this.state.cardPos].examples[0]}</p>
-              <p id="ex">{this.state.activeDeck[this.state.cardPos].examples[1]}</p>
-              <a className="flashCardBtns" id="nailed" onClick={this.nailedIt}>Nailed it!</a>
-              <a className="flashCardBtns" id="almost" onClick={this.changeCard}>Almost...</a>
-              <a className="flashCardBtns" id="failed" onClick={this.failedIt}>Failed it</a>
-            </div>
+              {
+                this.state.activeDeck[this.state.cardPos].hasOwnProperty('styleName') ?
+                  
+                  <div className="front">
+                    <h2>{this.state.activeDeck[this.state.cardPos].familyName}</h2>
+                    <h3>{this.state.activeDeck[this.state.cardPos].styleName}</h3> 
+                  </div> :
+
+                  <div className="front">
+                    <h2>Deck Name</h2>
+                    <h3>Question</h3>
+                  </div>
+              }
+
+              {
+                this.state.activeDeck[this.state.cardPos].hasOwnProperty('styleName') ?
+
+                  <div className="back">
+                    <img id="beerImage" src={this.state.activeDeck[this.state.cardPos].image} alt="beer style image"/>
+                    <p id="stats">ABV: {this.state.activeDeck[this.state.cardPos].ABV}</p>
+                    <p id="stats">IBUs: {this.state.activeDeck[this.state.cardPos].IBU}</p>
+                    <p id="stats">SRM: {this.state.activeDeck[this.state.cardPos].SRM}</p>
+                    <p id="des"><b>Description:</b> {this.state.activeDeck[this.state.cardPos].briefDescription}</p>
+                    <p id="ex"><b>Examples:</b></p>
+                    <p id="ex">{this.state.activeDeck[this.state.cardPos].examples[0]}</p>
+                    <p id="ex">{this.state.activeDeck[this.state.cardPos].examples[1]}</p>
+                    <a className="flashCardBtns" id="nailed" onClick={this.nailedIt}>Nailed it!</a>
+                    <a className="flashCardBtns" id="almost" onClick={this.changeCard}>Almost...</a>
+                    <a className="flashCardBtns" id="failed" onClick={this.failedIt}>Failed it</a>
+                  </div>  :
+
+                  <div className="back">
+                    <h3>Answer</h3>
+                  </div>
+              }
           </div>
         </Col>
       </div>
