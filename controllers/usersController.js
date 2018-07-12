@@ -22,8 +22,24 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
+    console.log('update route was hit')
+    console.log('user email passed to update ' + req.params.id)
     db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate(
+        {email:req.params.id},
+        {
+         $set:{ email: req.params.id},
+          userName: "test",
+          decksCompleted: [],
+          decksCreated: [],
+          badgesEarned: [],
+          loggedInDates:[]
+        },
+        {
+          upsert:true,
+          setDefaultOnInsert:true
+        }, 
+       )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
