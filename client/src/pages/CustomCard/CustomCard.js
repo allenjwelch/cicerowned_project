@@ -21,6 +21,8 @@ class CustomCard extends Component {
     });
   };
 
+
+  //! FUNCTIONS SHOULD ALSO SAVE CARD TO USER'S DECKS
   handleSaveCreate = event => {
     event.preventDefault();
     this.setState({ cardFront: '', cardBack: '' }); 

@@ -14,16 +14,17 @@ class FlashCards extends Component {
 
   componentWillReceiveProps(nextProps) {
     //! set cardPos to 0 to reset after changing decks part way through
-    this.setState({ activeDeck: nextProps, cardPos: 0 }); 
-     
+    let obj = nextProps; 
+    cardArray = Object.keys(obj).map(function(key) {
+      return obj[key];
+    });
+    this.setState({ activeDeck : cardArray }) 
+    return cardArray; 
+    // this.setState({ activeDeck: nextProps, cardPos: 0 }); 
   }
 
   componentDidMount() {
     this.objectToArray(); 
-      // .then(
-      //   console.log(cardArray));
-      //   this.setState({ activeDeck : cardArray })
-      // .catch(err => console.log(err));
   };
 
   objectToArray = () => {
@@ -39,6 +40,7 @@ class FlashCards extends Component {
   flip = () => {
     if (this.state.flipped === false) {
       this.setState({ flipped: true });
+      console.log(this.state.activeDeck)
     } else {
       this.setState({ flipped: false });
     }
@@ -47,13 +49,13 @@ class FlashCards extends Component {
   changeCard = () => {
     // move user to next card in deck ====
     this.setState({ cardPos: this.state.cardPos + 1 });
-    console.log('card Pos', this.state.cardPos); 
-    console.log('deck length', this.state.activeDeck.length); 
-    console.log(this.state.activeDeck); 
+    // console.log('card Pos', this.state.cardPos); 
+    // console.log('deck length', this.state.activeDeck.length); 
+    // console.log(this.state.activeDeck); 
 
     if (this.state.cardPos > this.state.activeDeck.length - 2) { //! Changed length of deck check
       this.setState({ cardPos: 0 });
-      console.log(this.state.cardPos); 
+      // console.log(this.state.cardPos); 
     }
     return this.state.cardPos; 
   }
@@ -61,14 +63,16 @@ class FlashCards extends Component {
   nailedIt = () => {
     //! deletes too many cards if first failedit
     let cardCount = this.countInArray(this.state.activeDeck, this.state.activeDeck[this.state.cardPos]); 
-    console.log('cardCount', cardCount)
+    // console.log('cardCount', cardCount)
     if (cardCount > 1) {
       this.state.activeDeck.shift(); 
     }
     this.changeCard(); 
   }
-
+  
   failedIt = () => {
+    //! TypeError: _this.state.activeDeck.splice is not a function
+    // console.log(this.state.activeDeck)
     this.state.activeDeck.splice(Math.ceil(this.state.activeDeck.length / 2), 0, this.state.activeDeck[this.state.cardPos])
     this.changeCard(); 
   }
@@ -94,7 +98,7 @@ class FlashCards extends Component {
   render() {
     return (
       <div className="flashCardContainer" >
-        {console.log(this.state.activeDeck)}
+        {/* {console.log(this.state.activeDeck)} */}
         <Col offset="m1 l1 xl1" s={12} m={10} l={10} xl={10} className='cardContainer'>
           <div 
             onClick={this.flip}

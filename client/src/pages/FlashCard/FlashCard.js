@@ -75,12 +75,12 @@ class FlashCard extends Component {
     }
     let beerFamily = this.state.allBeers.filter(filterByFamily);
     this.setState({ activeDeck: beerFamily });
-    console.log('activeDeck', this.state.activeDeck); 
+    // console.log('activeDeck', this.state.activeDeck); 
   }
 
   //TODO function for adding beer style deck from "Add a Deck" to user's profile.
   addDeckToUser = (familyName) => {  
-    alert("REMINDER: This request must UPDATE user's decks with deck selected")
+    // alert("REMINDER: This request must UPDATE user's decks with deck selected")
     // API.updateUser(this.state.user.email, familyName)
     //   .then(res => 
     //     this.setState({ beerStyles: res.data }) )
@@ -163,6 +163,8 @@ class FlashCard extends Component {
                 header='Select a deck to add to your stack'
                 trigger={<Button className="addDeck">Add a Deck!</Button>}>
                 <Collection>
+                {/* //! CHANGE TO READ ONLY PUBLIC DECKS TO ADD */}
+
                   {
                     this.state.beerStyles.map(beer => (
 
@@ -177,21 +179,16 @@ class FlashCard extends Component {
               <hr />
               <CollapsibleItem header='Beer Styles'>
                 List of user's beer style decks here.
-                {/* //TODO add all userDecks of 'Beer Styles' into lists */}
                 
                 <Collection>
 
-                  { this.state.userDecks.length ? 
-                    
-                    this.state.userDecks.map(beer => (
+                  {
+                    this.state.beerStyles.map(beer => (
                       <CollectionItem style={{"cursor":"pointer"}} key={beer} onClick={() => this.loadActiveDeck(beer)} >
                         {beer}
                       </CollectionItem>
                     ))
-                    : <p>Click 'Add a Deck' to add new decks to your collection</p>
-                    
                   }
-
 
                 </Collection>
 
@@ -201,13 +198,16 @@ class FlashCard extends Component {
                 {/* //TODO add all userDecks of 'Public' type into lists */}
 
                 <Collection>
-                  {
-                    this.state.beerStyles.map(beer => (
-                    //TODO change cursor of CollectionItems
-                    <CollectionItem key={beer} onClick={() => this.loadActiveDeck(beer)} >
-                      {beer}
-                    </CollectionItem>
-                  ))}
+                { this.state.userDecks.length ? 
+                    
+                    this.state.userDecks.map(beer => (
+                      <CollectionItem style={{"cursor":"pointer"}} key={beer} onClick={() => this.loadActiveDeck(beer)} >
+                        {beer}
+                      </CollectionItem>
+                    ))
+                    : <p>Click 'Add a Deck' to add new public decks to your collection</p>
+          
+                }
                 </Collection>
 
               </CollapsibleItem>
