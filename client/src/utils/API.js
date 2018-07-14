@@ -22,6 +22,7 @@ export default {
   getBeersByStyle: function() {
     return axios.get("/api/decks");
   },
+  
 
   // Gets the users by family name
   getUserDecks: function() {
@@ -48,5 +49,27 @@ export default {
 
   loadUserbyId: function(id) {
     return axios.get("/api/users/"  + id);
+  },
+
+  ////////////////////////////
+  getPubDecks: function() {
+    return axios.get("/api/pubdecks");
   }
+
+  // // Gets the beer with the given id
+  // getBeersId: function(id) {
+  //   return axios.get("/api/beers/" + id);
+  // },
+
+  
+  // // Deletes the beer with the given id
+  // deleteBeer: function(id) {
+  //   return axios.delete("/api/beers/" + id);
+  // },
+  
+  
+  // // Gets all the beer by family name
+  // getBeersByStyle: function() {
+  //   return axios.get("/api/decks");
+  // },
 };
