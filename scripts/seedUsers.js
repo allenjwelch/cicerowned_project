@@ -13,8 +13,9 @@ const UserInfoSeed = [
     email: "allenjwelch@gmail.com",
     userDecks: [ "Public Deck 1", "Public Deck 2" ],
     decksCompleted: [
-      ["Belgian-Style Blonde Ale",9,10,"07-01-2018"],
-      ["Belgian-Style Dubbel",7,10,"07-01-2018"]
+      ["Belgian-Style Blond Ale", "Belgian-Style Dubbel"],
+      [2,1,3,4,5,6,7],
+      [4,5,5,5,6,7,8,9,9,10]
     ],
     decksCreated:[],
     badgesEarned:[],
@@ -24,7 +25,9 @@ const UserInfoSeed = [
     userName: "susandaven",
     email: "susanldavenport@gmail.com",
     decksCompleted: [
-      ["Belgian-Style Dubbel",7,10,"07-01-2018"]
+      ["Belgian-Style Blond Ale", "Belgian-Style Dubbel"],
+      [2,1,3,4,5,6,7],
+      [4,5,5,5,6,7,8,9,9,10]
     ],
     decksCreated:[],
     badgesEarned:[],
@@ -34,10 +37,12 @@ const UserInfoSeed = [
     userName: "Eddie",
     email: "erodriguez87@gmail.com",
     decksCompleted: [
-      ["Belgian-Style Dubbel",7,10,"07-01-2018"],["Belgian-Style Dubbel",8,10,"07-01-2018"],["Belgian-Style Dubbel",9,10,"07-01-2018"],["Belgian-Style Dubbel",10,10,"07-01-2018"]
+      ["Belgian-Style Blond Ale", "Belgian-Style Dubbel"],
+      [2,1,3,4,5,6,7],
+      [4,5,5,5,6,7,8,9,9,10]
     ],
     decksCreated:[],
-    badgesEarned:[],
+    badgesEarned:["Belgian-Style Dubbel"],
     loggedInDates:["06-30-2018","06-27-2018"]
   }
 ];
@@ -46,7 +51,7 @@ db.User
 .remove({})
 .then(() => db.User.collection.insertMany(UserInfoSeed))
 .then(data => {
-  console.log(data.insertedIds.length + " users inserted!");
+  console.log(UserInfoSeed.length + " users inserted!");
   process.exit(0);
 })
 .catch(err => {

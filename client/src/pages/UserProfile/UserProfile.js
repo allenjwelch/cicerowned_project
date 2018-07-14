@@ -47,6 +47,7 @@ class UserProfile extends Component {
   } 
   
   componentDidMount() {
+    //checks that the user data is loaded before the page
     this.loadUserbyId(this.props.email);
   }
 
@@ -54,7 +55,8 @@ class UserProfile extends Component {
     API.loadUserbyId(this.props.email)
       .then(res =>
         // use the variables passed onto state below to populate user information
-        this.setState({ decksCompleted: res.data[0].decksCompleted, deckScore: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
+        
+        this.setState({ decksCompleted: res.data[0].decksCompleted.map, deckScore: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
       )
       .catch(err => console.log(err));
   };
