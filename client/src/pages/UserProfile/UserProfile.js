@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Col, CardPanel, Card, Container } from "react-materialize";
-// import Slider from '../../components/Slider/Slider';
 import BarChart from '../../components/Charts/BarChart';
 import StreamGraph from '../../components/Charts/StreamGraph';
 import worlddata from '../../components/Charts/world';
@@ -26,13 +25,13 @@ const colorScale = scaleThreshold().domain([5,10,20,30]).range(["#75739F", "#5EA
 
 
 class UserProfile extends Component {
+  
   constructor(props){
     super(props)
     this.onResize = this.onResize.bind(this)
     this.onHover = this.onHover.bind(this)
     this.onBrush = this.onBrush.bind(this)
-    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40] }
-
+    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40], email: this.props.email }
   }
 
   onResize() {
@@ -69,6 +68,7 @@ class UserProfile extends Component {
       .filter((d,i) => d.launchday >= this.state.brushExtent[0] && d.launchday <= this.state.brushExtent[1])
     return (
       <div>
+        {console.log(this.props)}
         <Row>
           <Col s={12} m={12}>
             <CardPanel className="teal lighten-4 black-text center-align">
@@ -108,7 +108,8 @@ class UserProfile extends Component {
         </Container>
         </Row>
 
-        <Achievement />
+        <Achievement {...this.props}
+        />
     
       <Container>
       <div className="chart">
