@@ -4,6 +4,7 @@ import { Row, Col, CardPanel, Card, Container } from "react-materialize";
 import BarChart from '../../components/Charts/BarChart';
 import StreamGraph from '../../components/Charts/StreamGraph';
 import worlddata from '../../components/Charts/world';
+import Achievement from '../../components/Achievements';
 import { range } from 'd3-array';
 import { scaleThreshold } from 'd3-scale';
 import { geoCentroid } from 'd3-geo';
@@ -105,20 +106,7 @@ class UserProfile extends Component {
         </Container>
         </Row>
 
-        <Row>
-        <Container>
-        <Col m={12} s={12}>
-          <Card 
-          className='amber darken-1 center-align' 
-          textClassName='white-text' 
-          title={<i className="medium material-icons">local_activity</i>}>
-          <h3>Achievements</h3>
-          <img src={require("../../images/porter.locked.png")} alt= "porter-locked" width="15%"  />
-          <img src={require("../../images/lagerpils.locked.png")} alt= "lagerpils-locked" width="15%"  />
-          </Card>
-        </Col>
-        </Container>
-        </Row>
+        <Achievement />
     
       <Container>
       <div className="chart">
