@@ -15,9 +15,19 @@ class ChatRoom extends Component {
       timestamp 
     }));
   }
+
+  state = {
+    user: this.props, 
+    timestamp: 'no timestamp yet',
+    chatInput: '',
+    chatHistory: [],
+  };
   
   componentDidMount() {
     this.registerHandler(this.onMessageReceived)
+  }
+
+  componentDidUpdate() {
   }
 
   registerHandler(onMessageReceived) {
@@ -29,8 +39,12 @@ class ChatRoom extends Component {
     console.log('onMessageReceived:', entry);
     let chatLog = []; 
     chatLog.push(...this.state.chatHistory); 
-    chatLog.push(entry)
-    this.setState({ chatHistory: chatLog })
+    chatLog.push(entry);
+    this.setState({ chatHistory: chatLog });
+    // setTimeout(this.updateScroll,3000);
+    // this.scrollChatToBottom()
+
+    // this.updateScroll();
     // this.updateChatHistory(entry)
   }
 
@@ -43,12 +57,7 @@ class ChatRoom extends Component {
   // }
  
 
-  state = {
-    user: this.props, 
-    timestamp: 'no timestamp yet',
-    chatInput: '',
-    chatHistory: [],
-  };
+ 
 
   
 
@@ -60,11 +69,14 @@ class ChatRoom extends Component {
     });
   };
 
-  // getChat = () =>{
-  //   socket.on('chat message', function(msg){
-  //     this.setState( {incomingChat : msg })
-  //   });
+  // updateScroll(){
+  //   const element = document.getElementsByClassName("chatDiv");
+  //   element.scrollTop = element.scrollHeight;
   // }
+
+  scrollChatToBottom() {
+    this.panel.scrollTo(0, this.panel.scrollHeight)
+  }
 
   sendChat = event => {
     event.preventDefault();
@@ -93,7 +105,7 @@ class ChatRoom extends Component {
         </p> */}
         {
           this.state.chatHistory.length ? (
-           <Collection id="messages">
+           <Collection className="chatBox" innerRef={(panel) => { this.panel = panel; }}>
             {this.state.chatHistory.map(chats => (
               <CollectionItem key={chats}>
                 {chats}

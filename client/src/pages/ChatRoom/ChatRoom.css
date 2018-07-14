@@ -1,0 +1,10 @@
+.chatBox{
+  margin: 20px 50px; 
+  padding: 20px;
+  width: auto;
+  height: 200px;
+  border-radius:10px; 
+  border: 4px solid black; 
+  position: relative; 
+  overflow: scroll;
+}
