@@ -29,18 +29,18 @@ module.exports = {
         {email:req.params.id},
         {
          $set:{ email: req.params.id},
-          userName: "test",
-          decksCompleted: [],
-          decksCreated: [],
-          badgesEarned: [],
-          loggedInDates:[]
+         $set:{ userName: "test"},
+         $set:{decksCompleted: []},
+         $set:{decksCreated: []},
+         $set:{badgesEarned: []},
+         $set:{loggedInDates:[]}
         },
         {
           upsert:true,
           setDefaultOnInsert:true
         }, 
        )
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => res.json(dbModel), console.log(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
