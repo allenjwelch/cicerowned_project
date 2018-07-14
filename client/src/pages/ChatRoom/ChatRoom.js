@@ -42,7 +42,7 @@ class ChatRoom extends Component {
     chatLog.push(entry);
     this.setState({ chatHistory: chatLog });
     // setTimeout(this.updateScroll,3000);
-    // this.scrollChatToBottom()
+    this.scrollChatToBottom()
 
     // this.updateScroll();
     // this.updateChatHistory(entry)
@@ -74,8 +74,10 @@ class ChatRoom extends Component {
   //   element.scrollTop = element.scrollHeight;
   // }
 
-  scrollChatToBottom() {
-    this.panel.scrollTo(0, this.panel.scrollHeight)
+  scrollChatToBottom = () => {
+    // this.panel.scrollTo(0, this.panel.scrollHeight)
+    console.log(this.panel); 
+    // this.panel.scrollTop = this.panel.scrollHeight;
   }
 
   sendChat = event => {
@@ -105,7 +107,7 @@ class ChatRoom extends Component {
         </p> */}
         {
           this.state.chatHistory.length ? (
-           <Collection className="chatBox" innerRef={(panel) => { this.panel = panel; }}>
+           <Collection className="chatBox" ref={(panel) => { this.panel = panel; }}>
             {this.state.chatHistory.map(chats => (
               <CollectionItem key={chats}>
                 {chats}
