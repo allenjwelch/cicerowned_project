@@ -36,6 +36,7 @@
     "if-env": "^1.0.4",
     "mongoose": "^5.1.7",
     "react-materialize": "^2.3.3",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "socket.io": "^2.1.1"
   }
 }
