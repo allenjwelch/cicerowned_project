@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// Defining methods for the beersController
+// Defining methods for the flashCardController
 module.exports = {
   findByStyle: function(req, res) {
     db.Beer

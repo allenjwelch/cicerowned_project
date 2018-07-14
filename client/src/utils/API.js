@@ -23,10 +23,14 @@ export default {
     return axios.get("/api/decks");
   },
   
-
   // Gets the users by family name
   getUserDecks: function() {
     return axios.get("/api/decks/user");
+  },
+
+  // Gets the public decks by deck name
+  getUserDecks: function() {
+    return axios.get("/api/decks/pub");
   },
 
   // Users
@@ -54,6 +58,10 @@ export default {
   ////////////////////////////
   getPubDecks: function() {
     return axios.get("/api/pubdecks");
+  },
+
+  savePubDecks: function(publicDeck) {
+    return axios.post("/api/pubdecks", publicDeck);
   }
 
   // // Gets the beer with the given id
