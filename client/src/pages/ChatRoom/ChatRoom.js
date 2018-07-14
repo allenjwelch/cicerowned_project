@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Input, Button } from 'react-materialize';
+import { Row, Col, Input, Button, Collection, CollectionItem } from 'react-materialize';
 // import API from "../../utils/API"; 
 import './ChatRoom.css'; 
 import {subscribeToTimer} from "../../chat.js";
@@ -16,36 +16,42 @@ class ChatRoom extends Component {
     }));
   }
   
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     response: false,
-  //     endpoint: "http://127.0.0.1:4001"
-  //   };
+  componentDidMount() {
+    this.registerHandler(this.onMessageReceived)
+  }
+
+  registerHandler(onMessageReceived) {
+    console.log('in registerHandler')
+    socket.on('chat message', onMessageReceived)
+  }
+
+  onMessageReceived = (entry) => {
+    console.log('onMessageReceived:', entry);
+    let chatLog = []; 
+    chatLog.push(...this.state.chatHistory); 
+    chatLog.push(entry)
+    this.setState({ chatHistory: chatLog })
+    // this.updateChatHistory(entry)
+  }
+
+  // updateChatHistory(entry) {
+  //   this.setState({ chatHistory: entry })
   // }
+  
+  // componentWillUnmount() {
+  //   clearInterval(this.interval);
+  // }
+ 
 
   state = {
+    user: this.props, 
     timestamp: 'no timestamp yet',
     chatInput: '',
-    // response: false,
-    // endpoint: "http://localhost:8000"
+    chatHistory: [],
   };
 
   
-  // componentDidMount() {
-  //   const { endpoint } = this.state.endpoint;
-  //   const socket = socketIOClient(this.state.endpoint);
-  //   socket.on("FromAPI", data => this.setState({ response: data }));
-  // }
 
-  // $(function () {
-  //   var socket = io();
-  //   $('form').submit(function(){
-  //     socket.emit('chat message', $('#m').val());
-  //     $('#m').val('');
-  //     return false;
-  //   });
-  // });
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -54,10 +60,16 @@ class ChatRoom extends Component {
     });
   };
 
+  // getChat = () =>{
+  //   socket.on('chat message', function(msg){
+  //     this.setState( {incomingChat : msg })
+  //   });
+  // }
+
   sendChat = event => {
     event.preventDefault();
     // const socket = io();
-    socket.emit('chat message', this.state.chatInput);
+    socket.emit('chat message', this.state.user.name + ': ' + this.state.chatInput);
 
     // socket.on("connect", () => {
     //   console.log('socket established'); 
@@ -66,24 +78,33 @@ class ChatRoom extends Component {
     // });
     // const socket = socketIOClient(this.state.endpoint);
     // socket.emit('chat message', this.state.chatInput);
-    console.log(this.state.chatInput); 
+    console.log('sending chat: ', this.state.chatInput); 
+    console.log('user: ', this.state.user); 
+    this.setState({ chatInput: '' }); 
+
   }
  
   render() {
     return (
       <div>
-        <p className="chat">
+        {/* <p className="chat">
           This is the timer value: {this.state.timestamp}
           Response Data: { this.state.response }
-        </p>
-        <ul id="messages">
-        {/* {
-          socket.on('chat message', function(msg){
-            // <li>{msg}</li>
-            console.log(msg)
-          })
-        } */}
-        </ul>
+        </p> */}
+        {
+          this.state.chatHistory.length ? (
+           <Collection id="messages">
+            {this.state.chatHistory.map(chats => (
+              <CollectionItem key={chats}>
+                {chats}
+              </CollectionItem>
+            ))}
+          </Collection>
+          ) : (
+            <h4>No Chatting Yet</h4>
+          )
+        }
+        {console.log('chat history: ', this.state.chatHistory)}
         <form action="">
           <Input 
             s={12} 
