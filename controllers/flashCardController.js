@@ -16,7 +16,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  findByStyle: function(req, res) {
+  findPubByStyle: function(req, res) {
     db.Pubdeck
       .distinct('deckName')
       .then(dbModel => res.json(dbModel))

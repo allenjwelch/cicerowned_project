@@ -29,7 +29,7 @@ export default {
   },
 
   // Gets the public decks by deck name
-  getUserDecks: function() {
+  getPubDecks: function() {
     return axios.get("/api/decks/pub");
   },
 

@@ -114,8 +114,11 @@ class FlashCards extends Component {
                   </div> :
 
                   <div className="front">
-                    <h2>Deck Name</h2>
-                    <h3>Question</h3>
+                    {/* <h2>Deck Name</h2>
+                    <h3>Question</h3> */}
+                    <h2>{this.state.activeDeck[this.state.cardPos].deckName}</h2>
+                    <h3>{this.state.activeDeck[this.state.cardPos].front}</h3>
+
                   </div>
               }
 
@@ -137,7 +140,11 @@ class FlashCards extends Component {
                   </div>  :
 
                   <div className="back">
-                    <h3>Answer</h3>
+                    {/* <h3>Answer</h3> */}
+                    <h3>{this.state.activeDeck[this.state.cardPos].back}</h3>
+                    <a className="flashCardBtns" id="nailed" onClick={this.nailedIt}>Nailed it!</a>
+                    <a className="flashCardBtns" id="almost" onClick={this.changeCard}>Almost...</a>
+                    <a className="flashCardBtns" id="failed" onClick={this.failedIt}>Failed it</a>
                   </div>
               }
           </div>
