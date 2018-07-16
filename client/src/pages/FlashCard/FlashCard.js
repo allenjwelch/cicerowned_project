@@ -23,21 +23,25 @@ class FlashCard extends Component {
   //TODO function to make API call to save user decks to state
   componentDidMount() {
     // this.loadUserData()
-    this.loadUserDecks()
-    this.loadStyleDecks()
+    // this.loadUserDecks()
     this.loadAllDecks()
+    this.loadStyleDecks()
     this.loadPublicDecks()
   }
 
-  loadAllDecks = () => {
+   loadAllDecks = () => {
     API.getBeers()
       .then(res => 
         this.setState({ allBeers: res.data }) )
-      .then(this.loadPublicDecks)
-      .then(() =>
-        this.setState({ allBeers: [...this.state.allBeers, ...this.state.pubDecks]})
-      )
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
+
+      .then(
+        API.getAllPubDecks()
+        .then(res => 
+          this.setState({ allBeers: [...this.state.allBeers, ...res.data] })
+        ))
+      
+        .catch(err => console.log(err));
   };
 
   //TODO need to change to pulling ONLY from user's profile
@@ -49,14 +53,14 @@ class FlashCard extends Component {
   // };
 
   // GETs distinct styles from user decks
-  loadUserDecks = () => {
-    //! TODO: Needs to first find by user then pull back user custom cards    
-    API.getUserDecks()
-      .then(res => 
-        // console.log(res.data))
-        this.setState({ userDecks: res.data }) )
-      .catch(err => console.log(err));
-  };
+  // loadUserDecks = () => {
+  //   //! TODO: Needs to first find by user then pull back user custom cards    
+  //   API.getUserDecks()
+  //     .then(res => 
+  //       // console.log(res.data))
+  //       this.setState({ userDecks: res.data }) )
+  //     .catch(err => console.log(err));
+  // };
 
   // Loads all beer style decks to the "Add a Deck" Btn fro user to choose and add to their profile. 
   loadStyleDecks = () => {
@@ -88,22 +92,22 @@ class FlashCard extends Component {
   }
 
   //! TODO: function for adding beer style deck from "Add a Deck" to user's profile.
-  addDeckToUser = (familyName) => {  
-    function filterByFamily(beer) {
-      if (beer.familyName === familyName) {
-        return true;
-      } 
-      return false; 
-    }
-    console.log('state.user', this.state.user)
+  // addDeckToUser = (familyName) => {  
+  //   function filterByFamily(beer) {
+  //     if (beer.familyName === familyName) {
+  //       return true;
+  //     } 
+  //     return false; 
+  //   }
+  //   console.log('state.user', this.state.user)
 
-    let beerFamily = this.state.allBeers.filter(filterByFamily);
-    //TODO: instead of setting to state, need to post to User's profile, then loadUserDecks pull distinct from user
-    this.setState({ userDecks: beerFamily });
-    // console.log('userDecks', this.state.userDecks); 
-    // this.loadUserDecks()
+  //   let beerFamily = this.state.allBeers.filter(filterByFamily);
+  //   //TODO: instead of setting to state, need to post to User's profile, then loadUserDecks pull distinct from user
+  //   this.setState({ userDecks: beerFamily });
+  //   // console.log('userDecks', this.state.userDecks); 
+  //   // this.loadUserDecks()
 
-  }
+  // }
 
  
 
@@ -137,8 +141,8 @@ class FlashCard extends Component {
                   {
                     this.state.pubDecks.map(deck => (
 
-                    <CollectionItem style={{"cursor":"pointer"}} key={deck.deckName} onClick={() => this.addDeckToUser(deck.deckName)} >
-                      {deck.deckName}
+                    <CollectionItem style={{"cursor":"pointer"}} key={deck} onClick={() => this.addDeckToUser(deck)} >
+                      {deck}
                     </CollectionItem>
                     ))
                   }
@@ -169,8 +173,8 @@ class FlashCard extends Component {
                 { this.state.pubDecks.length ? 
                     
                     this.state.pubDecks.map(deck => (
-                      <CollectionItem style={{"cursor":"pointer"}} key={deck.deckName} onClick={() => this.loadActiveDeck(deck.deckName)} >
-                        {deck.deckName}
+                      <CollectionItem style={{"cursor":"pointer"}} key={deck} onClick={() => this.loadActiveDeck(deck)} >
+                        {deck}
                       </CollectionItem>
                     ))
                     : <p>There are currenyl no public decks to choose from. Create a new deck to add to our community collection!</p>

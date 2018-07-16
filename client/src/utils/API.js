@@ -56,7 +56,7 @@ export default {
   },
 
   ////////////////////////////
-  getPubDecks: function() {
+  getAllPubDecks: function() {
     return axios.get("/api/pubdecks");
   },
 

@@ -18,7 +18,7 @@ class FlashCards extends Component {
     cardArray = Object.keys(obj).map(function(key) {
       return obj[key];
     });
-    this.setState({ activeDeck : cardArray }) 
+    this.setState({ activeDeck : cardArray, cardPos: 0, flipped: false  }) 
     return cardArray; 
     // this.setState({ activeDeck: nextProps, cardPos: 0 }); 
   }
@@ -40,7 +40,7 @@ class FlashCards extends Component {
   flip = () => {
     if (this.state.flipped === false) {
       this.setState({ flipped: true });
-      console.log(this.state.activeDeck)
+      // console.log(this.state.activeDeck)
     } else {
       this.setState({ flipped: false });
     }
@@ -98,7 +98,8 @@ class FlashCards extends Component {
   render() {
     return (
       <div className="flashCardContainer" >
-        {console.log(this.state.activeDeck)}
+        {console.log('activeDeck: ', this.state.activeDeck)}
+        {console.log('cardPos: ', this.state.cardPos)}
         <Col offset="m1 l1 xl1" s={12} m={10} l={10} xl={10} className='cardContainer'>
           <div 
             onClick={this.flip}
