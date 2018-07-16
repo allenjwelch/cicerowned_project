@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API"; 
-import { Collapsible, CollapsibleItem, Button, Row, Col, Collection, CollectionItem, Modal } from 'react-materialize';
+import { Collapsible, CollapsibleItem, Button, Row, Col, Collection, CollectionItem, Modal, Input } from 'react-materialize';
 import FlashCards from "../../components/FlashCards";
 import "./FlashCard.css";
 // let _ = require("lodash");
@@ -16,8 +16,11 @@ class FlashCard extends Component {
     beerStyles: [], 
     pubDecks: [], 
     allBeers: [], 
-    userDecks: [], 
+    userDecks: [], //! MAY NOT NEED
     activeDeck: [], 
+    beerSearch: '', 
+    brewerySearch: '',
+    searchResults: [],
   }
 
   //TODO function to make API call to save user decks to state
@@ -109,17 +112,38 @@ class FlashCard extends Component {
 
   // }
 
- 
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+    console.log('beerSearch: ', this.state.beerSearch); 
+    console.log('brewerySearch: ', this.state.brewerySearch); 
+  };
+
+  beerSearchBtn = event => {
+    event.preventDefault();
+    let query = this.state.beerSearch + ' ' + this.state.brewerySearch;
+      API.untapped(query)
+        .then(res => {
+          this.setState({ 
+            searchResults: res.data, 
+            beerSearch: '',
+            brewerySearch: '',
+          })})
+        .then(console.log(this.state.searchResults))
+        .catch(err => console.log(err));
+  };
 
   render() {
     return (
       <div>
         <h4>Flash Card Page</h4>
-      {/* {console.log(this.state.user)} */}
+      {/* {console.log(this.state)} */}
       {console.log('allBeers ', this.state.allBeers)}
-      {console.log('activeDeck ', this.state.activeDeck)}
+      {/* {console.log('activeDeck ', this.state.activeDeck)}
       {console.log('pubDecks ', this.state.pubDecks)}
-      {console.log('beerStyles ', this.state.beerStyles)}
+      {console.log('beerStyles ', this.state.beerStyles)} */}
         <Row>
           <Col s={12} m={8} l={8} xl={8} className='col1'>
 
@@ -130,6 +154,7 @@ class FlashCard extends Component {
             }
 
           </Col>
+         
           <Col s={12} m={4} l={4} xl={4} className='col2'>
             <Collapsible accordion defaultActiveKey={1}>
 
@@ -177,7 +202,7 @@ class FlashCard extends Component {
                         {deck}
                       </CollectionItem>
                     ))
-                    : <p>There are currenyl no public decks to choose from. Create a new deck to add to our community collection!</p>
+                    : <p>There are currently no public decks to choose from. Create a new deck to add to our community collection!</p>
           
                 }
                 </Collection>
@@ -186,6 +211,35 @@ class FlashCard extends Component {
             </Collapsible>
           </Col>
         </Row>
+
+        <Row>
+          <Col s={12} m={12} l={12} xl={12} className='col3'>
+            <form className='searchForm'>
+              <Input 
+                s={6} l={5}
+                label="Beer" 
+                name="beerSearch" 
+                value={this.state.beerSearch}
+                onChange={this.handleInputChange}
+              />
+              <Input 
+                s={6} l={5}
+                label="Brewery" 
+                name="brewerySearch" 
+                value={this.state.brewerySearch}
+                onChange={this.handleInputChange}
+              />
+              <Button 
+                l={2}
+                className="customCardBtns saveCreateNew teal darken-1" 
+                onClick={this.beerSearchBtn}>
+                  Explore
+              </Button>
+            </form> 
+
+          </Col>
+        </Row>
+
       </div>
 
     )

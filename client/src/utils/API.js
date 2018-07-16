@@ -1,4 +1,8 @@
 import axios from "axios";
+require('dotenv').config();
+const UNTAPPED = "https://api.untappd.com/v4/";
+const UNTAPPED_CLIENTID = process.env.UNTAPPED_CLIENTID; 
+const UNTAPPED_CLIENTSECRET = process.env.UNTAPPED_CLIENTSECRET; 
 
 export default {
   // Gets all beers
@@ -62,6 +66,10 @@ export default {
 
   savePubDecks: function(publicDeck) {
     return axios.post("/api/pubdecks", publicDeck);
+  },
+
+  untapped: function(query) {
+    return axios.get(`${UNTAPPED}search/beer?q=${query}&client_id=${UNTAPPED_CLIENTID}&client_secret=${UNTAPPED_CLIENTSECRET}`);
   }
 
   // // Gets the beer with the given id

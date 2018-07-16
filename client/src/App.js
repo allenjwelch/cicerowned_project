@@ -10,9 +10,11 @@ import UserProfile from "./pages/UserProfile";
 import FlashCard from "./pages/FlashCard"; 
 import CustomCard from "./pages/CustomCard"; 
 import Login404 from "./pages/Login404"; 
-
-// Auth0 imports
 import Callback from './components/CallBack';
+// Auth0 imports
+require('dotenv').config()
+
+
 // import Auth from './components/Auth';
 // import history from './components/Auth/history.js';
 
