@@ -6,7 +6,7 @@ const userSchema = new Schema({
     email: { type: String, required: true },
     signUpDate: { type: Date, default: Date.now },
     userDecks: {type: Array, default:[]},
-    decksCompleted: [[]],
+    decksCompleted: [],
     decksCreated: {type: Array, default:[]},
     badgesEarned: {type: Array, default:[]},
     loggedInDates: {type: Array, default:[]}

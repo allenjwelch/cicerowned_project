@@ -28,8 +28,8 @@ module.exports = {
       .findOneAndUpdate(
         {email:req.params.id},
         {
-         $set:{ email: req.params.id},
-         $set:{ userName: "test"},
+         $set:{email: req.params.id},
+         $set:{userName: "test"},
          $set:{decksCompleted: []},
          $set:{decksCreated: []},
          $set:{badgesEarned: []},

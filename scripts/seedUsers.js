@@ -26,7 +26,7 @@ const UserInfoSeed = [
     email: "susanldavenport@gmail.com",
     decksCompleted: [
       ["Pilseners and Pale Lagers", "Porters"],
-      [2,1,3,4,5,6,7],
+      [2,1,3,4,5,6,7,9,10,11,12],
       [4,5,5,5,6,7,8,9,9,10]
     ],
     decksCreated:[],
@@ -38,7 +38,7 @@ const UserInfoSeed = [
     email: "erodriguez87@gmail.com",
     decksCompleted: [
       ["Pilseners and Pale Lagers", "Porters"],
-      [2,1,3,4,5,6,7],
+      [2,1,3,4,5,6,7,9,10,11,12], //how well a user has done each time they take a quiz
       [4,5,5,5,6,7,8,9,9,10]
     ],
     decksCreated:[],

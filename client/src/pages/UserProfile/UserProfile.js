@@ -19,7 +19,14 @@ appdata
     d.data = range(30).map((p,q) => q < i ? 0 : Math.random() * 2 + offset)
   })
 
-let barData = [5,5,6,7,8,9,10];
+
+// let barData = [5,5,6,7,8,9,10];
+let barData = [];
+
+let updateBarData = function(pbarData) {
+  barData = pbarData
+  return barData;
+}
 
 const colorScale = scaleThreshold().domain([5,10,20,30]).range(["#75739F", "#5EAFC6", "#41A368", "#93C464"])
 
@@ -47,7 +54,6 @@ class UserProfile extends Component {
   } 
   
   componentDidMount() {
-    //checks that the user data is loaded before the page
     this.loadUserbyId(this.props.email);
   }
 
@@ -55,13 +61,17 @@ class UserProfile extends Component {
     API.loadUserbyId(this.props.email)
       .then(res =>
         // use the variables passed onto state below to populate user information
-        
-        this.setState({ decksCompleted: res.data[0].decksCompleted.map, deckScore: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
-      )
+        {
+          this.barData = res.data[0].decksCompleted[1];
+          console.log('============================================')
+          updateBarData(res.data[0].decksCompleted[1]);
+          console.log(barData);
+          this.setState({ decksCompleted: res.data[0].decksCompleted, barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
+        })
+      .then(console.log(this.state.deckScore))
       .catch(err => console.log(err));
   };
 
- 
 
   render() {
     const filteredAppdata = appdata
