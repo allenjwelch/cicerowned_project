@@ -10,6 +10,10 @@ class BarChart extends Component {
       this.createBarChart = this.createBarChart.bind(this)
    }
    componentDidMount() {
+      console.log('============================================================')
+      console.log('============================================================')
+      console.log('============================================================')
+      console.log(this.props.data)
       this.createBarChart()
    }
    componentDidUpdate() {
