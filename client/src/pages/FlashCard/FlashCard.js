@@ -141,6 +141,8 @@ class FlashCard extends Component {
         <h4>Flash Card Page</h4>
       {/* {console.log(this.state)} */}
       {console.log('allBeers ', this.state.allBeers)}
+      {console.log(process.env.REACT_APP_UNTAPPED_CLIENTSECRET)}
+      {console.log(process.env.REACT_APP_TEST)}
       {/* {console.log('activeDeck ', this.state.activeDeck)}
       {console.log('pubDecks ', this.state.pubDecks)}
       {console.log('beerStyles ', this.state.beerStyles)} */}
@@ -217,16 +219,16 @@ class FlashCard extends Component {
             <form className='searchForm'>
               <Input 
                 s={6} l={5}
-                label="Beer" 
-                name="beerSearch" 
-                value={this.state.beerSearch}
+                label="Brewery" 
+                name="brewerySearch" 
+                value={this.state.brewerySearch}
                 onChange={this.handleInputChange}
               />
               <Input 
                 s={6} l={5}
-                label="Brewery" 
-                name="brewerySearch" 
-                value={this.state.brewerySearch}
+                label="Beer" 
+                name="beerSearch" 
+                value={this.state.beerSearch}
                 onChange={this.handleInputChange}
               />
               <Button 

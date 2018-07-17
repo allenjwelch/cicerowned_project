@@ -12,7 +12,6 @@ import CustomCard from "./pages/CustomCard";
 import Login404 from "./pages/Login404"; 
 import Callback from './components/CallBack';
 // Auth0 imports
-require('dotenv').config()
 
 
 // import Auth from './components/Auth';

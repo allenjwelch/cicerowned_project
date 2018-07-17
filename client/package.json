@@ -15,7 +15,6 @@
     "d3-shape": "^1.2.0",
     "d3-svg-legend": "^2.25.6",
     "d3-transition": "^1.1.1",
-    "dotenv": "^6.0.0",
     "jwt-decode": "^2.2.0",
     "jwt-decoder": "0.0.0",
     "react": "^16.4.1",
@@ -29,5 +28,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "devDependencies": {}
 }

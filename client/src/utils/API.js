@@ -1,8 +1,7 @@
 import axios from "axios";
-require('dotenv').config();
 const UNTAPPED = "https://api.untappd.com/v4/";
-const UNTAPPED_CLIENTID = process.env.UNTAPPED_CLIENTID; 
-const UNTAPPED_CLIENTSECRET = process.env.UNTAPPED_CLIENTSECRET; 
+const UNTAPPED_CLIENTID = process.env.REACT_APP_UNTAPPED_CLIENTID; 
+const UNTAPPED_CLIENTSECRET = process.env.REACT_APP_UNTAPPED_CLIENTSECRET; 
 
 export default {
   // Gets all beers

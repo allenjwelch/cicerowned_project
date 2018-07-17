@@ -5,7 +5,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import Auth from './components/Auth/Auth.js';
 import API from "./utils/API"; 
-require('dotenv').config()
 
 
 
