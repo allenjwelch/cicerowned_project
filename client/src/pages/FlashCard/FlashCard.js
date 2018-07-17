@@ -123,7 +123,8 @@ class FlashCard extends Component {
 
   beerSearchBtn = event => {
     event.preventDefault();
-    let query = this.state.beerSearch + ' ' + this.state.brewerySearch;
+    let query = this.state.brewerySearch + ' ' + this.state.beerSearch + ' ';
+    console.log(query);
       API.untapped(query)
         .then(res => {
           this.setState({ 
@@ -141,8 +142,7 @@ class FlashCard extends Component {
         <h4>Flash Card Page</h4>
       {/* {console.log(this.state)} */}
       {console.log('allBeers ', this.state.allBeers)}
-      {console.log(process.env.REACT_APP_UNTAPPED_CLIENTSECRET)}
-      {console.log(process.env.REACT_APP_TEST)}
+      {/* {console.log(process.env.REACT_APP_UNTAPPED_CLIENTSECRET)} */}
       {/* {console.log('activeDeck ', this.state.activeDeck)}
       {console.log('pubDecks ', this.state.pubDecks)}
       {console.log('beerStyles ', this.state.beerStyles)} */}
@@ -238,6 +238,41 @@ class FlashCard extends Component {
                   Explore
               </Button>
             </form> 
+          </Col>
+        </Row>
+          <Row>
+            <Col s={12} m={12} l={12} xl={12} className='col4'>
+                {this.state.searchResults.hasOwnProperty('response') ? 
+                  <div>
+                    <h3>{this.state.searchResults.response.beers.items[0].brewery.brewery_name}</h3>
+                    <h4>{this.state.searchResults.response.beers.items[0].beer.beer_name}</h4>
+                    <p>ABV: {this.state.searchResults.response.beers.items[0].beer.beer_abv}</p>
+                    <p>IBU: {this.state.searchResults.response.beers.items[0].beer.beer_ibu}</p>
+                    <p>Description: {this.state.searchResults.response.beers.items[0].beer.beer_description}</p>
+                    <img src={this.state.searchResults.response.beers.items[0].beer.beer_label} alt="beer label"/>
+                    
+                  </div>
+                : <h3>Search results unavailable</h3> }
+              {/* <Modal
+                header='Select a deck to add to your stack'
+                trigger={
+                  <Button 
+                    l={2}
+                    className="customCardBtns saveCreateNew teal darken-1" 
+                    onClick={this.beerSearchBtn}>
+                      Explore
+                  </Button>}>
+                {this.state.searchResults.length ? 
+                  <div>
+                    <h3>{this.state.searchResults.response.beers.items[0].brewery.brewery_name}</h3>
+                    <h3>{this.state.searchResults.response.beers.items[0].brewery.brewery_name}</h3>
+                    <h3>{this.state.searchResults.response.beers.items[0].beer.beer_description}</h3>
+                    <h3></h3>
+                    <h3></h3>
+                  </div>
+                : <h3>Search results unavailable</h3> }
+              </Modal> */}
+            
 
           </Col>
         </Row>
