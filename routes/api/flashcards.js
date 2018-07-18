@@ -8,5 +8,7 @@ router.route("/")
 router.route("/user")
   .get(flashCardController.findUserDecks);
 
-
+  router.route("/pub")
+  .get(flashCardController.findPubByStyle);
+  
 module.exports = router;

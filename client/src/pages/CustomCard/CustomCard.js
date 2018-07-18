@@ -25,42 +25,37 @@ class CustomCard extends Component {
   //! FUNCTIONS SHOULD ALSO SAVE CARD TO USER'S DECKS
   handleSaveCreate = event => {
     event.preventDefault();
-    this.setState({ cardFront: '', cardBack: '' }); 
-    console.log(this.state)
-    // if (this.state.DeckName && this.state.cardFront && this.state.cardBack) {
-    //   API.saveCard({
-    //     deckName: this.state.deckName,
-    //     cardFront: this.state.cardFront,
-    //     cardBack: this.state.cardBack
-    //   })
-    //     .then(
-    //       this.setState({ 
-    //         cardFront: '',
-    //         cardBack: '',
-    //     }))
-    //     .catch(err => console.log(err));
-    // }
+    API.savePubDecks({
+      deckType: 'public',
+      deckName: this.state.deckName,
+      front: this.state.cardFront,
+      back: this.state.cardBack
+    })
+    .then(
+      this.setState({ 
+          cardFront: '',
+          cardBack: '',
+      }))
+    .then(console.log(this.state))
+    .catch(err => console.log(err));
   };
-
+  
   handleSaveFinish = event => {
     event.preventDefault();
-    this.setState({ deckName: '', cardFront: '', cardBack: '' }); 
-    console.log(this.state)
-    // if (this.state.DeckName && this.state.cardFront && this.state.cardBack) {
-    //   API.saveCard({
-    //     deckName: this.state.deckName,
-    //     cardFront: this.state.cardFront,
-    //     cardBack: this.state.cardBack
-    //   })
-    //     .then(
-    //       this.setState({ 
-    //         deckName: '',
-    //         cardFront: '',
-    //         cardBack: '',
-    //     }))
-    //     .then(console.log(this.state))
-    //     .catch(err => console.log(err));
-    // }
+      API.savePubDecks({
+          deckType: 'public',
+          deckName: this.state.deckName,
+          front: this.state.cardFront,
+          back: this.state.cardBack
+        })
+        .then(
+          this.setState({ 
+              deckName: '',
+              cardFront: '',
+              cardBack: '',
+          }))
+        .then(console.log(this.state))
+        .catch(err => console.log(err));
   };
 
   
@@ -72,7 +67,7 @@ class CustomCard extends Component {
             <h3>Directions on making your custom flashcard!</h3>
         </Row>
         <Row>  
-            <form>
+            <form className="customForm">
               {/* <Button className="customCardBtns createNewDeck" onClick={this.handleFormSubmit}>Create a new Deck</Button> */}
               <Input 
                 s={12} 

@@ -15,15 +15,51 @@ const PublicDeckSeed = [
   },
   {
     deckType: "public",
+    deckName: "Public Deck 1", 
+    front: "Q2", 
+    back: "A2"
+  },
+  {
+    deckType: "public",
+    deckName: "Public Deck 1", 
+    front: "Q3", 
+    back: "A3"
+  },
+  {
+    deckType: "public",
     deckName: "Public Deck 2", 
     front: "Q1", 
     back: "A1"
   },
   {
     deckType: "public",
+    deckName: "Public Deck 2", 
+    front: "Q2", 
+    back: "A2"
+  },
+  {
+    deckType: "public",
+    deckName: "Public Deck 2", 
+    front: "Q3", 
+    back: "A3"
+  },
+  {
+    deckType: "public",
     deckName: "Public Deck 3", 
     front: "Q1", 
     back: "A1"
+  },
+  {
+    deckType: "public",
+    deckName: "Public Deck 3", 
+    front: "Q2", 
+    back: "A2"
+  },
+  {
+    deckType: "public",
+    deckName: "Public Deck 3", 
+    front: "Q3", 
+    back: "A3"
   }
 
 ];
@@ -32,7 +68,7 @@ db.Pubdeck
 .remove({})
 .then(() => db.Pubdeck.collection.insertMany(PublicDeckSeed))
 .then(data => {
-  console.log(data.insertedIds.length + " public decks inserted!");
+  console.log(PublicDeckSeed.length + " public decks inserted!");
   process.exit(0);
 })
 .catch(err => {
