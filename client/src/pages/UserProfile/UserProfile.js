@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col, CardPanel, Card, Container } from "react-materialize";
-// import Slider from '../../components/Slider/Slider';
 import BarChart from '../../components/Charts/BarChart';
 import StreamGraph from '../../components/Charts/StreamGraph';
 import worlddata from '../../components/Charts/world';
+import Achievement from '../../components/Achievements';
 import { range } from 'd3-array';
 import { scaleThreshold } from 'd3-scale';
 import { geoCentroid } from 'd3-geo';
@@ -19,19 +19,32 @@ appdata
     d.data = range(30).map((p,q) => q < i ? 0 : Math.random() * 2 + offset)
   })
 
-let barData = [5,5,6,7,8,9,10];
+
+// let barData = [5,5,6,7,8,9,10];
+let barData = [];
+
+let updateBarData = function(barObject,pbarData,familyChosen) {
+  if (familyChosen == null){
+    barData = pbarData
+  } else {
+    let barIndex = barObject[0].indexOf(familyChosen);
+    barData = barObject[barIndex+1]
+  }
+
+  return barData;
+}
 
 const colorScale = scaleThreshold().domain([5,10,20,30]).range(["#75739F", "#5EAFC6", "#41A368", "#93C464"])
 
 
 class UserProfile extends Component {
+  
   constructor(props){
     super(props)
     this.onResize = this.onResize.bind(this)
     this.onHover = this.onHover.bind(this)
     this.onBrush = this.onBrush.bind(this)
-    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40] }
-
+    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40], email: this.props.email }
   }
 
   onResize() {
@@ -54,18 +67,24 @@ class UserProfile extends Component {
     API.loadUserbyId(this.props.email)
       .then(res =>
         // use the variables passed onto state below to populate user information
-        this.setState({ decksCompleted: res.data[0].decksCompleted, deckScore: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
-      )
+        {
+          this.barData = res.data[0].decksCompleted[1];
+          updateBarData(res.data[0].decksCompleted,res.data[0].decksCompleted[1],"Porters"); // manually calling a function to update bar data, this allows the data to be passed to the d3js charts
+
+          this.setState({ decksCompleted: res.data[0].decksCompleted, barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
+        })
+      .then(console.log(this.state.deckScore))
       .catch(err => console.log(err));
   };
 
- 
+
 
   render() {
     const filteredAppdata = appdata
       .filter((d,i) => d.launchday >= this.state.brushExtent[0] && d.launchday <= this.state.brushExtent[1])
     return (
       <div>
+        {console.log(this.props)}
         <Row>
           <Col s={12} m={12}>
             <CardPanel className="teal lighten-4 black-text center-align">
@@ -105,31 +124,38 @@ class UserProfile extends Component {
         </Container>
         </Row>
 
-        <Row>
-        <Container>
-        <Col m={12} s={12}>
-          <Card 
-          className='amber darken-1 center-align' 
-          textClassName='white-text' 
-          title={<i className="medium material-icons">local_activity</i>}>
-          <h3>Achievements</h3>
-          <img src={require("../../images/porter.locked.png")} alt= "porter-locked" width="15%"  />
-          <img src={require("../../images/lagerpils.locked.png")} alt= "lagerpils-locked" width="15%"  />
-          </Card>
-        </Col>
-        </Container>
-        </Row>
+        <Achievement {...this.props}
+        />
     
-      <Container>
-      <div className="chart">
-        <div>
-          <BarChart data={barData} size={[500,500]} />
-        </div>
-        <div>
-          {/* <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} /> */}
-        </div>
-        </div>
-      </Container>
+      <Row>
+        <Container>
+          <Col m={12} s={12}>
+            <Card className='amber darken-1 center-align' textClassName='white-text'>
+              <h3>Chart for : FAMILY NAME GOES HERE</h3>
+            </Card>
+          </Col>
+        </Container>
+      </Row>
+
+      <Row>
+        <Container>
+          <Col m={6} s={12}>
+            <div className="barchart">
+              <div>
+                <BarChart data={barData} size={[500,500]} />
+              </div>
+            </div>
+          </Col>
+
+          <Col m={6} s={12}>
+            <div className="streamchart">
+              <div>
+                {/* <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} /> */}
+              </div>
+            </div>
+          </Col>
+        </Container>
+      </Row>
       </div>
     );
   }

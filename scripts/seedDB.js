@@ -1379,7 +1379,7 @@ mongoose.connect(
     .remove({})
     .then(() => db.Beer.collection.insertMany(beerStylesSeed))
     .then(data => {
-      console.log(data.insertedIds.length + " beers inserted!");
+      console.log(beerStylesSeed.length + " beers inserted!");
       process.exit(0);
     })
     .catch(err => {
