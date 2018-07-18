@@ -67,7 +67,7 @@ class CustomCard extends Component {
             <h3>Directions on making your custom flashcard!</h3>
         </Row>
         <Row>  
-            <form>
+            <form className="customForm">
               {/* <Button className="customCardBtns createNewDeck" onClick={this.handleFormSubmit}>Create a new Deck</Button> */}
               <Input 
                 s={12} 
