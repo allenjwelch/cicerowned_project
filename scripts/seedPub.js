@@ -68,7 +68,7 @@ db.Pubdeck
 .remove({})
 .then(() => db.Pubdeck.collection.insertMany(PublicDeckSeed))
 .then(data => {
-  console.log(data.insertedIds.length + " public decks inserted!");
+  console.log(PublicDeckSeed.length + " public decks inserted!");
   process.exit(0);
 })
 .catch(err => {

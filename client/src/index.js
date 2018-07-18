@@ -25,26 +25,6 @@ let user = {
 }
 
 
-// let checkUser = () => {
-//   API.loadUserbyId(user.email)
-//     .then(res => 
-//       // res.data[0].signUpDate === undefined ? console.log('new user ', res.data, res.data[0].signUpDate) :  console.log('existing user ', res.data, res.data[0].signUpDate)
-
-//       // res.data.signUpDate === undefined  ? console.log('new user ', res.data, res.data[0].signUpDate) : 
-
-//       user.userData =  {
-//         signUpDate: res.data[0].signUpDate,
-//         userDecks: res.data[0].userDecks,
-//         decksCompleted: res.data[0].decksCompleted,
-//         decksCreated: res.data[0].decksCreated,
-//         badgesEarned: res.data[0].badgesEarned,
-//         loggedInDates: res.data[0].loggedInDates
-//       } , 
-//       // console.log('user', user)
-//     )
-//     .catch(err => console.log(err));
-// }
-
 let updateByEmail = () => {
   API.updateUser(user.email)
     .then(res =>
