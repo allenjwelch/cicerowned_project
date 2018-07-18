@@ -3,9 +3,10 @@ import { Row, Col, Input, Button, Collection, CollectionItem } from 'react-mater
 // import API from "../../utils/API"; 
 import './ChatRoom.css'; 
 import {subscribeToTimer} from "../../chat.js";
-import io from 'socket.io-client';
- 
+import io from 'socket.io-client'; 
 const socket = io('http://localhost:8000');
+
+//! TODO: IMPORT beer images and create array to assign to user when entering chat
 
 
 class ChatRoom extends Component {
@@ -75,9 +76,10 @@ class ChatRoom extends Component {
   // }
 
   scrollChatToBottom = () => {
-    // this.panel.scrollTo(0, this.panel.scrollHeight)
+    // this.panel.scrollTo(0, 1000)
     console.log(this.panel); 
-    // this.panel.scrollTop = this.panel.scrollHeight;
+    // this.panel.scrollTop = 1000;
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   }
 
   sendChat = event => {
@@ -105,34 +107,54 @@ class ChatRoom extends Component {
           This is the timer value: {this.state.timestamp}
           Response Data: { this.state.response }
         </p> */}
+        {/* <Row>
+          <Col s={12} m={12} l={12} xl={12}> */}
         {
           this.state.chatHistory.length ? (
-           <Collection className="chatBox" ref={(panel) => { this.panel = panel; }}>
+
+           <Collection className='chatBox'>
             {this.state.chatHistory.map(chats => (
               <CollectionItem key={chats}>
                 {chats}
               </CollectionItem>
             ))}
+            <div style={{ float:"left", clear: "both" }}
+              ref={(el) => { this.messagesEnd = el; }}>
+            </div>
           </Collection>
           ) : (
-            <h4>No Chatting Yet</h4>
+            <h4 className="noResults">No Chatting Yet</h4>
           )
         }
-        {console.log('chat history: ', this.state.chatHistory)}
-        <form action="">
-          <Input 
-            s={12} 
-            label="Chat Input" 
-            name="chatInput" 
-            value={this.state.chatInput}
-            onChange={this.handleInputChange}
-          />
-          {/* <input autocomplete="off" /> */}
-          <Button 
-            onClick={this.sendChat}>
-            Send
-          </Button>
-        </form>
+          {/* </Col>
+        </Row> */}
+        
+        <Row>
+          <Col s={12} m={12} l={12} xl={12} className='inputCol'>
+            <form className='chatForm'>
+              <Input className="chatline"
+                s={9} 
+                m={10} 
+                l={11} 
+                xl={11}
+                // label="Chat Input" 
+                placeholder="Group Chat" 
+                name="chatInput" 
+                value={this.state.chatInput}
+                onChange={this.handleInputChange}
+              />
+              {/* <input autocomplete="off" /> */}
+              <Button className="chatBtn"
+                s={2} 
+                m={2} 
+                l={1} 
+                xl={1}
+                onClick={this.sendChat}>
+                Send
+              </Button>
+            </form>
+          </Col>
+        </Row>
       </div>
     )
   }
