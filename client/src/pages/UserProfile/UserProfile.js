@@ -23,8 +23,14 @@ appdata
 // let barData = [5,5,6,7,8,9,10];
 let barData = [];
 
-let updateBarData = function(pbarData) {
-  barData = pbarData
+let updateBarData = function(barObject,pbarData,familyChosen) {
+  if (familyChosen == null){
+    barData = pbarData
+  } else {
+    let barIndex = barObject[0].indexOf(familyChosen);
+    barData = barObject[barIndex+1]
+  }
+
   return barData;
 }
 
@@ -63,14 +69,14 @@ class UserProfile extends Component {
         // use the variables passed onto state below to populate user information
         {
           this.barData = res.data[0].decksCompleted[1];
-          console.log('============================================')
-          updateBarData(res.data[0].decksCompleted[1]);
-          console.log(barData);
+          updateBarData(res.data[0].decksCompleted,res.data[0].decksCompleted[1],"Porters"); // manually calling a function to update bar data, this allows the data to be passed to the d3js charts
+
           this.setState({ decksCompleted: res.data[0].decksCompleted, barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
         })
       .then(console.log(this.state.deckScore))
       .catch(err => console.log(err));
   };
+
 
 
   render() {
@@ -121,16 +127,35 @@ class UserProfile extends Component {
         <Achievement {...this.props}
         />
     
-      <Container>
-      <div className="chart">
-        <div>
-          <BarChart data={barData} size={[500,500]} />
-        </div>
-        <div>
-          {/* <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} /> */}
-        </div>
-        </div>
-      </Container>
+      <Row>
+        <Container>
+          <Col m={12} s={12}>
+            <Card className='amber darken-1 center-align' textClassName='white-text'>
+              <h3>Chart for : FAMILY NAME GOES HERE</h3>
+            </Card>
+          </Col>
+        </Container>
+      </Row>
+
+      <Row>
+        <Container>
+          <Col m={6} s={12}>
+            <div className="barchart">
+              <div>
+                <BarChart data={barData} size={[500,500]} />
+              </div>
+            </div>
+          </Col>
+
+          <Col m={6} s={12}>
+            <div className="streamchart">
+              <div>
+                {/* <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} /> */}
+              </div>
+            </div>
+          </Col>
+        </Container>
+      </Row>
       </div>
     );
   }
