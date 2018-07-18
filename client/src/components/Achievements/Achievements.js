@@ -7,7 +7,8 @@ class Achievement extends Component {
 
   state = {
     email: this.props.email,
-    badgeProps: this.props.badgesEarned
+    badgeProps: this.props.badgesEarned,
+    // badge: locked
   }
 
   componentDidMount() {
@@ -27,6 +28,16 @@ class Achievement extends Component {
       // console.log("console.log in component", this.state);
   };
 
+  // unlockBadge = () => {
+  //   if(this.state.locked === locked) {
+  //     this.setState({ locked: unlocked });
+  //   } else {
+  //     this.setState({locked: locked}); 
+  //   }
+  // }
+
+  
+
 
   render() {
     return(
@@ -39,7 +50,24 @@ class Achievement extends Component {
                 textClassName='white-text' 
                 title={<i className="medium material-icons">local_activity</i>}>
                   <h3>Achievements</h3>
-                  <h4>{this.state.badgesEarned}</h4>
+                  {/* <h4>{this.state.badgesEarned}</h4> */}
+
+                  {/* <img src={require("../../images/belgians-locked.png")} 
+                  data-locked={require("../../images/belgians-locked.png")}
+                  data-unlocked={require("../../images/belgians-unlocked.png")}
+                  state="locked" className="badge" width="30%" /> */}
+
+                  <img src={require("../../images/belgians-locked.png")} alt="Belgians" familyName="Belgians" className="locked" width="20%" />
+                  <img src={require("../../images/bocks-locked.png")} alt="Bocks" familyName="Bocks" className="locked" width="20%" />
+                  <img src={require("../../images/ipas-locked.png")} alt="IPAs" familyName="IPAs" className="locked" width="20%" />
+                  <img src={require("../../images/lagerpils-locked.png")} alt="Pils and Lagers" familyName="Pilseners and Pale Lagers" className="locked" width="20%" />
+                  <img src={require("../../images/porter-locked.png")} alt="Porters" familyName="Porters" className="locked" width="20%" />
+                  <img src={require("../../images/scotchales-locked.png")} alt="Scotch Ales" familyName="Scotch Ales" className="locked" width="20%" />
+                  <img src={require("../../images/specialty-locked.png")} alt="Specialty" familyName="Specialty Beers" className="locked" width="20%" />
+                  <img src={require("../../images/strongales-locked.png")} alt="Strong Ales" familyName="Strong Ales" className="locked" width="20%" />
+                  <img src={require("../../images/wheats-locked.png")} alt="Wheats" familyName="Wheats" className="locked" width="20%" />
+                  <img src={require("../../images/wildsourbeers-locked.png")} alt="Wild and Sour Beers" familyName="Wild and Sour Beers" className="locked" width="20%" />
+
               </Card>
             </Col>
           </Container>
