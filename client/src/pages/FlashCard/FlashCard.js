@@ -40,9 +40,11 @@ class FlashCard extends Component {
 
       .then(
         API.getAllPubDecks()
-        .then(res => 
-          this.setState({ allBeers: [...this.state.allBeers, ...res.data] })
-        ))
+        .then(res => {
+          setTimeout( () => {
+            this.setState({ allBeers: [...this.state.allBeers, ...res.data] })
+          }, 5000);
+        }))
       
         .catch(err => console.log(err));
   };
