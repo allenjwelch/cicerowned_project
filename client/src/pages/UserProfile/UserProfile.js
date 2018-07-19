@@ -78,7 +78,7 @@ class UserProfile extends Component {
       .filter((d,i) => d.launchday >= this.state.brushExtent[0] && d.launchday <= this.state.brushExtent[1])
     return (
       <div>
-        {console.log(this.props)}
+        {console.log(this.state)}
         <Row>
           <Col s={12} m={12}>
             <CardPanel className="teal lighten-4 black-text center-align">
@@ -102,8 +102,8 @@ class UserProfile extends Component {
           className= 'amber darken-1 center-align' 
           textClassName='white-text' 
           title={<i className="icon-orange medium material-icons">dvr</i>} 
-          actions={<a href='/user/study'>This is a link</a>}>
-          <h3>Study</h3><p>Select Your Deck!</p>
+          actions={<a href='/user/study'>Study a Deck</a>}>
+          <h3>Study</h3><p>Select one of our pre-made decks and earn badges or choose a deck created by one of our other users. The more you study the better you get! </p>
           </Card>
         </Col>
       
@@ -111,8 +111,8 @@ class UserProfile extends Component {
           <Card 
           className='amber darken-1 center-align' 
           textClassName='white-text' title={<i className="icon-orange medium material-icons">loyalty</i>} 
-          actions={[<a href='/user/create'>This is a link</a>]}>
-          <h3>Create</h3><p>Customize Your Own Deck</p>
+          actions={[<a href='/user/create'>Create a New Deck</a>]}>
+          <h3>Create</h3><p>Customize Your Own Deck. Create a study guide for your favorite beers or that new brewery, and share your knowledge!</p>
           </Card>
         </Col>
         </Container>

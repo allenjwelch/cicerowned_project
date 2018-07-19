@@ -11,7 +11,7 @@ const Home = () => (
       <Row>
         <Col m={6} s={12}>
           <Card 
-          className='amber darken-1 center-align' 
+          className='card amber darken-1 center-align' 
           textClassName='white-text' 
           title={<i className="icon-orange medium material-icons">book</i>} 
           actions={[<a href='#'>This is a link</a>]}>
