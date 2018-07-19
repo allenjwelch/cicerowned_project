@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, CardPanel, Card, Container } from "react-materialize";
+import { Collapsible, CollapsibleItem, Collection, CollectionItem, Button, Modal,Row, Col, CardPanel, Card, Container } from "react-materialize";
 import BarChart from '../../components/Charts/BarChart';
 import StreamGraph from '../../components/Charts/StreamGraph';
 import worlddata from '../../components/Charts/world';
@@ -22,16 +22,37 @@ appdata
 
 // let barData = [5,5,6,7,8,9,10];
 let barData = [];
+let barDTotal =0;
+let barDAverage = 0;
+let barDMax = 0;
 
-let updateBarData = function(barObject,pbarData,familyChosen) {
+const updateBarData = function(barObject,pbarData,familyChosen) {
   if (familyChosen == null){
     barData = pbarData
+    parseBar(barData);
+    parseMax(barData);
+    return barData;
   } else {
     let barIndex = barObject[0].indexOf(familyChosen);
     barData = barObject[barIndex+1]
+    parseBar(barData);
+    parseMax(barData);
+    return barData;
   }
+}
 
-  return barData;
+const parseBar = function(barData) {
+  for (let value of barData){
+    barDTotal += parseInt(value);
+  }
+  barDAverage = barDTotal / parseInt(barData.length)
+  return barDAverage
+}
+
+const parseMax = function(barData) {
+  barDMax = parseInt(Math.max(...barData));
+  console.log(barDMax)
+  return barDMax
 }
 
 const colorScale = scaleThreshold().domain([5,10,20,30]).range(["#75739F", "#5EAFC6", "#41A368", "#93C464"])
@@ -71,12 +92,11 @@ class UserProfile extends Component {
           this.barData = res.data[0].decksCompleted[1];
           updateBarData(res.data[0].decksCompleted,res.data[0].decksCompleted[1],"Porters"); // manually calling a function to update bar data, this allows the data to be passed to the d3js charts
 
-          this.setState({ decksCompleted: res.data[0].decksCompleted, barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
+          this.setState({ decksCompleted: res.data[0].decksCompleted, beerStyles: res.data[0].decksCompleted[0],barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
         })
       .then(console.log(this.state.deckScore))
       .catch(err => console.log(err));
   };
-
 
 
   render() {
@@ -134,7 +154,32 @@ class UserProfile extends Component {
               <h3>Chart for : FAMILY NAME GOES HERE</h3>
             </Card>
           </Col>
+
+        {/* <Col s={12} m={4} l={4} xl={4} className='col2'>
+            <Collapsible accordion defaultActiveKey={1}>
+
+              <hr />
+              <CollapsibleItem header='Beer Styles'>
+                List of user's beer style decks here.
+                
+                <Collection>
+
+                  {
+                    this.state.beerStyles.map(beer => (
+                      <CollectionItem style={{"cursor":"pointer"}} key={beer} onClick={() => this.updateBarData(beer)} >
+                        {beer}
+                      </CollectionItem>
+                    ))
+                  }
+
+                </Collection>
+
+              </CollapsibleItem>
+            </Collapsible>
+          </Col> */}
+
         </Container>
+        
       </Row>
 
       <Row>
@@ -147,6 +192,20 @@ class UserProfile extends Component {
             </div>
           </Col>
 
+          <Col m={6} s={12}>
+            <div className="statsForNerds">
+              <h3>Stats for the beer Nurd</h3>
+              <h3>Average score: {barDAverage}</h3>
+              <h3>Times you've taken this quiz: {barData.length}</h3>
+              <h3>Best Grade on this Quiz: {barDMax}</h3>
+            </div>
+          </Col>
+        </Container>
+      </Row>
+
+       <Row>
+        <Container>
+        
           <Col m={6} s={12}>
             <div className="streamchart">
               <div>
