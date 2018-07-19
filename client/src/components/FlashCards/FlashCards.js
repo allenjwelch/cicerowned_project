@@ -18,7 +18,7 @@ class FlashCards extends Component {
     cardArray = Object.keys(obj).map(function(key) {
       return obj[key];
     });
-    this.setState({ activeDeck : cardArray }) 
+    this.setState({ activeDeck : cardArray, cardPos: 0, flipped: false  }) 
     return cardArray; 
     // this.setState({ activeDeck: nextProps, cardPos: 0 }); 
   }
@@ -40,7 +40,7 @@ class FlashCards extends Component {
   flip = () => {
     if (this.state.flipped === false) {
       this.setState({ flipped: true });
-      console.log(this.state.activeDeck)
+      // console.log(this.state.activeDeck)
     } else {
       this.setState({ flipped: false });
     }
@@ -98,7 +98,8 @@ class FlashCards extends Component {
   render() {
     return (
       <div className="flashCardContainer" >
-        {console.log(this.state.activeDeck)}
+        {console.log('activeDeck: ', this.state.activeDeck)}
+        {console.log('cardPos: ', this.state.cardPos)}
         <Col offset="m1 l1 xl1" s={12} m={10} l={10} xl={10} className='cardContainer'>
           <div 
             onClick={this.flip}
@@ -114,8 +115,11 @@ class FlashCards extends Component {
                   </div> :
 
                   <div className="front">
-                    <h2>Deck Name</h2>
-                    <h3>Question</h3>
+                    {/* <h2>Deck Name</h2>
+                    <h3>Question</h3> */}
+                    <h2>{this.state.activeDeck[this.state.cardPos].deckName}</h2>
+                    <h3>{this.state.activeDeck[this.state.cardPos].front}</h3>
+
                   </div>
               }
 
@@ -137,7 +141,11 @@ class FlashCards extends Component {
                   </div>  :
 
                   <div className="back">
-                    <h3>Answer</h3>
+                    {/* <h3>Answer</h3> */}
+                    <h3>{this.state.activeDeck[this.state.cardPos].back}</h3>
+                    <a className="flashCardBtns" id="nailed" onClick={this.nailedIt}>Nailed it!</a>
+                    <a className="flashCardBtns" id="almost" onClick={this.changeCard}>Almost...</a>
+                    <a className="flashCardBtns" id="failed" onClick={this.failedIt}>Failed it</a>
                   </div>
               }
           </div>
