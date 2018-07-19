@@ -32,7 +32,7 @@ class Header extends Component {
 
     return (
       <div>
-        <div>
+        <div class = "header">
           <img src={require("../../images/beer_header.jpg")} alt= "beer-header" width="100%"  />
             <div className="top-left">
             <img src={require("../../images/Ciceroned.png")} alt= "beer-header" width="80%"  />

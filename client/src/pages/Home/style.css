@@ -1,3 +1,9 @@
-/* i.icon-orange {
+i.icon-orange {
   color: #ff6d00;
-} */
+}
+
+.card {
+  -webkit-box-shadow: 14px 15px 33px -12px rgba(0,0,0,0.85);
+  -moz-box-shadow: 14px 15px 33px -12px rgba(0,0,0,0.85);
+  box-shadow: 14px 15px 33px -12px rgba(0,0,0,0.85);
+}
