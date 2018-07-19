@@ -32,6 +32,16 @@
 
 }
 
-.chatline {
-  
+.tag {
+  display: block; 
+  margin: 10px auto;
+  width: auto; 
+}
+
+.noChats {
+  text-align: center; 
+  font-style: italic; 
+  margin: 100px 0 20px 0;
+  color: grey; 
+  font-size: 20px; 
 }
