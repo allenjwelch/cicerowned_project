@@ -20,21 +20,20 @@ appdata
   })
 
 
-// let barData = [5,5,6,7,8,9,10];
 let barData = [];
 let barDTotal =0;
 let barDAverage = 0;
 let barDMax = 0;
 
-const updateBarData = function(barObject,pbarData,familyChosen) {
+const updateBarData = function(familyChosen) {
   if (familyChosen == null){
-    barData = pbarData
+    barData = this.state.deckScore
     parseBar(barData);
     parseMax(barData);
     return barData;
   } else {
-    let barIndex = barObject[0].indexOf(familyChosen);
-    barData = barObject[barIndex+1]
+    let barIndex = this.state.decksCompleted.indexOf(familyChosen);
+    barData = this.state.decksCompleted[barIndex+1]
     parseBar(barData);
     parseMax(barData);
     return barData;
@@ -51,7 +50,6 @@ const parseBar = function(barData) {
 
 const parseMax = function(barData) {
   barDMax = parseInt(Math.max(...barData));
-  console.log(barDMax)
   return barDMax
 }
 
@@ -65,7 +63,7 @@ class UserProfile extends Component {
     this.onResize = this.onResize.bind(this)
     this.onHover = this.onHover.bind(this)
     this.onBrush = this.onBrush.bind(this)
-    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40], email: this.props.email }
+    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40], email: this.props.email, beerStyles:[], barData:[],barDTotal:0,barDAverage:0,barDMax:0}
   }
 
   onResize() {
@@ -90,7 +88,7 @@ class UserProfile extends Component {
         // use the variables passed onto state below to populate user information
         {
           this.barData = res.data[0].decksCompleted[1];
-          updateBarData(res.data[0].decksCompleted,res.data[0].decksCompleted[1],"Porters"); // manually calling a function to update bar data, this allows the data to be passed to the d3js charts
+          // updateBarData(res.data[0].decksCompleted,res.data[0].decksCompleted[1],"Porters"); // manually calling a function to update bar data, this allows the data to be passed to the d3js charts
 
           this.setState({ decksCompleted: res.data[0].decksCompleted, beerStyles: res.data[0].decksCompleted[0],barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
         })
@@ -98,6 +96,22 @@ class UserProfile extends Component {
       .catch(err => console.log(err));
   };
 
+  updateBarData2 = (familyChosen) =>{
+    if (familyChosen == null){
+      barData = this.state.deckScore
+      parseBar(barData);
+      parseMax(barData);
+      this.setState({barData: this.state.barData, familyChosen: familyChosen})
+    } else {
+      console.log('====================' + this.state.beerStyles);
+      let barIndex = this.state.beerStyles.indexOf(familyChosen);
+      console.log(barIndex);
+      barData = this.state.decksCompleted[barIndex+1]
+      parseBar(barData);
+      parseMax(barData);
+      this.setState({barData: this.state.decksCompleted[barIndex+1]})
+    }
+  }
 
   render() {
     const filteredAppdata = appdata
@@ -149,34 +163,27 @@ class UserProfile extends Component {
     
       <Row>
         <Container>
-          <Col m={12} s={12}>
+          <Col m={6} s={12}>
             <Card className='amber darken-1 center-align' textClassName='white-text'>
-              <h3>Chart for : FAMILY NAME GOES HERE</h3>
+              <h3>Chart for : {this.state.familyChosen}</h3>
             </Card>
           </Col>
-
-        {/* <Col s={12} m={4} l={4} xl={4} className='col2'>
+      
+        <Col s={12} m={6} l={6} xl={6} className='col2'>
             <Collapsible accordion defaultActiveKey={1}>
-
-              <hr />
-              <CollapsibleItem header='Beer Styles'>
-                List of user's beer style decks here.
-                
+              <CollapsibleItem header='Beer Styles'>               
                 <Collection>
-
                   {
                     this.state.beerStyles.map(beer => (
-                      <CollectionItem style={{"cursor":"pointer"}} key={beer} onClick={() => this.updateBarData(beer)} >
+                      <CollectionItem style={{"cursor":"pointer"}} key={beer} onClick={() => this.updateBarData2(beer)} >
                         {beer}
                       </CollectionItem>
                     ))
                   }
-
                 </Collection>
-
               </CollapsibleItem>
             </Collapsible>
-          </Col> */}
+          </Col>
 
         </Container>
         
