@@ -25,22 +25,8 @@ let barDTotal =0;
 let barDAverage = 0;
 let barDMax = 0;
 
-const updateBarData = function(familyChosen) {
-  if (familyChosen == null){
-    barData = this.state.deckScore
-    parseBar(barData);
-    parseMax(barData);
-    return barData;
-  } else {
-    let barIndex = this.state.decksCompleted.indexOf(familyChosen);
-    barData = this.state.decksCompleted[barIndex+1]
-    parseBar(barData);
-    parseMax(barData);
-    return barData;
-  }
-}
-
 const parseBar = function(barData) {
+  barDTotal = 0;
   for (let value of barData){
     barDTotal += parseInt(value);
   }
@@ -109,7 +95,7 @@ class UserProfile extends Component {
       barData = this.state.decksCompleted[barIndex+1]
       parseBar(barData);
       parseMax(barData);
-      this.setState({barData: this.state.decksCompleted[barIndex+1]})
+      this.setState({barData: this.state.decksCompleted[barIndex+1],familyChosen: familyChosen})
     }
   }
 
