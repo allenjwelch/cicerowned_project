@@ -8,6 +8,7 @@ import { range } from 'd3-array';
 import { scaleThreshold } from 'd3-scale';
 import { geoCentroid } from 'd3-geo';
 import API from "../../utils/API";
+import './style.css';
 
 const appdata = worlddata.features
   .filter(d => geoCentroid(d)[0] < -20)
@@ -107,11 +108,11 @@ class UserProfile extends Component {
         {console.log(this.state)}
         <Row>
           <Col s={12} m={12}>
-            <CardPanel className="teal lighten-4 black-text center-align">
+            <div className=" transparent black-text center-align">
                 <span>
-                  <h4>Thanks for coming back {this.props.name}!</h4>
+                  <h2 className="welcome-sign">Prost, {this.props.name}!</h2>
                 </span>
-            </CardPanel>
+            </div>
           </Col>
         </Row>
 
@@ -121,7 +122,7 @@ class UserProfile extends Component {
           <Card 
           className= 'amber darken-1 center-align' 
           textClassName='white-text' 
-          title={<i className="icon-orange medium material-icons">dvr</i>} 
+          title={<i className="icon-orange large material-icons">dvr</i>} 
           actions={<a className='white-text' href='/user/study'>Study a Deck</a>}>
           <h3>Study</h3><p>Select one of our pre-made decks and earn badges or choose a deck created by one of our other users. The more you study the better you get! </p>
           </Card>
@@ -130,7 +131,7 @@ class UserProfile extends Component {
         <Col m={6} s={12}>
           <Card 
           className='amber darken-1 center-align' 
-          textClassName='white-text' title={<i className="icon-orange medium material-icons">loyalty</i>} 
+          textClassName='white-text' title={<i className="icon-orange large material-icons">loyalty</i>} 
           actions={[<a className='white-text' href='/user/create'>Create a New Deck</a>]}>
           <h3>Create</h3><p>Customize Your Own Deck. Create a study guide for your favorite beers or that new brewery, and share your knowledge!</p>
           </Card>
