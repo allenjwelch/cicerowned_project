@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Button } from 'react-materialize';
+import API from "../../utils/API"; 
 import "./FlashCards.css";
 
 let cardArray; 
@@ -12,6 +13,7 @@ class FlashCards extends Component {
     activeDeck: this.props.activeDeck,
     userScore: 0,
     user: this.props.user,
+    badgesEarned: '', 
   }
 
   componentWillReceiveProps(nextProps) {
@@ -23,10 +25,9 @@ class FlashCards extends Component {
     console.log(cardArray); 
     this.setState({ activeDeck : cardArray[0], cardPos: 0, flipped: false  }) ; 
 
-    // this.saveUserScore()
+    this.saveUserScore(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
     console.log('new deck + save data')
     return cardArray; 
-    // this.setState({ activeDeck: nextProps, cardPos: 0 }); 
   }
 
   componentDidMount() {
@@ -43,9 +44,10 @@ class FlashCards extends Component {
     return cardArray; 
   }
 
-  saveUserScore = (id) => {
-    //TODO API CALL
-    
+  saveUserScore = (email, familyName, score, badgesEarned) => {
+    API.updateScore(email, familyName, score, badgesEarned)
+      .then(res => console.log('User Achievements Updated'))
+      .catch(err => console.log(err));
   }
 
   flip = () => {
@@ -72,6 +74,12 @@ class FlashCards extends Component {
     if (cardCount > 1) {
       this.state.activeDeck.shift(); 
     }
+    this.setState({ userScore: this.state.userScore + 1 })
+    console.log('User Score: ', this.state.userScore); 
+    if (this.state.userScore >= 9 && this.state.activeDeck[0].hasOwnProperty('styleName') ) {
+      this.setState({ badgesEarned: this.state.activeDeck[0].familyName}); 
+      
+    }
     this.changeCard(); 
   }
   
@@ -79,6 +87,8 @@ class FlashCards extends Component {
     //! TypeError: _this.state.activeDeck.splice is not a function
     // console.log(this.state.activeDeck)
     this.state.activeDeck.splice(Math.ceil(this.state.activeDeck.length / 2), 0, this.state.activeDeck[this.state.cardPos])
+    this.setState({ userScore: this.state.userScore - 1 })
+    console.log('User Score: ', this.state.userScore); 
     this.changeCard(); 
   }
 

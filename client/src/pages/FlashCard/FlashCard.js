@@ -151,11 +151,7 @@ class FlashCard extends Component {
     alert("Thank you for your message!");
   };
 
-  saveUserScore = (id) => {
-    //TODO API CALL
-    console.log('SaveScore'); 
-  }
-
+ 
   render() {
     return (
       <div>
