@@ -5,10 +5,12 @@ import API from "../../utils/API";
 
 class Achievement extends Component {
 
-  state = {
-    email: this.props.email,
-    badgeProps: this.props.badgesEarned,
-    // badge: locked
+  constructor(props){
+    super(props)
+    this.state = {
+      email: this.props.email,
+      badgesEarned: []
+    }
   }
 
   componentDidMount() {
@@ -16,8 +18,8 @@ class Achievement extends Component {
     this.loadUserbyId(this.props.email);
   }
   
-  loadUserbyId = () => {
-    API.loadUserbyId(this.props.email)
+  loadUserbyId = (email) => {
+    API.loadUserbyId(email)
       .then(res =>
         // use the variables passed onto state below to populate user information
         
@@ -26,18 +28,8 @@ class Achievement extends Component {
       .catch(err => console.log(err));
 
       // console.log("console.log in component", this.state);
+    
   };
-
-  // unlockBadge = () => {
-  //   if(this.state.locked === locked) {
-  //     this.setState({ locked: unlocked });
-  //   } else {
-  //     this.setState({locked: locked}); 
-  //   }
-  // }
-
-  
-
 
   render() {
     return(
@@ -48,25 +40,88 @@ class Achievement extends Component {
               <Card 
                 className='amber darken-1 center-align' 
                 textClassName='white-text' 
-                title={<i className="medium material-icons">local_activity</i>}>
+                title={<i className="icon-orange medium material-icons">local_activity</i>}>
                   <h3>Achievements</h3>
-                  {/* <h4>{this.state.badgesEarned}</h4> */}
 
-                  {/* <img src={require("../../images/belgians-locked.png")} 
-                  data-locked={require("../../images/belgians-locked.png")}
-                  data-unlocked={require("../../images/belgians-unlocked.png")}
-                  state="locked" className="badge" width="30%" /> */}
+                  {
+                    this.state.badgesEarned.includes("Belgians") ? (
+                    <img src={require("../../images/belgians-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/belgians-locked.png")} width='20%' />
+                    )
+                  }
 
-                  <img src={require("../../images/belgians-locked.png")} alt="Belgians" familyName="Belgians" className="locked" width="20%" />
-                  <img src={require("../../images/bocks-locked.png")} alt="Bocks" familyName="Bocks" className="locked" width="20%" />
-                  <img src={require("../../images/ipas-locked.png")} alt="IPAs" familyName="IPAs" className="locked" width="20%" />
-                  <img src={require("../../images/lagerpils-locked.png")} alt="Pils and Lagers" familyName="Pilseners and Pale Lagers" className="locked" width="20%" />
-                  <img src={require("../../images/porter-locked.png")} alt="Porters" familyName="Porters" className="locked" width="20%" />
-                  <img src={require("../../images/scotchales-locked.png")} alt="Scotch Ales" familyName="Scotch Ales" className="locked" width="20%" />
-                  <img src={require("../../images/specialty-locked.png")} alt="Specialty" familyName="Specialty Beers" className="locked" width="20%" />
-                  <img src={require("../../images/strongales-locked.png")} alt="Strong Ales" familyName="Strong Ales" className="locked" width="20%" />
-                  <img src={require("../../images/wheats-locked.png")} alt="Wheats" familyName="Wheats" className="locked" width="20%" />
-                  <img src={require("../../images/wildsourbeers-locked.png")} alt="Wild and Sour Beers" familyName="Wild and Sour Beers" className="locked" width="20%" />
+                  {
+                    this.state.badgesEarned.includes("Bocks") ? (
+                    <img src={require("../../images/bocks-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/bocks-locked.png")} width='20%' />
+                    )
+                  }
+
+                 {
+                    this.state.badgesEarned.includes("IPAs") ? (
+                    <img src={require("../../images/ipas-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/ipas-locked.png")} width='20%' />
+                    )
+                  }
+
+                  {
+                    this.state.badgesEarned.includes("Pilseners and Pale Lagers") ? (
+                    <img src={require("../../images/lagerpils-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/lagerpils-locked.png")} width='20%' />
+                    )
+                  }
+
+                 {
+                    this.state.badgesEarned.includes("Porters") ? (
+                    <img src={require("../../images/porter-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/porter-locked.png")} width='20%' />
+                    )
+                  }
+
+                  {
+                    this.state.badgesEarned.includes("Scotch Ales") ? (
+                    <img src={require("../../images/scotchales-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/scotchales-locked.png")} width='20%' />
+                    )
+                  }
+
+                  {
+                    this.state.badgesEarned.includes("Specialty Beers") ? (
+                    <img src={require("../../images/specialty-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/specialty-locked.png")} width='20%' />
+                    )
+                  }
+                 
+                 {
+                    this.state.badgesEarned.includes("Strong Ales") ? (
+                    <img src={require("../../images/strongales-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/strongales-locked.png")} width='20%' />
+                    )
+                  }
+
+                  {
+                    this.state.badgesEarned.includes("Wheats") ? (
+                    <img src={require("../../images/wheats-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/wheats-locked.png")} width='20%' />
+                    )
+                  }
+
+                  {
+                    this.state.badgesEarned.includes("Wild and Sour Beers") ? (
+                    <img src={require("../../images/wildsourbeers-unlocked.png")} width='20%' />
+                    ) : (
+                    <img src={require("../../images/wildsourbeers-locked.png")} width='20%' />
+                    )
+                  }
 
               </Card>
             </Col>
