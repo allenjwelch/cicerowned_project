@@ -30,7 +30,7 @@ const parseBar = function(barData) {
   for (let value of barData){
     barDTotal += parseInt(value);
   }
-  barDAverage = barDTotal / parseInt(barData.length)
+  barDAverage = (barDTotal / barData.length).toFixed(1);
   return barDAverage
 }
 
@@ -49,7 +49,7 @@ class UserProfile extends Component {
     this.onResize = this.onResize.bind(this)
     this.onHover = this.onHover.bind(this)
     this.onBrush = this.onBrush.bind(this)
-    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40], email: this.props.email, beerStyles:[], barData:[],barDTotal:0,barDAverage:0,barDMax:0}
+    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40], email: this.props.email, beerStyles:[], barData:[],barDTotal:0,barDAverage:0,barDMax:0, loggedInDates:[]}
   }
 
   onResize() {
@@ -109,13 +109,7 @@ class UserProfile extends Component {
           <Col s={12} m={12}>
             <CardPanel className="teal lighten-4 black-text center-align">
                 <span>
-                  <h4>Hello, {this.props.name}!</h4>
-                  <h4>Email: {this.props.email}</h4>
-                  <h4>Decks completed {this.state.decksCompleted}</h4>
-                  <h4>Score {this.state.deckScore}</h4>
-                  <h4>Badges Earned {this.state.badgesEarned}</h4>
-                  <h4>Decks Created {this.state.decksCreated}</h4>
-                  <h4>Logged In {this.state.loggedInDates}</h4>
+                  <h4>Thanks for coming back {this.props.name}!</h4>
                 </span>
             </CardPanel>
           </Col>
@@ -149,13 +143,39 @@ class UserProfile extends Component {
     
       <Row>
         <Container>
-          <Col m={6} s={12}>
+          <Col s={12} m={12} l={12} xl={12}>
             <Card className='amber darken-1 center-align' textClassName='white-text'>
-              <h3>Chart for : {this.state.familyChosen}</h3>
+              <h3>{this.state.familyChosen}</h3>
             </Card>
           </Col>
-      
-        <Col s={12} m={6} l={6} xl={6} className='col2'>
+        </Container>
+        
+      </Row>
+
+      <Row>
+        <Container>
+
+          <Col s={12} m={4} l={4} xl={4}>
+            <div className="statsForNerds">
+              {<i className="icon-orange medium material-icons">equalizer</i>} 
+              <h3>Nurd Stats</h3>
+              <h6>Average score: {barDAverage}</h6>
+              <h6>You've taken this quiz {barData.length} times!</h6>
+              <h6>Your bestest score is {barDMax}</h6>
+              <h6>You have logged in {this.state.loggedInDates.length} times to study. Good job! </h6>
+
+            </div>
+          </Col>
+
+          <Col s={12} m={5} l={5} xl={5}>
+            <div className="barchart">
+              <div>
+                <BarChart data={barData} size={[500,500]} />
+              </div>
+            </div>
+          </Col>
+
+          <Col s={12} m={3} l={3} xl={3} className='col4'>
             <Collapsible accordion defaultActiveKey={1}>
               <CollapsibleItem header='Beer Styles'>               
                 <Collection>
@@ -169,29 +189,6 @@ class UserProfile extends Component {
                 </Collection>
               </CollapsibleItem>
             </Collapsible>
-          </Col>
-
-        </Container>
-        
-      </Row>
-
-      <Row>
-        <Container>
-          <Col m={6} s={12}>
-            <div className="barchart">
-              <div>
-                <BarChart data={barData} size={[500,500]} />
-              </div>
-            </div>
-          </Col>
-
-          <Col m={6} s={12}>
-            <div className="statsForNerds">
-              <h3>Stats for the beer Nurd</h3>
-              <h3>Average score: {barDAverage}</h3>
-              <h3>Times you've taken this quiz: {barData.length}</h3>
-              <h3>Best Grade on this Quiz: {barDMax}</h3>
-            </div>
           </Col>
         </Container>
       </Row>
