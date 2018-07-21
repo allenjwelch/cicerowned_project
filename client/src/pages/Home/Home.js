@@ -35,7 +35,7 @@ const Home = () => (
           <Card 
           className='amber darken-1 center-align' 
           textClassName='card-title white-text' title={<i className="icon-orange medium material-icons">question_answer</i>} 
-          actions={[<a className='white-text' href='/user/chat'>Enter Chat Room</a>]}>
+          actions={[<a className='white-text' href='/chat'>Enter Chat Room</a>]}>
           <h3>Chat</h3>
           <p className = 'sub-title'>Share your knowledge. Live chat with other beer fans and Soon-to-Be Cicerones.</p>
           </Card>
