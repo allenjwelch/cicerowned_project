@@ -54,6 +54,10 @@ export default {
     return axios.put("/api/users/"  + id);
   },
 
+  updateScore: function(email,familName,score,badgesEarned){
+    return axios.put("api/scores/" + email);
+  },
+
   loadUserbyId: function(id) {
     return axios.get("/api/users/"  + id);
   },

@@ -46,11 +46,13 @@ module.exports = {
     console.log('user email passed to update ' + req.params.id)
     db.User
       .findOneAndUpdate(
-        {email:req.params.id, score:req.params.score},
+        {email:req.params.id},
+        
         {
-         $set:{decksCompleted: []},
-         $set:{badgesEarned: []},
-         $set:{loggedInDates:[]}
+          $push:{decksCompleted: req.params.familyName},
+          $push:{decksCompleted: req.params.score},
+          $push:{decksCompleted: req.params.score},
+          $push:{badgesEarned: req.params.badgesEarned},
         },
         {
           upsert:true,
