@@ -42,7 +42,6 @@ class Achievement extends Component {
                 textClassName='white-text' 
                 title={<i className="icon-orange medium material-icons">local_activity</i>}>
                   <h3>Achievements</h3>
-
                   {
                     this.state.badgesEarned.includes("Belgians") ? (
                     <img src={require("../../images/belgians-unlocked.png")} width='20%' />
@@ -50,7 +49,6 @@ class Achievement extends Component {
                     <img src={require("../../images/belgians-locked.png")} width='20%' />
                     )
                   }
-
                   {
                     this.state.badgesEarned.includes("Bocks") ? (
                     <img src={require("../../images/bocks-unlocked.png")} width='20%' />
@@ -58,7 +56,6 @@ class Achievement extends Component {
                     <img src={require("../../images/bocks-locked.png")} width='20%' />
                     )
                   }
-
                  {
                     this.state.badgesEarned.includes("IPAs") ? (
                     <img src={require("../../images/ipas-unlocked.png")} width='20%' />
@@ -66,7 +63,6 @@ class Achievement extends Component {
                     <img src={require("../../images/ipas-locked.png")} width='20%' />
                     )
                   }
-
                   {
                     this.state.badgesEarned.includes("Pilseners and Pale Lagers") ? (
                     <img src={require("../../images/lagerpils-unlocked.png")} width='20%' />
@@ -74,7 +70,6 @@ class Achievement extends Component {
                     <img src={require("../../images/lagerpils-locked.png")} width='20%' />
                     )
                   }
-
                  {
                     this.state.badgesEarned.includes("Porters") ? (
                     <img src={require("../../images/porter-unlocked.png")} width='20%' />
@@ -82,7 +77,6 @@ class Achievement extends Component {
                     <img src={require("../../images/porter-locked.png")} width='20%' />
                     )
                   }
-
                   {
                     this.state.badgesEarned.includes("Scotch Ales") ? (
                     <img src={require("../../images/scotchales-unlocked.png")} width='20%' />
@@ -90,15 +84,13 @@ class Achievement extends Component {
                     <img src={require("../../images/scotchales-locked.png")} width='20%' />
                     )
                   }
-
                   {
                     this.state.badgesEarned.includes("Specialty Beers") ? (
                     <img src={require("../../images/specialty-unlocked.png")} width='20%' />
                     ) : (
                     <img src={require("../../images/specialty-locked.png")} width='20%' />
                     )
-                  }
-                 
+                  }          
                  {
                     this.state.badgesEarned.includes("Strong Ales") ? (
                     <img src={require("../../images/strongales-unlocked.png")} width='20%' />
@@ -106,7 +98,6 @@ class Achievement extends Component {
                     <img src={require("../../images/strongales-locked.png")} width='20%' />
                     )
                   }
-
                   {
                     this.state.badgesEarned.includes("Wheats") ? (
                     <img src={require("../../images/wheats-unlocked.png")} width='20%' />
@@ -114,7 +105,6 @@ class Achievement extends Component {
                     <img src={require("../../images/wheats-locked.png")} width='20%' />
                     )
                   }
-
                   {
                     this.state.badgesEarned.includes("Wild and Sour Beers") ? (
                     <img src={require("../../images/wildsourbeers-unlocked.png")} width='20%' />
