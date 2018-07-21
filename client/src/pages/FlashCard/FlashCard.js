@@ -69,6 +69,7 @@ class FlashCard extends Component {
   // };
 
   // Loads all beer style decks to the "Add a Deck" Btn fro user to choose and add to their profile. 
+  
   loadStyleDecks = () => {
     API.getBeersByStyle()
       .then(res => 
@@ -148,10 +149,9 @@ class FlashCard extends Component {
       console.log('FAILED...', error);
    }); 
     alert("Thank you for your message!");
-
-    
   };
 
+ 
   render() {
     return (
       <div>
@@ -163,7 +163,7 @@ class FlashCard extends Component {
                 <div>
                 <Col s={12} m={12} l={12} xl={12} className='col11'>
 
-                  <FlashCards key={this.state.activeDeck.styleName} {...this.state.activeDeck} /> 
+                  <FlashCards key={this.state.activeDeck.styleName} activeDeck={this.state.activeDeck} user={this.state.user}/> 
                 </Col>  
                 
                 <Col s={12} m={12} l={12} xl={12} className='col12'>

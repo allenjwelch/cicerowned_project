@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Button } from 'react-materialize';
+import API from "../../utils/API"; 
 import "./FlashCards.css";
 
 let cardArray; 
@@ -9,18 +10,24 @@ class FlashCards extends Component {
   state = {
     flipped: false,
     cardPos: 0,
-    activeDeck: this.props,
+    activeDeck: this.props.activeDeck,
+    userScore: 0,
+    user: this.props.user,
+    badgesEarned: '', 
   }
 
   componentWillReceiveProps(nextProps) {
-    //! set cardPos to 0 to reset after changing decks part way through
     let obj = nextProps; 
     cardArray = Object.keys(obj).map(function(key) {
       return obj[key];
     });
-    this.setState({ activeDeck : cardArray, cardPos: 0, flipped: false  }) 
+    
+    console.log(cardArray); 
+    this.setState({ activeDeck : cardArray[0], cardPos: 0, flipped: false  }) ; 
+
+    this.saveUserScore(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
+    console.log('new deck + save data')
     return cardArray; 
-    // this.setState({ activeDeck: nextProps, cardPos: 0 }); 
   }
 
   componentDidMount() {
@@ -33,8 +40,14 @@ class FlashCards extends Component {
     cardArray = Object.keys(obj).map(function(key) {
       return obj[key];
     });
-    this.setState({ activeDeck : cardArray }) //! Needs either callback or promise to run sync
+    this.setState({ activeDeck : cardArray[0] }) //! Needs either callback or promise to run sync
     return cardArray; 
+  }
+
+  saveUserScore = (email, familyName, score, badgesEarned) => {
+    API.updateScore(email, familyName, score, badgesEarned)
+      .then(res => console.log('User Achievements Updated'))
+      .catch(err => console.log(err));
   }
 
   flip = () => {
@@ -49,13 +62,8 @@ class FlashCards extends Component {
   changeCard = () => {
     // move user to next card in deck ====
     this.setState({ cardPos: this.state.cardPos + 1 });
-    // console.log('card Pos', this.state.cardPos); 
-    // console.log('deck length', this.state.activeDeck.length); 
-    // console.log(this.state.activeDeck); 
-
     if (this.state.cardPos > this.state.activeDeck.length - 2) { //! Changed length of deck check
       this.setState({ cardPos: 0 });
-      // console.log(this.state.cardPos); 
     }
     return this.state.cardPos; 
   }
@@ -63,9 +71,14 @@ class FlashCards extends Component {
   nailedIt = () => {
     //! deletes too many cards if first failedit
     let cardCount = this.countInArray(this.state.activeDeck, this.state.activeDeck[this.state.cardPos]); 
-    // console.log('cardCount', cardCount)
     if (cardCount > 1) {
       this.state.activeDeck.shift(); 
+    }
+    this.setState({ userScore: this.state.userScore + 1 })
+    console.log('User Score: ', this.state.userScore); 
+    if (this.state.userScore >= 9 && this.state.activeDeck[0].hasOwnProperty('styleName') ) {
+      this.setState({ badgesEarned: this.state.activeDeck[0].familyName}); 
+      
     }
     this.changeCard(); 
   }
@@ -74,6 +87,8 @@ class FlashCards extends Component {
     //! TypeError: _this.state.activeDeck.splice is not a function
     // console.log(this.state.activeDeck)
     this.state.activeDeck.splice(Math.ceil(this.state.activeDeck.length / 2), 0, this.state.activeDeck[this.state.cardPos])
+    this.setState({ userScore: this.state.userScore - 1 })
+    console.log('User Score: ', this.state.userScore); 
     this.changeCard(); 
   }
 
