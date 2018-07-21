@@ -38,7 +38,7 @@ module.exports = {
           setDefaultOnInsert:true
         }, 
        )
-      .then(dbModel => res.json(dbModel), console.log(dbModel))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   updateScore: function(req,res){
