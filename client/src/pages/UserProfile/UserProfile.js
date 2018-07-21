@@ -106,9 +106,9 @@ class UserProfile extends Component {
         {console.log(this.state)}
         <Row>
           <Col s={12} m={12}>
-            <div className=" transparent black-text center-align">
+            <div className=" black-text center-align">
                 <span>
-                  <h2 className="welcome-sign">Prost, {this.props.name}!</h2>
+                  <h2 className="profile-titles">Prost, {this.props.name}!</h2>
                 </span>
             </div>
           </Col>
@@ -143,9 +143,11 @@ class UserProfile extends Component {
       <Row>
         <Container>
           <Col s={12} m={12} l={12} xl={12}>
-            <Card className='amber darken-1 center-align' textClassName='white-text'>
-              <h3>{this.state.familyChosen}</h3>
-            </Card>
+            <div className='black-text center-align'>
+              <span>
+                <h3 className="profile-titles">Study Stats for {this.state.familyChosen}</h3>
+              </span>
+            </div>
           </Col>
         </Container>
         
