@@ -39,7 +39,7 @@ class FooterComp extends Component {
 
         <Modal style={{"text-align":"center"}}
           header='We want to hear from you!'
-          trigger={<p className="grey-text text-lighten-4" style={{"cursor":"pointer"}}>Are you interested in using Cicerowned at your bar or brewery? Let's talk!</p>}>
+          trigger={<p className="grey-text text-lighten-4" style={{"cursor":"pointer"}}>Are you interested in using Cicerowned at your bar, restaurant, or brewery? Let's talk!</p>}>
           <form ref={(form) => { this.form = form; }}>
             <Input 
               s={12} 
