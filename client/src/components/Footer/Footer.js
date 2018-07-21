@@ -26,6 +26,7 @@ class FooterComp extends Component {
         }
         links={
           <ul>
+            <h5 className="white-text">Quick Links</h5>
             <li><a className="grey-text text-lighten-3" href="/user/study">Study</a></li>
             <li><a className="grey-text text-lighten-3" href="/user/create!">Create</a></li>
             <li><a className="grey-text text-lighten-3" href="/user/chat">Chat</a></li>
