@@ -89,9 +89,7 @@ class UserProfile extends Component {
       parseMax(barData);
       this.setState({barData: this.state.barData, familyChosen: familyChosen})
     } else {
-      console.log('====================' + this.state.beerStyles);
       let barIndex = this.state.beerStyles.indexOf(familyChosen);
-      console.log(barIndex);
       barData = this.state.decksCompleted[barIndex+1]
       parseBar(barData);
       parseMax(barData);
@@ -159,9 +157,9 @@ class UserProfile extends Component {
             <div className="statsForNerds">
               {<i className="icon-orange medium material-icons">equalizer</i>} 
               <h3>Nurd Stats</h3>
-              <h6>Average score: {barDAverage}</h6>
-              <h6>You've taken this quiz {barData.length} times!</h6>
-              <h6>Your bestest score is {barDMax}</h6>
+              <h6>You normally get a {barDAverage} on this card deck.</h6>
+              <h6>You've studied this deck {barData.length} times.</h6>
+              <h6>Your bestest score is {barDMax}.</h6>
               <h6>You have logged in {this.state.loggedInDates.length} times to study. Good job! </h6>
 
             </div>
