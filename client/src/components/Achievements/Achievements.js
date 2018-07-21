@@ -40,7 +40,7 @@ class Achievement extends Component {
               <Card 
                 className='amber darken-1 center-align' 
                 textClassName='white-text' 
-                title={<i className="icon-orange medium material-icons">local_activity</i>}>
+                title={<i className="icon-orange large material-icons">local_activity</i>}>
                   <h3>Achievements</h3>
                   {
                     this.state.badgesEarned.includes("Belgians") ? (

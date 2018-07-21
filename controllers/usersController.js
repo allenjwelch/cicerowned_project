@@ -22,8 +22,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    console.log('update route was hit')
-    console.log('user email passed to update ' + req.params.id)
     db.User
       .findOneAndUpdate(
         {email:req.params.id},
@@ -41,6 +39,25 @@ module.exports = {
         }, 
        )
       .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  updateScore: function(req,res){
+    console.log('update score route was hit====================')
+    console.log('user email passed to update ' + req.params.id)
+    db.User
+      .findOneAndUpdate(
+        {email:req.params.id, score:req.params.score},
+        {
+         $set:{decksCompleted: []},
+         $set:{badgesEarned: []},
+         $set:{loggedInDates:[]}
+        },
+        {
+          upsert:true,
+          setDefaultOnInsert:true
+        }, 
+       )
+      .then(dbModel => res.json(dbModel), console.log(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
