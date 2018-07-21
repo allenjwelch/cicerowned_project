@@ -22,8 +22,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    console.log('update route was hit')
-    console.log('user email passed to update ' + req.params.id)
     db.User
       .findOneAndUpdate(
         {email:req.params.id},

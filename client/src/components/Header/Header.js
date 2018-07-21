@@ -32,10 +32,15 @@ class Header extends Component {
 
     return (
       <div>
-        <div>
-          <img src={require("../../images/beer_header.jpg")} alt= "beer-header" width="100%"  />
+        <div class = "header">
+          <img class="responsive-img" src={require("../../images/beer_header.jpg")} alt= "beer-header" width="100%"  />
             <div className="top-left">
             <img src={require("../../images/Ciceroned.png")} alt= "beer-header" width="80%"  />
+            </div>
+
+            <div className="bottom-left">
+              <p>"The Cicerone Certification Program certifies and educates beer professionals in order to elevate the beer experience for consumers."</p>
+              <p>For more information visit <a href="https://www.cicerone.org/">Cierone.org</a> </p>
             </div>
             <div className="top-right">
               <h5>Hello {this.props.name}</h5>

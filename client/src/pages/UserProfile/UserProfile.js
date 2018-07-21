@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, CardPanel, Card, Container } from "react-materialize";
+import { Collapsible, CollapsibleItem, Collection, CollectionItem, Button, Modal,Row, Col, CardPanel, Card, Container } from "react-materialize";
 import BarChart from '../../components/Charts/BarChart';
 import StreamGraph from '../../components/Charts/StreamGraph';
 import worlddata from '../../components/Charts/world';
@@ -8,6 +8,7 @@ import { range } from 'd3-array';
 import { scaleThreshold } from 'd3-scale';
 import { geoCentroid } from 'd3-geo';
 import API from "../../utils/API";
+import './style.css';
 
 const appdata = worlddata.features
   .filter(d => geoCentroid(d)[0] < -20)
@@ -20,18 +21,23 @@ appdata
   })
 
 
-// let barData = [5,5,6,7,8,9,10];
 let barData = [];
+let barDTotal =0;
+let barDAverage = 0;
+let barDMax = 0;
 
-let updateBarData = function(barObject,pbarData,familyChosen) {
-  if (familyChosen == null){
-    barData = pbarData
-  } else {
-    let barIndex = barObject[0].indexOf(familyChosen);
-    barData = barObject[barIndex+1]
+const parseBar = function(barData) {
+  barDTotal = 0;
+  for (let value of barData){
+    barDTotal += parseInt(value);
   }
+  barDAverage = (barDTotal / barData.length).toFixed(1);
+  return barDAverage
+}
 
-  return barData;
+const parseMax = function(barData) {
+  barDMax = parseInt(Math.max(...barData));
+  return barDMax
 }
 
 const colorScale = scaleThreshold().domain([5,10,20,30]).range(["#75739F", "#5EAFC6", "#41A368", "#93C464"])
@@ -44,7 +50,7 @@ class UserProfile extends Component {
     this.onResize = this.onResize.bind(this)
     this.onHover = this.onHover.bind(this)
     this.onBrush = this.onBrush.bind(this)
-    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40], email: this.props.email }
+    this.state = { screenWidth: 1000, screenHeight: 500, hover: "none", brushExtent: [0,40], email: this.props.email, beerStyles:[], barData:[],barDTotal:0,barDAverage:0,barDMax:0, loggedInDates:[]}
   }
 
   onResize() {
@@ -69,35 +75,42 @@ class UserProfile extends Component {
         // use the variables passed onto state below to populate user information
         {
           this.barData = res.data[0].decksCompleted[1];
-          updateBarData(res.data[0].decksCompleted,res.data[0].decksCompleted[1],"Porters"); // manually calling a function to update bar data, this allows the data to be passed to the d3js charts
+          // updateBarData(res.data[0].decksCompleted,res.data[0].decksCompleted[1],"Porters"); // manually calling a function to update bar data, this allows the data to be passed to the d3js charts
 
-          this.setState({ decksCompleted: res.data[0].decksCompleted, barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
+          this.setState({ decksCompleted: res.data[0].decksCompleted, beerStyles: res.data[0].decksCompleted[0],barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
         })
       .then(console.log(this.state.deckScore))
       .catch(err => console.log(err));
   };
 
-
+  updateBarData2 = (familyChosen) =>{
+    if (familyChosen == null){
+      barData = this.state.deckScore
+      parseBar(barData);
+      parseMax(barData);
+      this.setState({barData: this.state.barData, familyChosen: familyChosen})
+    } else {
+      let barIndex = this.state.beerStyles.indexOf(familyChosen);
+      barData = this.state.decksCompleted[barIndex+1]
+      parseBar(barData);
+      parseMax(barData);
+      this.setState({barData: this.state.decksCompleted[barIndex+1],familyChosen: familyChosen})
+    }
+  }
 
   render() {
     const filteredAppdata = appdata
       .filter((d,i) => d.launchday >= this.state.brushExtent[0] && d.launchday <= this.state.brushExtent[1])
     return (
       <div>
-        {console.log(this.props)}
+        {console.log(this.state)}
         <Row>
           <Col s={12} m={12}>
-            <CardPanel className="teal lighten-4 black-text center-align">
+            <div className=" black-text center-align">
                 <span>
-                  <h4>Hello, {this.props.name}!</h4>
-                  <h4>Email: {this.props.email}</h4>
-                  <h4>Decks completed {this.state.decksCompleted}</h4>
-                  <h4>Score {this.state.deckScore}</h4>
-                  <h4>Badges Earned {this.state.badgesEarned}</h4>
-                  <h4>Decks Created {this.state.decksCreated}</h4>
-                  <h4>Logged In {this.state.loggedInDates}</h4>
+                  <h2 className="profile-titles">Prost, {this.props.name}!</h2>
                 </span>
-            </CardPanel>
+            </div>
           </Col>
         </Row>
 
@@ -107,18 +120,18 @@ class UserProfile extends Component {
           <Card 
           className= 'amber darken-1 center-align' 
           textClassName='white-text' 
-          title={<i className="icon-orange medium material-icons">dvr</i>} 
-          actions={<a href='/user/study'>This is a link</a>}>
-          <h3>Study</h3><p>Select Your Deck!</p>
+          title={<i className="icon-orange large material-icons">dvr</i>} 
+          actions={<a className='white-text' href='/user/study'>Study a Deck</a>}>
+          <h3>Study</h3><p>Select one of our pre-made decks and earn badges or choose a deck created by one of our other users. The more you study the better you get! </p>
           </Card>
         </Col>
       
         <Col m={6} s={12}>
           <Card 
           className='amber darken-1 center-align' 
-          textClassName='white-text' title={<i className="icon-orange medium material-icons">loyalty</i>} 
-          actions={[<a href='/user/create'>This is a link</a>]}>
-          <h3>Create</h3><p>Customize Your Own Deck</p>
+          textClassName='white-text' title={<i className="icon-orange large material-icons">loyalty</i>} 
+          actions={[<a className='white-text' href='/user/create'>Create a New Deck</a>]}>
+          <h3>Create</h3><p>Customize Your Own Deck. Create a study guide for your favorite beers or that new brewery, and share your knowledge!</p>
           </Card>
         </Col>
         </Container>
@@ -129,17 +142,33 @@ class UserProfile extends Component {
     
       <Row>
         <Container>
-          <Col m={12} s={12}>
-            <Card className='amber darken-1 center-align' textClassName='white-text'>
-              <h3>Chart for : FAMILY NAME GOES HERE</h3>
-            </Card>
+          <Col s={12} m={12} l={12} xl={12}>
+            <div className='black-text center-align'>
+              <span>
+                <h3 className="profile-titles">Study Stats for {this.state.familyChosen}</h3>
+              </span>
+            </div>
           </Col>
         </Container>
+        
       </Row>
 
       <Row>
         <Container>
-          <Col m={6} s={12}>
+
+          <Col s={12} m={4} l={4} xl={4}>
+            <div className="statsForNerds">
+              {<i className="icon-orange medium material-icons">equalizer</i>} 
+              <h3>Nurd Stats</h3>
+              <h6>You normally get a {barDAverage} on this card deck.</h6>
+              <h6>You've studied this deck {barData.length} times.</h6>
+              <h6>Your bestest score is {barDMax}.</h6>
+              <h6>You have logged in {this.state.loggedInDates.length} times to study. Good job! </h6>
+
+            </div>
+          </Col>
+
+          <Col s={12} m={5} l={5} xl={5}>
             <div className="barchart">
               <div>
                 <BarChart data={barData} size={[500,500]} />
@@ -147,6 +176,27 @@ class UserProfile extends Component {
             </div>
           </Col>
 
+          <Col s={12} m={3} l={3} xl={3} className='col4'>
+            <Collapsible accordion defaultActiveKey={1}>
+              <CollapsibleItem header='Beer Styles'>               
+                <Collection>
+                  {
+                    this.state.beerStyles.map(beer => (
+                      <CollectionItem style={{"cursor":"pointer"}} key={beer} onClick={() => this.updateBarData2(beer)} >
+                        {beer}
+                      </CollectionItem>
+                    ))
+                  }
+                </Collection>
+              </CollapsibleItem>
+            </Collapsible>
+          </Col>
+        </Container>
+      </Row>
+
+       <Row>
+        <Container>
+        
           <Col m={6} s={12}>
             <div className="streamchart">
               <div>

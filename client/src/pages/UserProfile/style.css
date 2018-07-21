@@ -1,0 +1,13 @@
+body {
+  background: whitesmoke;
+}
+
+.profile-titles {
+  font-family: 'Cantata One', serif;
+  padding-top: 15px;
+  color:#ff6d00;
+}
+
+.material-icons {
+  padding-top: 15px;
+}

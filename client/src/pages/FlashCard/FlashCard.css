@@ -61,3 +61,10 @@
   color: grey; 
   font-size: 20px; 
 }
+
+.report {
+  text-align: center; 
+  font-style: italic; 
+  margin: 20px 0;
+  color: grey; 
+}

@@ -8,42 +8,46 @@ import './style.css';
 
 const Home = () => (
     <div container = "mainBody">
-      <Row>
+      <Row className = "card-container">
         <Col m={6} s={12}>
           <Card 
           className='amber darken-1 center-align' 
-          textClassName='white-text' 
+          textClassName='card-title white-text' 
           title={<i className="icon-orange medium material-icons">book</i>} 
-          actions={[<a href='#'>This is a link</a>]}>
-          <h3>Study</h3><p>Learn the basics using our pre-made study guides.</p>
+          actions={[<a className='white-text' href='/user/study'>Learn about Beer</a>]}>
+          <h3>Study</h3>
+          <p className = 'sub-title'>Learn the basics using our pre-made study guides.</p>
           </Card>
         </Col>
 
         <Col m={6} s={12}>
           <Card 
           className= 'amber darken-1 center-align' 
-          textClassName='white-text' 
+          textClassName='card-title white-text' 
           title={<i className="icon-orange medium material-icons">select_all</i>} 
-          actions={[<a href='#'>This is a link</a>]}>
-          <h3>Create</h3><p>Make your own custom study guides.</p>
+          actions={[<a className='white-text' href='/user/create'>Create a Deck</a>]}>
+          <h3>Create</h3>
+          <p className = 'sub-title'>Make your own custom study guides.</p>
           </Card>
         </Col>
       
         <Col m={6} s={12}>
           <Card 
           className='amber darken-1 center-align' 
-          textClassName='white-text' title={<i className="icon-orange medium material-icons">loyalty</i>} 
-          actions={[<a href='#'>This is a link</a>]}>
-          <h3>Share</h3><p>Share study guides and learn from others by publishing custom cards.</p>
+          textClassName='card-title white-text' title={<i className="icon-orange medium material-icons">question_answer</i>} 
+          actions={[<a className='white-text' href='/chat'>Enter Chat Room</a>]}>
+          <h3>Chat</h3>
+          <p className = 'sub-title'>Share your knowledge. Live chat with other beer fans and Soon-to-Be Cicerones.</p>
           </Card>
         </Col>
 
         <Col m={6} s={12}>
           <Card 
           className='amber darken-1 center-align' 
-          textClassName='white-text' title={<i className="icon-orange medium material-icons">book</i>} 
-          actions={[<a href='#'>This is a link</a>]}>
-          <h3>Study</h3><p>Learn the basics using our pre-made study guides</p>
+          textClassName='card-title white-text' title={<i className="icon-orange medium material-icons">loyalty</i>} 
+          actions={[<a className= 'white-text' href='/user'>User Dashboard</a>]}>
+          <h3>Own it!</h3>
+          <p className = 'sub-title'>Track your progress and earn badges every time you successfully complete a deck!</p>
           </Card>
         </Col>
       </Row>

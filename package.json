@@ -32,6 +32,7 @@
     "d3-shape": "^1.2.0",
     "d3-svg-legend": "^2.25.6",
     "d3-transition": "^1.1.1",
+    "emailjs-com": "^2.2.4",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mongoose": "^5.1.7",

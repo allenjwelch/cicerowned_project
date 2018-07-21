@@ -19,7 +19,7 @@ window.setState = (changes) => {
 }; 
 
 let user = {
-  name : auth.getProfile().nickname || "Beer lover",
+  name : auth.getProfile().nickname || "Beer Lover",
   email : auth.getProfile().email || '',
   userData: {},
 }

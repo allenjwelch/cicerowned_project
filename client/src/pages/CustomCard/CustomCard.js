@@ -62,8 +62,8 @@ class CustomCard extends Component {
   render() {
     return (
       <div>
-        <h1>Create Custom Card Page</h1>
-        <Row className='directions'>
+        <Row className='directions center-align'>
+            <h1>Create Custom Card Page</h1>
             <h3>Directions on making your custom flashcard!</h3>
         </Row>
         <Row>  
