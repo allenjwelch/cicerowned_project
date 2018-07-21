@@ -23,3 +23,7 @@ box-shadow: 1px 19px 33px -18px rgba(0,0,0,0.85);
 img {
   margin-bottom: -8px;
 }
+
+.btn {
+  background: #CC5803;
+}
