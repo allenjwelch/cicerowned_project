@@ -1,5 +1,10 @@
+body {
+  background: whitesmoke;
+}
+
 i.icon-orange {
   color: #ff6d00;
+  margin-bottom: 0;
 }
 
 .card {
@@ -11,3 +16,13 @@ i.icon-orange {
 .card-container{
   padding-top: 28px;
 }
+
+.card-title {
+  font-family: 'Cantata One', serif;
+}
+
+.sub-title {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 20px;
+}
+

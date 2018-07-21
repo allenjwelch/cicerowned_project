@@ -8,6 +8,7 @@ const FooterComp = () => (
   }
   links={
     <ul>
+      <h5 className="white-text">Quick Links</h5>
       <li><a className="grey-text text-lighten-3" href="#!">Study</a></li>
       <li><a className="grey-text text-lighten-3" href="#!">Create</a></li>
       <li><a className="grey-text text-lighten-3" href="#!">Chat</a></li>
