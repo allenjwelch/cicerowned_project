@@ -8,7 +8,7 @@ router.route("/")
 router
   .route("/:id")
   .get(usersController.findById)
-  .put(usersController.updateScore)
+  // .put(usersController.updateScore)
   .delete(usersController.remove);
 
 module.exports = router;

@@ -1,0 +1,41 @@
+/* .chatBox{
+  margin: 20px 50px; 
+  padding: 20px;
+  width: auto;
+  height: 250px;
+  border-radius:10px; 
+  box-shadow: 2px 2px 20px 1px grey; 
+  position: relative; 
+  overflow-y: scroll;
+}
+
+.chatForm {
+  box-shadow: 2px 2px 20px 1px grey; 
+  border-radius:10px; 
+  width: auto;
+  height: 80px;
+  margin: 0 60px; 
+  padding: 0px;
+}
+
+.chatBtn {
+  border-radius:30px; 
+  width: 60px;
+  margin: 22px 0 0 0;
+  padding: 0;
+
+}
+
+.tag {
+  display: block; 
+  margin: 10px auto;
+  width: auto; 
+}
+
+.noChats {
+  text-align: center; 
+  font-style: italic; 
+  margin: 100px 0 20px 0;
+  color: grey; 
+  font-size: 20px; 
+} */

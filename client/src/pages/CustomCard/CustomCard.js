@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col, Input, Button } from 'react-materialize';
+import { Row, Input, Button } from 'react-materialize';
 import API from "../../utils/API"; 
 import './CustomCard.css'; 
 

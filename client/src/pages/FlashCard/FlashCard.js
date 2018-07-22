@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API"; 
-import { Toast, Collapsible, CollapsibleItem, Button, Row, Col, Collection, CollectionItem, Modal, Input } from 'react-materialize';
+import { Collapsible, CollapsibleItem, Button, Row, Col, Collection, CollectionItem, Modal, Input } from 'react-materialize';
 import FlashCards from "../../components/FlashCards";
 import "./FlashCard.css";
 import untapped from "../../images/pbu_40_black.png"

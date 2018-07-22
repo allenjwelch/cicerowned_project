@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Button } from 'react-materialize';
+import { Col } from 'react-materialize';
 import API from "../../utils/API"; 
 import "./FlashCards.css";
 
@@ -25,7 +25,7 @@ class FlashCards extends Component {
     console.log(cardArray); 
     this.setState({ activeDeck : cardArray[0], cardPos: 0, flipped: false  }) ; 
 
-    this.saveUserScore(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
+    // this.saveUserScore(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
     console.log('new deck + save data')
     return cardArray; 
   }
