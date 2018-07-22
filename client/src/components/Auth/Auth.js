@@ -14,7 +14,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'cicerowned.auth0.com',
     clientID: 'QT0WSGoPGQUMk2JMYX8w7Ut5YGETbVaJ',
-    redirectUri: 'http://localhost:3000/callback', // || 'http://localhost:3000/callback', // || process.env.AUTH0_CALLBACK || , // 'https://cicerowned.herokuapp.com/callback'
+    redirectUri: 'https://cicerowned.herokuapp.com/callback', // || 'http://localhost:3000/callback', // || process.env.AUTH0_CALLBACK || , // 'https://cicerowned.herokuapp.com/callback'
     audience: 'https://cicerowned.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid email profile'

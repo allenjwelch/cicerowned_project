@@ -39,8 +39,9 @@ class Header extends Component {
             </div>
 
             <div className="bottom-left">
+              <p>UPDATED 7/22</p>
               <p>"The Cicerone Certification Program certifies and educates beer professionals in order to elevate the beer experience for consumers."</p>
-              <p>For more information visit <a href="https://www.cicerone.org/">Cierone.org</a> </p>
+              <p>For more information visit <a href="https://www.cicerone.org/">Cicerone.org</a> </p>
             </div>
             <div className="top-right">
               <h5>Hello {this.props.name}</h5>
