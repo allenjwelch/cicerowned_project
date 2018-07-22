@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Cicerowned
 
 ## Deliverable 1
@@ -70,6 +71,29 @@
 ![homepage](./images/home.PNG)
 ![userpage](./images/user.PNG)
 ![flashcardpage](./images/flash.PNG)
+=======
+
+## Deliverable 1
+
+*Overview*
+  An educational web application designed to assist servers and beer drinkers alike in their pursuit of earning their Cicerone Certifications. There are solutions out there for wine certifications but not a lot of accessible test aids for Cicerone. This would be useful to most breweries and restaurants as they seek to develop employees to the first level of Cicerone.
+
+  *Team Roles*
+  Allen Welch - 
+  Susan Davenport - 
+  Eddie Rodriguez -
+
+  *Schedule*
+
+  *Project Management*
+  ![title image](trello.PNG)
+
+  *UI/UX*
+
+## Deliverable 2
+
+
+>>>>>>> c841f86207e9a74e1c441d815abe40d012215a37
 
 
 ## Deliverables
