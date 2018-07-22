@@ -121,14 +121,14 @@ class FlashCard extends Component {
     this.setState({
       [name]: value
     });
-    // console.log('beerSearch: ', this.state.beerSearch); 
-    // console.log('brewerySearch: ', this.state.brewerySearch); 
+    console.log('beerSearch: ', this.state.beerSearch); 
+    console.log('brewerySearch: ', this.state.brewerySearch); 
   };
 
   beerSearchBtn = event => {
     event.preventDefault();
     let query = this.state.brewerySearch + ' ' + this.state.beerSearch + ' ';
-    // console.log(query);
+    console.log(query);
       API.untapped(query)
         .then(res => {
           this.setState({ 
