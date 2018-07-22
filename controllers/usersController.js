@@ -42,17 +42,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   updateScore: function(req,res){
-    console.log('update score route was hit====================')
+    console.log('update score route was hit at the CONTROLLER ============================')
     console.log('user email passed to update ' + req.params.id)
     db.User
       .findOneAndUpdate(
         {email:req.params.id},
-        
         {
           $push:{decksCompleted: req.params.familyName},
-          $push:{decksCompleted: req.params.score},
-          $push:{decksCompleted: req.params.score},
-          $push:{badgesEarned: req.params.badgesEarned},
         },
         {
           upsert:true,

@@ -55,6 +55,7 @@ export default {
   },
 
   updateScore: function(email,familName,score,badgesEarned){
+    console.log('=============================API SCORE HIT===============')
     return axios.put("api/scores/" + email);
   },
 
