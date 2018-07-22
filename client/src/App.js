@@ -10,7 +10,7 @@ import UserProfile from "./pages/UserProfile";
 import FlashCard from "./pages/FlashCard"; 
 import CustomCard from "./pages/CustomCard"; 
 import Login404 from "./pages/Login404"; 
-import ChatRoom from "./pages/ChatRoom"; 
+// import ChatRoom from "./pages/ChatRoom"; 
 import ComingSoon from "./pages/ComingSoon"; 
 
 // Auth0 imports

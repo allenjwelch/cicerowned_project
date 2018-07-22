@@ -4,11 +4,7 @@
 #### Heroku: https://cicerowned.herokuapp.com/
 
 ## Description:
-<<<<<<< HEAD
 An educational web application designed to assist servers and beer drinkers alike in their pursuit of earning their Cicerone Cerifications. Users will use existing flashcards and also have the ability to create their own as well as monitor their overall progress. 
-=======
-An educational web application designed to assist servers and beer drinkers alike in their pursuit of earning their Cicerone Certifications. 
->>>>>>> c841f86207e9a74e1c441d815abe40d012215a37
 
 ![title image](/public/images/#.png)
 

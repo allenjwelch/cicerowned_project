@@ -1,4 +1,3 @@
-
 import React, { Component } from "react"; 
 import { Button } from 'react-materialize';
 import './style.css';
@@ -32,8 +31,8 @@ class Header extends Component {
 
     return (
       <div>
-        <div class = "header">
-          <img class="responsive-img" src={require("../../images/beer_header.jpg")} alt= "beer-header" width="100%"  />
+        <div className = "header">
+          <img className="responsive-img" src={require("../../images/beer_header.jpg")} alt= "beer-header" width="100%"  />
             <div className="top-left">
             <img src={require("../../images/Ciceroned.png")} alt= "beer-header" width="80%"  />
             </div>

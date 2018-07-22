@@ -5,6 +5,8 @@ import jwtDecode from 'jwt-decode';
 const LOGIN_SUCCESS_PAGE = "/user"; 
 const HOME_PAGE = "/"; 
 const LOGIN_UNSUCCESSFUL_PAGE = "/unsuccessful"; 
+const LOCALHOST_CALLBACK = 'http://localhost:3000/callback'; 
+
 
 //TODO 
 // change history.replace('/home') to another path
@@ -14,7 +16,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'cicerowned.auth0.com',
     clientID: 'QT0WSGoPGQUMk2JMYX8w7Ut5YGETbVaJ',
-    redirectUri: 'https://cicerowned.herokuapp.com/callback', // || 'http://localhost:3000/callback', // || process.env.AUTH0_CALLBACK || , // 'https://cicerowned.herokuapp.com/callback'
+    redirectUri: process.env.AUTH0_CALLBACK || LOCALHOST_CALLBACK, // || 'http://localhost:3000/callback', // || process.env.AUTH0_CALLBACK || , // 'https://cicerowned.herokuapp.com/callback'
     audience: 'https://cicerowned.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid email profile'
