@@ -5,8 +5,12 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const SocketPORT = 8000; 
-const io = require('socket.io')(app);
 
+const server = http.createServer(app);
+const http = require('http');
+const io = require('socket.io').listen(server);  //pass a http.Server instance
+
+// server.listen(80);  //listen on port 80
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,7 +28,7 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/cicerowned");
 
 // Start the API server
-app.listen(PORT, function() {
+server.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
 
