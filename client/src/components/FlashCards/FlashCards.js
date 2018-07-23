@@ -23,8 +23,10 @@ class FlashCards extends Component {
     });
     
     console.log(cardArray); 
-    this.setState({ activeDeck : cardArray[0], cardPos: 0, flipped: false  }) ; 
+    
     this.saveUserScore(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
+    this.setState({ activeDeck : cardArray[0], cardPos: 0, flipped: false, userScore:0 }) ; 
+  
     console.log('new deck + save data')
     console.log(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
     return cardArray; 

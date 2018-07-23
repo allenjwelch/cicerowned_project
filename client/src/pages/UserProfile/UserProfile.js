@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Collapsible, CollapsibleItem, Collection, CollectionItem, Button, Modal,Row, Col, CardPanel, Card, Container } from "react-materialize";
 import BarChart from '../../components/Charts/BarChart';
-import StreamGraph from '../../components/Charts/StreamGraph';
 import worlddata from '../../components/Charts/world';
 import Achievement from '../../components/Achievements';
 import { range } from 'd3-array';
@@ -205,18 +204,6 @@ class UserProfile extends Component {
         </Container>
       </Row>
 
-       <Row>
-        <Container>
-        
-          <Col m={6} s={12}>
-            <div className="streamchart">
-              <div>
-                {/* <StreamGraph hoverElement={this.state.hover} onHover={this.onHover} colorScale={colorScale} data={filteredAppdata} size={[this.state.screenWidth, this.state.screenHeight / 2]} /> */}
-              </div>
-            </div>
-          </Col>
-        </Container>
-      </Row>
       </div>
     );
   }
