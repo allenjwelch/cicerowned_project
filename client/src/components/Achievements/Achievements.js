@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Container, Col, Card } from 'react-materialize';
 import API from "../../utils/API";
+import "./style.css";
 
 
 class Achievement extends Component {
@@ -37,11 +38,11 @@ class Achievement extends Component {
         <Row>
           <Container>
             <Col m={12} s={12}>
-              <Card 
+              <Card
                 className='amber darken-1 center-align' 
                 textClassName='white-text' 
                 title={<i className="icon-orange large material-icons">local_activity</i>}>
-                  <h3>Achievements</h3>
+                  <h3 className="titleFont">Achievements</h3>
                   {
                     this.state.badgesEarned.includes("Belgians") ? (
                     <img src={require("../../images/belgians-unlocked.png")} width='20%' />
