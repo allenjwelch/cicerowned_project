@@ -9,6 +9,8 @@ import { geoCentroid } from 'd3-geo';
 import API from "../../utils/API";
 import './style.css';
 
+
+// data that was to be used for the world map
 const appdata = worlddata.features
   .filter(d => geoCentroid(d)[0] < -20)
 
@@ -19,15 +21,17 @@ appdata
     d.data = range(30).map((p,q) => q < i ? 0 : Math.random() * 2 + offset)
   })
 
-
+  
+// variables used for math calculations and statistics
 let barData = [];
 let barDataFinal =[];
 let barDTotal =0;
 let barDAverage = 0;
 let barDMax = 0;
 
+
+// used to create a running total of the scores a user has on a specific deck after clicking. This allows for calculations like average
 const parseBar = function(barData) {
-  console.log('this is bardata for parsing' + barData)
   barDTotal = 0;
   for (let value of barData){
     barDTotal += parseInt(value);
@@ -36,11 +40,13 @@ const parseBar = function(barData) {
   return barDAverage
 }
 
+// this is used to figure out the max score a user got on a deck
 const parseMax = function(barData) {
   barDMax = parseInt(Math.max(...barData));
   return barDMax
 }
 
+// color scales for labels on the charts
 const colorScale = scaleThreshold().domain([5,10,20,30]).range(["#75739F", "#5EAFC6", "#41A368", "#93C464"])
 
 
@@ -73,20 +79,20 @@ class UserProfile extends Component {
   componentDidUpdate(){
   }
 
+  // loads user profile stuff when the dashboard loads. This has alot of the mongodb items that are used for badges earned and charts
   loadUserbyId = () => {
     API.loadUserbyId(this.props.email)
       .then(res =>
         // use the variables passed onto state below to populate user information
         {
           this.barData = res.data[0].decksCompleted;
-          console.log('======================================')
-          console.log(this.barData)
           this.setState({ decksCompleted: res.data[0].decksCompleted, beerStyles: res.data[0].decksLearned,barData: res.data[0].decksCompleted, badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
         })
       .then(console.log(this.state.deckScore))
       .catch(err => console.log(err));
   };
 
+  // function that determines what the variable data is for the chart
   updateBarData2 = (familyChosen) =>{
     if (familyChosen == null){
       barData = []
