@@ -38,11 +38,10 @@ class FlashCards extends Component {
 
   objectToArray = () => {
     let obj = this.props; 
-    // console.log(obj); 
     cardArray = Object.keys(obj).map(function(key) {
       return obj[key];
     });
-    this.setState({ activeDeck : cardArray[0] }) //! Needs either callback or promise to run sync
+    this.setState({ activeDeck : cardArray[0] }) 
     return cardArray; 
   }
 
@@ -55,7 +54,6 @@ class FlashCards extends Component {
   flip = () => {
     if (this.state.flipped === false) {
       this.setState({ flipped: true });
-      // console.log(this.state.activeDeck)
     } else {
       this.setState({ flipped: false });
     }
@@ -71,7 +69,6 @@ class FlashCards extends Component {
   }
 
   nailedIt = () => {
-    //! deletes too many cards if first failedit
     let cardCount = this.countInArray(this.state.activeDeck, this.state.activeDeck[this.state.cardPos]); 
     if (cardCount > 1) {
       this.state.activeDeck.shift(); 
@@ -80,14 +77,11 @@ class FlashCards extends Component {
     console.log('User Score: ', this.state.userScore); 
     if (this.state.userScore >= 9 && this.state.activeDeck[0].hasOwnProperty('styleName') ) {
       this.setState({ badgesEarned: this.state.activeDeck[0].familyName}); 
-      
     }
     this.changeCard(); 
   }
   
   failedIt = () => {
-    //! TypeError: _this.state.activeDeck.splice is not a function
-    // console.log(this.state.activeDeck)
     this.state.activeDeck.splice(Math.ceil(this.state.activeDeck.length / 2), 0, this.state.activeDeck[this.state.cardPos])
     this.setState({ userScore: this.state.userScore - 1 })
     console.log('User Score: ', this.state.userScore); 
@@ -104,13 +98,6 @@ class FlashCards extends Component {
     }
     return count; 
   }
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state.activeDeck = this.props; 
-  //   cardPos = 0; 
-  // };
-
 
   render() {
     return (
@@ -132,11 +119,8 @@ class FlashCards extends Component {
                   </div> :
 
                   <div className="front">
-                    {/* <h2>Deck Name</h2>
-                    <h3>Question</h3> */}
                     <h2>{this.state.activeDeck[this.state.cardPos].deckName}</h2>
                     <h3>{this.state.activeDeck[this.state.cardPos].front}</h3>
-
                   </div>
               }
 
@@ -144,7 +128,7 @@ class FlashCards extends Component {
                 this.state.activeDeck[this.state.cardPos].hasOwnProperty('styleName') ?
 
                   <div className="back">
-                    <img id="beerImage" src={this.state.activeDeck[this.state.cardPos].image} alt="beer style image"/>
+                    <img id="beerImage" src={this.state.activeDeck[this.state.cardPos].image} alt="beer style"/>
                     <p id="stats">ABV: {this.state.activeDeck[this.state.cardPos].ABV}</p>
                     <p id="stats">IBUs: {this.state.activeDeck[this.state.cardPos].IBU}</p>
                     <p id="stats">SRM: {this.state.activeDeck[this.state.cardPos].SRM}</p>
@@ -158,7 +142,6 @@ class FlashCards extends Component {
                   </div>  :
 
                   <div className="back">
-                    {/* <h3>Answer</h3> */}
                     <h3>{this.state.activeDeck[this.state.cardPos].back}</h3>
                     <a className="flashCardBtns" id="nailed" onClick={this.nailedIt}>Nailed it!</a>
                     <a className="flashCardBtns" id="almost" onClick={this.changeCard}>Almost...</a>
