@@ -5,7 +5,7 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const SocketPORT = 8000; 
-const io = require('socket.io')();
+const io = require('socket.io')(app);
 
 
 // Define middleware here
@@ -54,5 +54,5 @@ io.on('connection', function(socket){
 });
     
 
-io.listen(SocketPORT);
-console.log('Socket server listening for clients on port ', SocketPORT);
+// io.listen(SocketPORT);
+// console.log('Socket server listening for clients on port ', SocketPORT);
