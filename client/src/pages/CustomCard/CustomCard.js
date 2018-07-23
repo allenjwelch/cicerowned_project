@@ -63,11 +63,11 @@ class CustomCard extends Component {
     return (
       <div>
         <Row className='directions center-align'>
-            <h1>Create Custom Card Page</h1>
-            <h3>Directions on making your custom flashcard!</h3>
+            <h2>Create a New Study Set</h2>
+            <h4>Name your deck and add as many cards a you want!</h4>
         </Row>
         <Row>  
-            <form className="customForm">
+            <form className="customForm cardShadow">
               {/* <Button className="customCardBtns createNewDeck" onClick={this.handleFormSubmit}>Create a new Deck</Button> */}
               <Input 
                 s={12} 

@@ -41,21 +41,22 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  updateScore: function(req,res){
-    console.log('update score route was hit at the CONTROLLER ============================')
-    console.log('user email passed to update ' + req.params.id)
+  updateScore: function(req, res){
     db.User
       .findOneAndUpdate(
         {email:req.params.id},
         {
-          $push:{decksCompleted: req.params.familyName},
-        },
-        {
-          upsert:true,
-          setDefaultOnInsert:true
-        }, 
+          $push:{decksCompleted: 
+            [
+              [req.params.familyName, req.params.score]
+            ]
+          },
+          $addToSet:{badgesEarned: req.params.badgesEarned},
+          $addToSet:{loggedInDates: Date.now()},
+          $addToSet:{decksLearned: req.params.familyName}
+        },      
        )
-      .then(dbModel => res.json(dbModel), console.log(dbModel))
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {

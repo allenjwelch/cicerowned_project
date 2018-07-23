@@ -156,6 +156,9 @@ class FlashCard extends Component {
     return (
       <div>
         <Row>
+          <div className = "spacer"></div>
+        </Row>
+        <Row>
           <Col s={12} m={8} l={8} xl={8} className='col1'>
 
             {
@@ -185,7 +188,7 @@ class FlashCard extends Component {
                     </form>
 
                     <Button 
-                      className="customCardBtns saveCreateNew teal darken-1" 
+                      className="customCardBtns saveCreateNew amber darken-1" 
                       onClick={this.handleSend}>
                         Send!
                     </Button>
@@ -275,7 +278,7 @@ class FlashCard extends Component {
               />
               <Button 
                 l={2}
-                className="customCardBtns saveCreateNew teal darken-1" 
+                className="customCardBtns saveCreateNew amber darken-1" 
                 onClick={this.beerSearchBtn}>
                   Explore
               </Button>

@@ -7,6 +7,7 @@ const userSchema = new Schema({
     signUpDate: { type: Date, default: Date.now },
     userDecks: {type: Array, default:[]},
     decksCompleted: [],
+    decksLearned:[],
     decksCreated: {type: Array, default:[]},
     badgesEarned: {type: Array, default:[]},
     loggedInDates: {type: Array, default:[]}
