@@ -225,7 +225,7 @@ class FlashCard extends Component {
               <CollapsibleItem header='Beer Styles'>
                 
                 <Collection>
-                  <p><em>Beer style information respectfully borrowed from <a href="https://www.craftbeer.com/" target="_blank">CraftBeer.com</a></em></p>
+                  <p><em>Beer style information respectfully borrowed from <a href="https://www.craftbeer.com/" target="_blank" rel="noopener noreferrer">CraftBeer.com</a></em></p>
                   <hr />
                   {
                     this.state.beerStyles.map(beer => (

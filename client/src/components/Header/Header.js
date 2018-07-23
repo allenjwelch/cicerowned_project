@@ -59,7 +59,7 @@ class Header extends Component {
               {
                 this.props.auth.isAuthenticated() && (
                     <Button
-                      bsStyle="primary"
+                      bsstyle="primary"
                       className="btn-margin"
                       onClick={this.props.auth.logout}
                     >
