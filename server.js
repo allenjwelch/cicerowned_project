@@ -6,8 +6,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const SocketPORT = 8000; 
 
-const server = http.createServer(app);
 const http = require('http');
+const server = http.createServer(app);
 const io = require('socket.io').listen(server);  //pass a http.Server instance
 
 // server.listen(80);  //listen on port 80

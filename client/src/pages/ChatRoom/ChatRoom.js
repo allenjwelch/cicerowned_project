@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Modal, Row, Col, Input, Button, Collection, CollectionItem } from 'react-materialize';
 // import API from "../../utils/API"; 
 import './ChatRoom.css'; 
-import {subscribeToTimer} from "../../chat.js";
+// import {subscribeToTimer} from "../../chat.js";
 import io from 'socket.io-client'; 
-const socket = io('http://localhost:8000');
+const socket = io.connect();
 
 
 class ChatRoom extends Component {
