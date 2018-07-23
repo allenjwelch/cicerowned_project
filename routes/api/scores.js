@@ -6,9 +6,9 @@ router.route("/")
   .post(usersController.create);
 
 router
-  .route("/:id")
+  .route("/:id/:familyName/:badgesEarned/:score")
   .get(usersController.findById)
-  // .put(usersController.updateScore)
+  .put(usersController.updateScore)
   .delete(usersController.remove);
 
 module.exports = router;
