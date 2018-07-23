@@ -38,7 +38,7 @@ class Header extends Component {
             </div>
 
             <div className="bottom-left">
-              <p>UPDATED 7/22</p>
+              <p>This is the ChatRoom branch</p>
               <p>"The Cicerone Certification Program certifies and educates beer professionals in order to elevate the beer experience for consumers."</p>
               <p>For more information visit <a href="https://www.cicerone.org/">Cicerone.org</a> </p>
             </div>
