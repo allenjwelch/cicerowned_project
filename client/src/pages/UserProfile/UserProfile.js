@@ -74,9 +74,9 @@ class UserProfile extends Component {
       .then(res =>
         // use the variables passed onto state below to populate user information
         {
-          this.barData = res.data[0].decksCompleted[1];
-          // updateBarData(res.data[0].decksCompleted,res.data[0].decksCompleted[1],"Porters"); // manually calling a function to update bar data, this allows the data to be passed to the d3js charts
-
+          this.barData = res.data[0].decksCompleted;
+          console.log('======================================')
+          console.log(this.barData)
           this.setState({ decksCompleted: res.data[0].decksCompleted, beerStyles: res.data[0].decksCompleted[0],barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
         })
       .then(console.log(this.state.deckScore))
