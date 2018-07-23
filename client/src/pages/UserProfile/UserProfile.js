@@ -22,11 +22,13 @@ appdata
 
 
 let barData = [];
+let barDataFinal =[];
 let barDTotal =0;
 let barDAverage = 0;
 let barDMax = 0;
 
 const parseBar = function(barData) {
+  console.log('this is bardata for parsing' + barData)
   barDTotal = 0;
   for (let value of barData){
     barDTotal += parseInt(value);
@@ -69,6 +71,9 @@ class UserProfile extends Component {
     this.loadUserbyId(this.props.email);
   }
 
+  componentDidUpdate(){
+  }
+
   loadUserbyId = () => {
     API.loadUserbyId(this.props.email)
       .then(res =>
@@ -77,7 +82,7 @@ class UserProfile extends Component {
           this.barData = res.data[0].decksCompleted;
           console.log('======================================')
           console.log(this.barData)
-          this.setState({ decksCompleted: res.data[0].decksCompleted, beerStyles: res.data[0].decksCompleted[0],barData: res.data[0].decksCompleted[1], badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
+          this.setState({ decksCompleted: res.data[0].decksCompleted, beerStyles: res.data[0].decksLearned,barData: res.data[0].decksCompleted, badgesEarned: res.data[0].badgesEarned, decksCreated: res.data[0].decksCreated, loggedInDates: res.data[0].loggedInDates})
         })
       .then(console.log(this.state.deckScore))
       .catch(err => console.log(err));
@@ -85,16 +90,22 @@ class UserProfile extends Component {
 
   updateBarData2 = (familyChosen) =>{
     if (familyChosen == null){
-      barData = this.state.deckScore
+      barData = []
       parseBar(barData);
       parseMax(barData);
       this.setState({barData: this.state.barData, familyChosen: familyChosen})
     } else {
-      let barIndex = this.state.beerStyles.indexOf(familyChosen);
-      barData = this.state.decksCompleted[barIndex+1]
-      parseBar(barData);
-      parseMax(barData);
-      this.setState({barData: this.state.decksCompleted[barIndex+1],familyChosen: familyChosen})
+        let i = 0;
+        barDataFinal=[];
+        for(i=0;i<this.barData.length;i++){
+          if (this.barData[i][0] == familyChosen){
+            barDataFinal.push(this.barData[i][1]);
+          }
+        }
+      parseBar(barDataFinal);
+      parseMax(barDataFinal);
+      barData = barDataFinal
+      this.setState({barData: barDataFinal,familyChosen: familyChosen})
     }
   }
 

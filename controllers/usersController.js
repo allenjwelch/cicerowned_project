@@ -42,8 +42,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   updateScore: function(req, res){
-    console.log('update score route was hit====================')
-    console.log(req.params)
     db.User
       .findOneAndUpdate(
         {email:req.params.id},
@@ -53,7 +51,9 @@ module.exports = {
               [req.params.familyName, req.params.score]
             ]
           },
-          $addToSet:{badgesEarned: req.params.badgesEarned}
+          $addToSet:{badgesEarned: req.params.badgesEarned},
+          $addToSet:{loggedInDates: Date.now()},
+          $addToSet:{decksLearned: req.params.familyName}
         },      
        )
       .then(dbModel => res.json(dbModel))
