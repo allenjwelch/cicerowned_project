@@ -40,7 +40,15 @@ class FooterComp extends Component {
 
         <Modal style={{"textAlign":"center"}}
           header='We want to hear from you!'
-          trigger={<p className="grey-text text-lighten-4" style={{"cursor":"pointer"}}>Are you interested in using Cicerowned at your bar, restaurant, or brewery? Let's talk!</p>}>
+          trigger={<p className="grey-text text-lighten-4" style={{"cursor":"pointer"}}>Are you interested in using Cicerowned at your bar, restaurant, or brewery? Let's talk!</p>}
+          actions={
+            <Button
+              className="sendBtn amber darken-1" 
+              onClick={this.handleSend}
+            >
+              Send
+            </Button>}>
+          
           <form ref={(form) => { this.form = form; }}>
             <Input 
               s={12} 
@@ -59,11 +67,6 @@ class FooterComp extends Component {
               name="message" 
             />
           </form>
-            <Button 
-              className="customCardBtns saveCreateNew teal darken-1" 
-              onClick={this.handleSend}>
-                Send!
-            </Button>
         </Modal>
 
     </Footer>
