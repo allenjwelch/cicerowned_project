@@ -30,8 +30,7 @@ module.exports = {
          $set:{userName: "test"},
          $set:{decksCompleted: []},
          $set:{decksCreated: []},
-         $set:{badgesEarned: []},
-         $set:{loggedInDates:[]}
+         $set:{badgesEarned: []}
         },
         {
           upsert:true,
@@ -52,9 +51,9 @@ module.exports = {
             ]
           },
           $addToSet:{badgesEarned: req.params.badgesEarned},
-          $addToSet:{loggedInDates: Date.now()},
           $addToSet:{decksLearned: req.params.familyName}
-        },      
+        },  
+        {$push:{loggedInDates: Date.now()}}    
        )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
