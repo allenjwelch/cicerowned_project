@@ -19,8 +19,8 @@
   height: 40%;
 } 
 
-p {
-  font-size: 18px;
+.p-header {
+  font-size: 16px;
   font-family: 'Noto Sans', sans-serif;
 }
 

@@ -207,8 +207,20 @@ class UserProfile extends Component {
               </CollapsibleItem>
             </Collapsible>
           </Col>
+
+          <Col m={12} s={12}>
+            <Card 
+            className= 'amber darken-1 center-align' 
+            textClassName='white-text' 
+            title={<i className="icon-orange large material-icons">question_answer</i>} 
+            actions={<a className='white-text' href='/user/chat'>Enter Chat Room</a>}>
+            <h4>Chat</h4>
+            <p>Share your knowledge. Ask Questions. Raise a Toast.</p>
+            </Card>
+          </Col>
         </Container>
       </Row>
+
 
       </div>
     );
