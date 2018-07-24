@@ -22,20 +22,9 @@ class FlashCards extends Component {
       return obj[key];
     });
     
-<<<<<<< HEAD
-    // console.log(cardArray); 
-    this.setState({ activeDeck : cardArray[0], cardPos: 0, flipped: false  }); 
-    this.saveUserScore(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
-    // console.log(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
-=======
-    console.log(cardArray); 
-    
     this.saveUserScore(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
     this.setState({ activeDeck : cardArray[0], cardPos: 0, flipped: false, userScore:0 }) ; 
-  
-    console.log('new deck + save data')
-    console.log(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
->>>>>>> 3d8bb43bd91a6c49aafde53c6bcbbac65ec4f5d7
+    // console.log(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
     return cardArray; 
   }
 
