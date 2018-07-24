@@ -138,7 +138,7 @@ class FlashCards extends Component {
                   </div>  :
 
                   <div className="back">
-                    <h3>{this.state.activeDeck[this.state.cardPos].back}</h3>
+                    <p id="pubDes">{this.state.activeDeck[this.state.cardPos].back}</p>
                     <a className="flashCardBtns" id="nailed" onClick={this.nailedIt}>Nailed it!</a>
                     <a className="flashCardBtns" id="almost" onClick={this.changeCard}>Almost...</a>
                     <a className="flashCardBtns" id="failed" onClick={this.failedIt}>Failed it</a>
