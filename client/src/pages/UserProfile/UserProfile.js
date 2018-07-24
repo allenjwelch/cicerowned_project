@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Collapsible, CollapsibleItem, Collection, CollectionItem, Button, Modal,Row, Col, CardPanel, Card, Container } from "react-materialize";
+import { Collapsible, CollapsibleItem, Collection, CollectionItem, Row, Col, Card, Container } from "react-materialize";
 import BarChart from '../../components/Charts/BarChart';
 import worlddata from '../../components/Charts/world';
 import Achievement from '../../components/Achievements';

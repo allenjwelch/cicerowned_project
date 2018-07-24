@@ -25,7 +25,7 @@ class Header extends Component {
 
             <div className="bottom-left">
 
-              <p>"An interactive study card application that can prepare you for your Cicerone exams! Study beer styles, create custom decks, and chat with other beer lovers!"</p>
+              <p>An interactive study card application that can prepare you for your Cicerone exams! Study beer styles, create custom decks, and chat with other beer lovers!</p>
 
               <p>For more information visit <a href="https://www.cicerone.org/">Cicerone.org</a> </p>
             </div>

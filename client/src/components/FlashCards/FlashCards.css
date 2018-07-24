@@ -66,16 +66,21 @@
 #nailed{
   left: 5%;
   background-color: #1976d2 ;
+  cursor: pointer; 
 }
 
 #failed{
   right: 5%;
   background-color: #ad1457; 
+  cursor: pointer; 
+
 }
 
 #almost{
   left: 42%; 
   background-color: #7b1fa2;
+  cursor: pointer; 
+
 }
 
 .flashCard .front {
