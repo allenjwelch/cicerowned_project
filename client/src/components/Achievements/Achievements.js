@@ -45,72 +45,72 @@ class Achievement extends Component {
                   <h3 className="titleFont">Achievements</h3>
                   {
                     this.state.badgesEarned.includes("Belgians") ? (
-                    <img src={require("../../images/belgians-unlocked.png")} width='20%' />
+                    <img src={require("../../images/belgians-unlocked.png")} width='20%' alt='belgiansUnlocked' />
                     ) : (
-                    <img src={require("../../images/belgians-locked.png")} width='20%' />
+                    <img src={require("../../images/belgians-locked.png")} width='20%' alt='belgiansLocked' />
                     )
                   }
                   {
                     this.state.badgesEarned.includes("Bocks") ? (
-                    <img src={require("../../images/bocks-unlocked.png")} width='20%' />
+                    <img src={require("../../images/bocks-unlocked.png")} width='20%' alt='bocksUnlocked' />
                     ) : (
-                    <img src={require("../../images/bocks-locked.png")} width='20%' />
+                    <img src={require("../../images/bocks-locked.png")} width='20%' alt='bocksLocked' />
                     )
                   }
                  {
                     this.state.badgesEarned.includes("IPAs") ? (
-                    <img src={require("../../images/ipas-unlocked.png")} width='20%' />
+                    <img src={require("../../images/ipas-unlocked.png")} width='20%' alt='ipasUnlocked' />
                     ) : (
-                    <img src={require("../../images/ipas-locked.png")} width='20%' />
+                    <img src={require("../../images/ipas-locked.png")} width='20%' alt='ipasLocked' />
                     )
                   }
                   {
                     this.state.badgesEarned.includes("Pilseners and Pale Lagers") ? (
-                    <img src={require("../../images/lagerpils-unlocked.png")} width='20%' />
+                    <img src={require("../../images/lagerpils-unlocked.png")} width='20%' alt='lagerpilsUnlocked' />
                     ) : (
-                    <img src={require("../../images/lagerpils-locked.png")} width='20%' />
+                    <img src={require("../../images/lagerpils-locked.png")} width='20%' alt='lagerpilsLocked' />
                     )
                   }
                  {
                     this.state.badgesEarned.includes("Porters") ? (
-                    <img src={require("../../images/porter-unlocked.png")} width='20%' />
+                    <img src={require("../../images/porter-unlocked.png")} width='20%' alt='porterUnlocked' />
                     ) : (
-                    <img src={require("../../images/porter-locked.png")} width='20%' />
+                    <img src={require("../../images/porter-locked.png")} width='20%' alt='porterLocked' />
                     )
                   }
                   {
                     this.state.badgesEarned.includes("Scotch Ales") ? (
-                    <img src={require("../../images/scotchales-unlocked.png")} width='20%' />
+                    <img src={require("../../images/scotchales-unlocked.png")} width='20%' alt='scotchalesUnlocked' />
                     ) : (
-                    <img src={require("../../images/scotchales-locked.png")} width='20%' />
+                    <img src={require("../../images/scotchales-locked.png")} width='20%' alt='scotchalesLocked' />
                     )
                   }
                   {
                     this.state.badgesEarned.includes("Specialty Beers") ? (
-                    <img src={require("../../images/specialty-unlocked.png")} width='20%' />
+                    <img src={require("../../images/specialty-unlocked.png")} width='20%' alt='specialtyUnlocked' />
                     ) : (
-                    <img src={require("../../images/specialty-locked.png")} width='20%' />
+                    <img src={require("../../images/specialty-locked.png")} width='20%' alt='specialtyLocked' />
                     )
                   }          
                  {
                     this.state.badgesEarned.includes("Strong Ales") ? (
-                    <img src={require("../../images/strongales-unlocked.png")} width='20%' />
+                    <img src={require("../../images/strongales-unlocked.png")} width='20%' alt='strongalesUnlocked' />
                     ) : (
-                    <img src={require("../../images/strongales-locked.png")} width='20%' />
+                    <img src={require("../../images/strongales-locked.png")} width='20%' alt='strongalesLocked' />
                     )
                   }
                   {
                     this.state.badgesEarned.includes("Wheats") ? (
-                    <img src={require("../../images/wheats-unlocked.png")} width='20%' />
+                    <img src={require("../../images/wheats-unlocked.png")} width='20%' alt='wheatsUnlocked' />
                     ) : (
-                    <img src={require("../../images/wheats-locked.png")} width='20%' />
+                    <img src={require("../../images/wheats-locked.png")} width='20%' alt='wheatsLocked' />
                     )
                   }
                   {
                     this.state.badgesEarned.includes("Wild and Sour Beers") ? (
-                    <img src={require("../../images/wildsourbeers-unlocked.png")} width='20%' />
+                    <img src={require("../../images/wildsourbeers-unlocked.png")} width='20%' alt='wildsourUnlocked' />
                     ) : (
-                    <img src={require("../../images/wildsourbeers-locked.png")} width='20%' />
+                    <img src={require("../../images/wildsourbeers-locked.png")} width='20%' alt='wildsourLocked' />
                     )
                   }
 

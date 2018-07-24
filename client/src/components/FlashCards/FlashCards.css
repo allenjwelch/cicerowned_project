@@ -34,7 +34,7 @@
 }
 
 .flashCard div {
-  border: 4px solid black; 
+  border: 2px solid black; 
   border-radius:10px; 
   display: block;
   height: 100%;
@@ -55,9 +55,9 @@
 .flashCardBtns {
   text-decoration: none; 
   margin: 5px;
-  color: black; 
-  border: 1px solid black; 
-  padding: 5px;
+  color: whitesmoke; 
+  border: 2px solid black; 
+  padding: 8px;
   border-radius: 10px; 
   position:absolute; 
   bottom: 10px; 
@@ -65,14 +65,17 @@
 
 #nailed{
   left: 5%;
+  background-color: #1976d2 ;
 }
 
 #failed{
-  right: 5%; 
+  right: 5%;
+  background-color: #ad1457; 
 }
 
 #almost{
   left: 42%; 
+  background-color: #7b1fa2;
 }
 
 .flashCard .front {

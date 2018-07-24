@@ -1,23 +1,28 @@
 .top-right {
   position: absolute;
   top: 28px;
-  right: 16px;
+  right: 25px;
 }
 
 .top-left {
   position: absolute;
   top: 8px;
-  left: 16px;
+  left: 25px;
 }
 
 .bottom-left {
   position: absolute;
   bottom: 8px;
-  left: 16px;
+  left: 35px;
   color: white;
   width: 30%; 
   height: 40%;
 } 
+
+p {
+  font-size: 18px;
+  font-family: 'Noto Sans', sans-serif;
+}
 
 h5 {
   color: white;
@@ -34,6 +39,38 @@ img {
   margin-bottom: -8px;
 }
 
-.btn {
-  background: #CC5803;
+.btn-margin {
+  background-color: #CC5803;
 }
+
+.mediaLogin {
+  display: none;
+}
+
+@media screen and (max-width:1000px){ 
+  .header {
+    position: relative;
+    box-shadow: 1px 19px 33px -18px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 1px 19px 33px -18px rgba(0,0,0,0.85);
+    -moz-box-shadow: 1px 19px 33px -18px rgba(0,0,0,0.85);
+  }
+
+  .top-right {
+    display: none;
+  }
+
+  .bottom-left{
+    display: none;
+  }
+
+  .mediaLogin {
+    display: block;
+    text-align: center;
+  }
+
+  h5 {
+    color: #CC5803;
+    padding-top: 5px;
+  }
+}
+
