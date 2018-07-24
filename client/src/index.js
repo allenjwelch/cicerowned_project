@@ -6,10 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Auth from './components/Auth/Auth.js';
 import API from "./utils/API"; 
 
-
-
 const auth = new Auth();
-// auth.login();
 
 let state = {}; 
 window.setState = (changes) => {
@@ -49,5 +46,5 @@ let initialState = {
 window.setState(initialState); 
 
 updateByEmail(user.email);
-// checkUser(); 
+
 registerServiceWorker();

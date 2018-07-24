@@ -5,10 +5,6 @@ import io from 'socket.io-client';
 const socket = io.connect();
 
 class ChatRoom extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   state = {
     user: this.props, 
     userTag: '',
@@ -32,7 +28,6 @@ class ChatRoom extends Component {
     chatLog.push(entry);
     this.setState({ chatHistory: chatLog });
     this.scrollChatToBottom()
-
   }
 
   handleInputChange = event => {

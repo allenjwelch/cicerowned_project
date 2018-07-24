@@ -7,17 +7,13 @@ import untapped from "../../images/pbu_40_black.png"
 import * as emailjs from 'emailjs-com';
 
 
-// import FlashCards from "../../components/FlashCards"; 
-// import API from "../../utils/API"; 
-
-
 class FlashCard extends Component {
   state = {
     user: this.props, 
     beerStyles: [], 
     pubDecks: [], 
     allBeers: [], 
-    userDecks: [], //! MAY NOT NEED
+    // userDecks: [], //! MAY NOT NEED
     activeDeck: [], 
     beerSearch: '', 
     brewerySearch: '',
@@ -26,8 +22,6 @@ class FlashCard extends Component {
 
   //TODO function to make API call to save user decks to state
   componentDidMount() {
-    // this.loadUserData()
-    // this.loadUserDecks()
     this.loadAllDecks()
     this.loadStyleDecks()
     this.loadPublicDecks()
@@ -50,26 +44,7 @@ class FlashCard extends Component {
         .catch(err => console.log(err));
   };
 
-  //TODO need to change to pulling ONLY from user's profile
-  // loadUserData = () => {
-  //   API.loadUserbyId(this.state.user.email)
-  //     .then(res => 
-  //       this.setState({ user: res.data[0] }) )
-  //     .catch(err => console.log(err));
-  // };
-
-  // GETs distinct styles from user decks
-  // loadUserDecks = () => {
-  //   //! TODO: Needs to first find by user then pull back user custom cards    
-  //   API.getUserDecks()
-  //     .then(res => 
-  //       // console.log(res.data))
-  //       this.setState({ userDecks: res.data }) )
-  //     .catch(err => console.log(err));
-  // };
-
   // Loads all beer style decks to the "Add a Deck" Btn fro user to choose and add to their profile. 
-  
   loadStyleDecks = () => {
     API.getBeersByStyle()
       .then(res => 
@@ -85,7 +60,6 @@ class FlashCard extends Component {
     .catch(err => console.log(err));
   }
 
-  
   // Function for adding userDecks to Active Deck (should contain only 1 deck at a time)
   loadActiveDeck = (deck) => {    
     function filterByFamily(card) {
@@ -97,24 +71,6 @@ class FlashCard extends Component {
     let beerFamily = this.state.allBeers.filter(filterByFamily);
     this.setState({ activeDeck: beerFamily });
   }
-
-  //! TODO: function for adding beer style deck from "Add a Deck" to user's profile.
-  // addDeckToUser = (familyName) => {  
-  //   function filterByFamily(beer) {
-  //     if (beer.familyName === familyName) {
-  //       return true;
-  //     } 
-  //     return false; 
-  //   }
-  //   console.log('state.user', this.state.user)
-
-  //   let beerFamily = this.state.allBeers.filter(filterByFamily);
-  //   //TODO: instead of setting to state, need to post to User's profile, then loadUserDecks pull distinct from user
-  //   this.setState({ userDecks: beerFamily });
-  //   // console.log('userDecks', this.state.userDecks); 
-  //   // this.loadUserDecks()
-
-  // }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -164,36 +120,36 @@ class FlashCard extends Component {
             {
               this.state.activeDeck.length ? 
                 <div>
-                <Col s={12} m={12} l={12} xl={12} className='col11'>
+                  <Col s={12} m={12} l={12} xl={12} className='col11'>
 
-                  <FlashCards key={this.state.activeDeck.styleName} activeDeck={this.state.activeDeck} user={this.state.user}/> 
-                </Col>  
-                
-                <Col s={12} m={12} l={12} xl={12} className='col12'>
+                    <FlashCards key={this.state.activeDeck.styleName} activeDeck={this.state.activeDeck} user={this.state.user}/> 
+                  </Col>  
+                  
+                  <Col s={12} m={12} l={12} xl={12} className='col12'>
 
-                  <Modal style={{"text-align":"center"}}
-                    header="Please tell us about the issue"
-                    trigger={<p className="report" style={{"cursor":"pointer"}}>Have an issue with a card? Please let us know!</p>}>
-                    
-                    <form className="complaintForm" ref={(form) => { this.form = form; }}>
-                      <Input name='deck' label="Deck Name" value={this.state.activeDeck[0].familyName || this.state.activeDeck[0].deckName} />
-                      <Input name='card' label="Card Name" />
-                      <Input name='cardIssue' s={12} type='select' label='Issue' defaultValue='Select an issue'>
-                        <option value='Select an issue' disabled>Select an issue</option>
-                        <option value='card is inappropiate/offensive'>Card is inappropiate/offensive</option>
-                        <option value='card is off topic'>Card is off topic from deck</option>
-                        <option value='information is incorrect'>Information is incorrect</option>
-                      </Input>
-                    
-                    </form>
+                    <Modal style={{"textAlign":"center"}}
+                      header="Please tell us about the issue"
+                      trigger={<p className="report" style={{"cursor":"pointer"}}>Have an issue with a card? Please let us know!</p>}
+                      actions={<Button
+                        className="sendBtn amber darken-1" 
+                        onClick={this.handleSend}
+                      >
+                        Send
+                      </Button>}>
+                      <form className="complaintForm" ref={(form) => { this.form = form; }}>
+                        <Input name='deck' label="Deck Name" value={this.state.activeDeck[0].familyName || this.state.activeDeck[0].deckName} />
+                        <Input name='card' label="Card Name" />
+                        <Input name='cardIssue' s={12} type='select' label='Issue' defaultValue='Select an issue'>
+                          <option value='Select an issue' disabled>Select an issue</option>
+                          <option value='card is inappropiate/offensive'>Card is inappropiate/offensive</option>
+                          <option value='card is off topic'>Card is off topic from deck</option>
+                          <option value='information is incorrect'>Information is incorrect</option>
+                        </Input>
+                      
+                      </form>
 
-                    <Button 
-                      className="customCardBtns saveCreateNew amber darken-1" 
-                      onClick={this.handleSend}>
-                        Send!
-                    </Button>
-                  </Modal>
-                </Col>
+                    </Modal>
+                  </Col>
                 </div>  :
 
                 <h5 className="noResults">Select a deck from the side menu to get started!</h5>
@@ -203,27 +159,7 @@ class FlashCard extends Component {
          
           <Col s={12} m={4} l={4} xl={4} className='col2'>
             <Collapsible accordion>
-
-              {/* <Modal
-                header='Select a deck to add to your stack'
-                trigger={<Button className="addDeck">Add a Deck!</Button>}>
-                <Collection>
-
-                  {
-                    this.state.pubDecks.map(deck => (
-
-                    <CollectionItem style={{"cursor":"pointer"}} key={deck} onClick={() => this.addDeckToUser(deck)} >
-                      {deck}
-                    </CollectionItem>
-                    ))
-                  }
-
-                </Collection>
-              </Modal> */}
-
-              {/* <hr /> */}
               <CollapsibleItem header='Beer Styles'>
-                
                 <Collection>
                   <p><em>Beer style information respectfully borrowed from <a href="https://www.craftbeer.com/" target="_blank" rel="noopener noreferrer">CraftBeer.com</a></em></p>
                   <hr />
@@ -234,23 +170,20 @@ class FlashCard extends Component {
                       </CollectionItem>
                     ))
                   }
-
                 </Collection>
-
               </CollapsibleItem>
+
               <CollapsibleItem header='Public Decks'>
 
                 <Collection>
-                {/* //! Changed from only showing user's custom decks, to ALL public decks */}
-                { this.state.pubDecks.length ? 
-                    
+                { 
+                  this.state.pubDecks.length ? 
                     this.state.pubDecks.map(deck => (
                       <CollectionItem style={{"cursor":"pointer"}} key={deck} onClick={() => this.loadActiveDeck(deck)} >
                         {deck}
                       </CollectionItem>
                     ))
-                    : <p>There are currently no public decks to choose from. Create a new deck to add to our community collection!</p>
-          
+                  : <p>There are currently no public decks to choose from. Create a new deck to add to our community collection!</p>
                 }
                 </Collection>
 
@@ -287,44 +220,22 @@ class FlashCard extends Component {
         </Row>
         <Row>
           <Col s={12} m={12} l={12} xl={12} className='col4'>
-              {this.state.searchResults.hasOwnProperty('response') ? 
-                <div className="searchResults">
-                  <img className="resultsImg" src={this.state.searchResults.response.beers.items[0].beer.beer_label} alt="beer label"/>
-                  <h3>{this.state.searchResults.response.beers.items[0].brewery.brewery_name}</h3>
-                  <h4>{this.state.searchResults.response.beers.items[0].beer.beer_name}</h4>
-                  <p>ABV: {this.state.searchResults.response.beers.items[0].beer.beer_abv}</p>
-                  <p>IBU: {this.state.searchResults.response.beers.items[0].beer.beer_ibu}</p>
-                  <p>Description: {this.state.searchResults.response.beers.items[0].beer.beer_description}</p>
-                  <div className="searchFooter"><img src={untapped} alt="untapped"/></div>
-                </div>
-              : <h5 className="noResults">Search results unavailable</h5> }
-              
-            {/* <Modal
-              header='Select a deck to add to your stack'
-              trigger={
-                <Button 
-                  l={2}
-                  className="customCardBtns saveCreateNew teal darken-1" 
-                  onClick={this.beerSearchBtn}>
-                    Explore
-                </Button>}>
-              {this.state.searchResults.length ? 
-                <div>
-                  <h3>{this.state.searchResults.response.beers.items[0].brewery.brewery_name}</h3>
-                  <h3>{this.state.searchResults.response.beers.items[0].brewery.brewery_name}</h3>
-                  <h3>{this.state.searchResults.response.beers.items[0].beer.beer_description}</h3>
-                  <h3></h3>
-                  <h3></h3>
-                </div>
-              : <h3>Search results unavailable</h3> }
-            </Modal> */}
-          
-
+              {
+                this.state.searchResults.hasOwnProperty('response') ? 
+                  <div className="searchResults">
+                    <img className="resultsImg" src={this.state.searchResults.response.beers.items[0].beer.beer_label} alt="beer label"/>
+                    <h3>{this.state.searchResults.response.beers.items[0].brewery.brewery_name}</h3>
+                    <h4>{this.state.searchResults.response.beers.items[0].beer.beer_name}</h4>
+                    <p>ABV: {this.state.searchResults.response.beers.items[0].beer.beer_abv}</p>
+                    <p>IBU: {this.state.searchResults.response.beers.items[0].beer.beer_ibu}</p>
+                    <p>Description: {this.state.searchResults.response.beers.items[0].beer.beer_description}</p>
+                    <div className="searchFooter"><img src={untapped} alt="untapped"/></div>
+                  </div>
+                : <h5 className="noResults">Search results unavailable</h5> 
+              }
           </Col>
         </Row>
-
       </div>
-
     )
   }
 }; 

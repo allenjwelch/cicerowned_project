@@ -13,7 +13,7 @@ class FlashCards extends Component {
     activeDeck: this.props.activeDeck,
     userScore: 0,
     user: this.props.user,
-    badgesEarned: '', 
+    badgesEarned: 'blank', 
   }
 
   componentWillReceiveProps(nextProps) {
@@ -22,11 +22,10 @@ class FlashCards extends Component {
       return obj[key];
     });
     
-    console.log(cardArray); 
-    this.setState({ activeDeck : cardArray[0], cardPos: 0, flipped: false  }) ; 
+    // console.log(cardArray); 
+    this.setState({ activeDeck : cardArray[0], cardPos: 0, flipped: false  }); 
     this.saveUserScore(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
-    console.log('new deck + save data')
-    console.log(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
+    // console.log(this.state.user.email, this.state.activeDeck[0].familyName, this.state.userScore, this.state.badgesEarned)
     return cardArray; 
   }
 
