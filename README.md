@@ -6,7 +6,7 @@
 ## Description:
 An educational web application designed to assist servers and beer drinkers alike in their pursuit of earning their Cicerone Cerifications. Users will use existing flashcards and also have the ability to create their own as well as monitor their overall progress. 
 
-![title image](/client/public/images/title.png)
+![title image](/docs/images/title.png)
 
 ## Build Status
 ![Wercker](https://img.shields.io/teamcity/codebetter/bt428.svg)
