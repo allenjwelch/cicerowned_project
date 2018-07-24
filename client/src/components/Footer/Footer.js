@@ -22,7 +22,7 @@ class FooterComp extends Component {
       <Footer 
         copyrights="2018 Copyright | Created by Allen Welch, Eddie Rodriguez + Susan Davenport"
         moreLinks={
-          <a className="grey-text text-lighten-4 right" href="https://github.com/allenjwelch/cicerowned_project" target="_blank">GitHub</a>
+          <a className="grey-text text-lighten-4 right" href="https://github.com/allenjwelch/cicerowned_project" target="_blank" rel="noopener noreferrer">GitHub</a>
         }
         links={
           <ul>
@@ -38,7 +38,7 @@ class FooterComp extends Component {
         <h5 className="white-text">Contact Us</h5>
         {/* <p className="grey-text text-lighten-4">Are you interested in using Cicerowned at your bar or brewery? Let's talk!</p> */}
 
-        <Modal style={{"text-align":"center"}}
+        <Modal style={{"textAlign":"center"}}
           header='We want to hear from you!'
           trigger={<p className="grey-text text-lighten-4" style={{"cursor":"pointer"}}>Are you interested in using Cicerowned at your bar, restaurant, or brewery? Let's talk!</p>}>
           <form ref={(form) => { this.form = form; }}>

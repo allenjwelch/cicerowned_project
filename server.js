@@ -4,6 +4,13 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const SocketPORT = 8000; 
+
+const http = require('http');
+const server = http.createServer(app);
+const io = require('socket.io').listen(server);  //pass a http.Server instance
+
+// server.listen(80);  //listen on port 80
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,6 +28,35 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/cicerowned");
 
 // Start the API server
-app.listen(PORT, function() {
+server.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+// Start Socket server ===========================
+// io.on('connection', (client) => {
+//   client.on('subscribeToTimer', (interval) => {
+//     console.log('client is subscribing to timer with interval ', interval);
+//     setInterval(() => {
+//       client.emit('timer', new Date());
+//     }, interval);
+//   });
+// });
+
+// io.on('connection', (client) => {
+//   client.on('chat message', function(msg){
+//     // io.emit('chat message', msg);
+//     console.log('message: ' + msg);
+//   });
+// });
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    console.log('message: ' + msg);
+    io.emit('chat message', msg);
+
+  });
+});
+    
+
+// io.listen(SocketPORT);
+// console.log('Socket server listening for clients on port ', SocketPORT);

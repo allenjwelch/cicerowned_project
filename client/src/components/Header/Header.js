@@ -24,7 +24,12 @@ class Header extends Component {
             </div>
 
             <div className="bottom-left">
+<<<<<<< HEAD
               <p>"An interactive study card application that can prepare you for your Cicerone exams! Study beer styles, create custom decks, and chat with other beer lovers!"</p>
+=======
+              <p>This is the ChatRoom branch</p>
+              <p>"The Cicerone Certification Program certifies and educates beer professionals in order to elevate the beer experience for consumers."</p>
+>>>>>>> d348e7e1f0afdcffc2b20e99345d7d7870a9fff5
               <p>For more information visit <a href="https://www.cicerone.org/">Cicerone.org</a> </p>
             </div>
 
@@ -45,7 +50,7 @@ class Header extends Component {
               {
                 this.props.auth.isAuthenticated() && (
                     <Button
-                      bsStyle="primary"
+                      bsstyle="primary"
                       className="btn-margin"
                       onClick={this.props.auth.logout}
                     >
