@@ -30,7 +30,6 @@ module.exports = {
          $set:{userName: "test"},
          $set:{decksCompleted: []},
          $set:{decksCreated: []},
-         $set:{badgesEarned: []}
         },
         {
           upsert:true,
@@ -50,8 +49,7 @@ module.exports = {
               [req.params.familyName, req.params.score]
             ]
           },
-          $addToSet:{badgesEarned: req.params.badgesEarned},
-          $addToSet:{decksLearned: req.params.familyName}
+          $addToSet:{badgesEarned: req.params.badgesEarned,decksLearned: req.params.familyName},
         },  
         {$push:{loggedInDates: Date.now()}}    
        )

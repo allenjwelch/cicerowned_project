@@ -9,7 +9,7 @@ const userSchema = new Schema({
     decksCompleted: [],
     decksLearned:[],
     decksCreated: {type: Array, default:[]},
-    badgesEarned: {type: Array, default:[]},
+    badgesEarned: {type: Array},
     loggedInDates: {type: Array}
 });
 
