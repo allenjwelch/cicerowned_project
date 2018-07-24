@@ -1,23 +1,9 @@
 import React, { Component } from "react"; 
 import { Button } from 'react-materialize';
 import './style.css';
-// import Auth from '../../components/Auth/Auth.js';
-
-
-// const auth = new Auth();
-// auth.login();
-
-// const Header = () => (
-//   <header>
-//     <h1>Header</h1>
-//   </header>
-// ); 
 
 class Header extends Component {
-  // goTo(route) {
-  //   this.props.history.replace(`/${route}`)
-  // }
-
+ 
   login() {
     this.props.auth.login();
   }
@@ -27,21 +13,23 @@ class Header extends Component {
   }
 
   render() {
-    // const { isAuthenticated } = this.props.auth;
-
+    
     return (
       <div>
         <div className = "header">
           <img className="responsive-img" src={require("../../images/beer_header.jpg")} alt= "beer-header" width="100%"  />
-            <div className="top-left">
+
+            <div className="top-left responsive-img">
             <img src={require("../../images/Ciceroned.png")} alt= "beer-header" width="80%"  />
             </div>
 
             <div className="bottom-left">
-              <p>This is the ChatRoom branch</p>
-              <p>"The Cicerone Certification Program certifies and educates beer professionals in order to elevate the beer experience for consumers."</p>
+
+              <p>"An interactive study card application that can prepare you for your Cicerone exams! Study beer styles, create custom decks, and chat with other beer lovers!"</p>
+
               <p>For more information visit <a href="https://www.cicerone.org/">Cicerone.org</a> </p>
             </div>
+
             <div className="top-right">
               <h5>Hello {this.props.name}</h5>
               {/* <Button onClick={this.props.auth.login}>Login</Button> */}
@@ -69,43 +57,32 @@ class Header extends Component {
               }
             </div>
         </div>
-
-        {/* <Navbar fluid>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">Auth0 - React</a>
-            </Navbar.Brand>
-            <Button
-              bsStyle="primary"
-              className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
-            >
-              Home
-            </Button>
-            {
-              !isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.login.bind(this)}
-                  >
-                    Log In
-                  </Button>
-                )
-            }
-            {
-              isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.logout.bind(this)}
-                  >
-                    Log Out
-                  </Button>
-                )
-            }
-          </Navbar.Header>
-        </Navbar> */}
+        <div className = "mediaLogin">
+        <h5>Hello {this.props.name}</h5>
+              {/* <Button onClick={this.props.auth.login}>Login</Button> */}
+              {
+                !this.props.auth.isAuthenticated() && (
+                    <Button
+                      bsStyle="primary"
+                      className="btn-margin"
+                      onClick={this.props.auth.login}
+                    >
+                      Log In
+                    </Button>
+                  )
+              }
+              {
+                this.props.auth.isAuthenticated() && (
+                    <Button
+                      bsStyle="primary"
+                      className="btn-margin"
+                      onClick={this.props.auth.logout}
+                    >
+                      Log Out
+                    </Button>
+                  )
+              }
+        </div>
       </div>
     );
   }

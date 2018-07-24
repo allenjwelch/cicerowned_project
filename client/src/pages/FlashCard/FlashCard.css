@@ -60,8 +60,13 @@
   padding: 30px;
 }
 
+<<<<<<< HEAD
 .sendBtn {
   display: block; 
   margin: 10px auto;
   width: auto; 
+=======
+body {
+  background-color: whitesmoke;
+>>>>>>> 3d8bb43bd91a6c49aafde53c6bcbbac65ec4f5d7
 }

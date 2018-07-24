@@ -10,7 +10,7 @@ const userSchema = new Schema({
     decksLearned:[],
     decksCreated: {type: Array, default:[]},
     badgesEarned: {type: Array, default:[]},
-    loggedInDates: {type: Array, default:[]}
+    loggedInDates: {type: Array}
 });
 
 const User = mongoose.model("User", userSchema);
