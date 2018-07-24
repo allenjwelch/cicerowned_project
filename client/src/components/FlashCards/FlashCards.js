@@ -13,7 +13,7 @@ class FlashCards extends Component {
     activeDeck: this.props.activeDeck,
     userScore: 0,
     user: this.props.user,
-    badgesEarned: '', 
+    badgesEarned: 'blank', 
   }
 
   componentWillReceiveProps(nextProps) {
